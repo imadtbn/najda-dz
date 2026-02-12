@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
     <style>
         * {
@@ -25,6 +26,85 @@
             --warning: #ff9e00;
             --success: #2a9d8f;
         }
+
+        :root {
+            --pharmacy-color: #2e7d32;
+            /* أخضر طبي */
+            --laboratory-color: #6a1b9a;
+            /* بنفسجي علمي */
+            --hospital-color: #1565c0;
+            /* أزرق صحي */
+            --civil-defense-color: #d32f2f;
+            /* أحمر طوارئ */
+            --police-color: #2f13d1;
+            /* أحمر طوارئ */
+
+            --service-bg: #ffffff;
+            --service-border-radius: 14px;
+        }
+
+        .service-card {
+            background: var(--service-bg);
+            border-radius: var(--service-border-radius);
+            transition: 0.3s ease;
+        }
+
+        /* صيدليات */
+        .service-card.pharmacy {
+            border-right: 5px solid var(--pharmacy-color);
+        }
+
+        /* مخابر */
+        .service-card.laboratory {
+            border-right: 5px solid var(--laboratory-color);
+        }
+
+        /* مستشفيات */
+        .service-card.hospital {
+            border-right: 5px solid var(--hospital-color);
+        }
+
+        /* حماية مدنية */
+        .service-card.civil {
+            border-right: 5px solid var(--civil-defense-color);
+        }
+
+        /* الشرطة */
+        .service-card.civil {
+            border-right: 5px solid var(--police-color);
+        }
+
+        .service-card.pharmacy .service-icon i {
+            color: var(--pharmacy-color);
+        }
+
+        .service-card.laboratory .service-icon i {
+            color: var(--laboratory-color);
+        }
+
+        .service-card.hospital .service-icon i {
+            color: var(--hospital-color);
+        }
+
+        .service-card.civil .service-icon i {
+            color: var(--civil-defense-color);
+        }
+
+        .service-police .service-icon i {
+            color: var(--police-color);
+        }
+
+        .service-item.nearest {
+            background: rgba(0, 0, 0, 0.04);
+            border-right: 4px solid currentColor;
+            font-weight: bold;
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+        }
+
 
         body {
             background-color: #f5f7fa;
@@ -757,52 +837,80 @@
 
 
         /* تأثير نبض على أرقام الطوارئ */
-.phone-number-Emergency {
-    font-weight: 700;
-    font-size: 1.3rem;
-    direction: ltr;
-    transition: transform 0.3s ease, color 0.3s ease;
-}
+        .phone-number-Emergency {
+            font-weight: 700;
+            font-size: 1.3rem;
+            direction: ltr;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
 
-.number-card:hover .phone-number-Emergency {
-    color: #ff4d4d; /* لون جذاب عند المرور */
-    transform: scale(1.2); /* تكبير الرقم قليلاً */
-    text-shadow: 0 0 10px rgba(255, 0, 0, 0.6);
-}
+        .number-card:hover .phone-number-Emergency {
+            color: #ff4d4d;
+            /* لون جذاب عند المرور */
+            transform: scale(1.2);
+            /* تكبير الرقم قليلاً */
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.6);
+        }
 
-/* نبض مستمر */
-@keyframes pulseNumber {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.15); }
-    100% { transform: scale(1); }
-}
+        /* نبض مستمر */
+        @keyframes pulseNumber {
+            0% {
+                transform: scale(1);
+            }
 
-.number-card.important .phone-number-Emergency {
-    animation: pulseNumber 1.5s infinite;
-}
+            50% {
+                transform: scale(1.15);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .number-card.important .phone-number-Emergency {
+            animation: pulseNumber 1.5s infinite;
+        }
 
 
-/* تأثير نبض لأرقام الطوارئ */
-@keyframes pulse-card {
-    0% {
-        transform: scale(1);
-        box-shadow: 0 5px 15px rgba(230, 57, 70, 0.3);
-    }
-    50% {
-        transform: scale(1.05);
-        box-shadow: 0 10px 25px rgba(230, 57, 70, 0.5);
-    }
-    100% {
-        transform: scale(1);
-        box-shadow: 0 5px 15px rgba(230, 57, 70, 0.3);
-    }
-}
+        /* تأثير نبض لأرقام الطوارئ */
+        @keyframes pulse-card {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 5px 15px rgba(230, 57, 70, 0.3);
+            }
 
-/* تطبيق النبض */
-.number-card.pulse {
-    animation: pulse-card 1.5s infinite;
-}
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 10px 25px rgba(230, 57, 70, 0.5);
+            }
 
+            100% {
+                transform: scale(1);
+                box-shadow: 0 5px 15px rgba(230, 57, 70, 0.3);
+            }
+        }
+
+        /* تطبيق النبض */
+        .number-card.pulse {
+            animation: pulse-card 1.5s infinite;
+        }
+
+        .pharmacy-marker {
+            background: transparent;
+            border: none;
+        }
+
+        .pharmacy-marker i {
+            display: block;
+            line-height: 20px;
+            text-align: center;
+        }
+
+
+        .leaflet-div-icon {
+            background: transparent;
+            border: none;
+        }
     </style>
 
 </head>
@@ -870,6 +978,7 @@
 
             <!-- Services Section -->
             <div class="services">
+
                 <div class="service-card hospital">
                     <div class="service-header">
                         <div class="service-title">
@@ -938,6 +1047,50 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="service-card pharmacy">
+                    <div class="service-header">
+
+                        <div class="service-title">
+                            <div class="service-icon">
+                                <i class="fas fa-capsules"></i>
+                                <i class="fas fa-mortar-pestle"></i>
+                            </div>
+                            <h3>صيدليات</h3>
+                        </div>
+
+                    </div>
+
+                    <div class="service-details">
+                        <div id="pharmacyList">
+                            <!-- سيتم ملؤها بواسطة JavaScript -->
+                            <p>اضغط على "تحديد موقعي" لعرض أقرب الصيدليات</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="service-card laboratory">
+                    <div class="service-header">
+                        <div class="service-title">
+                            <div class="service-icon">
+                                <i class="fas fa-flask"></i>
+
+
+                            </div>
+                            <h3>مخابر التحاليل البيولوجية</h3>
+                        </div>
+                    </div>
+
+                    <div class="service-details">
+                        <div id="laboratoryList">
+                            <p>اضغط على "تحديد موقعي" لعرض أقرب مخابر التحاليل البيولوجية</p>
+                        </div>
+                    </div>
+                </div>
+
+
+
             </div>
         </div>
 
@@ -950,19 +1103,19 @@
 
             <div class="numbers-grid">
 
-<div class="number-card pulse">
-    <h4>
-        <img src="icons/dgpc.svg" alt="logo dgpc" width="31" height="32" loading="lazy">
-        الحماية المدنية
-    </h4>
+                <div class="number-card pulse">
+                    <h4>
+                        <img src="icons/dgpc.svg" alt="logo dgpc" width="31" height="32" loading="lazy">
+                        الحماية المدنية
+                    </h4>
 
-    <p>
-        <a href="tel:121" class="call-link-Emergency">
-            <i class="fas fa-phone"></i>
-            <span class="phone-number-Emergency">1021</span>
-        </a>
-    </p>
-</div>
+                    <p>
+                        <a href="tel:121" class="call-link-Emergency">
+                            <i class="fas fa-phone"></i>
+                            <span class="phone-number-Emergency">1021</span>
+                        </a>
+                    </p>
+                </div>
 
 
                 <div class="number-card">
@@ -1229,6 +1382,18 @@
                 { name: "وحدة الحماية المدنية - القبة", lat: 36.7469, lng: 3.0764, phone: "014 14 14 14", address: "القبة، الجزائر" },
                 { name: "وحدة الحماية المدنية - باب الواد", lat: 36.7950, lng: 3.0500, phone: "014 14 14 15", address: "باب الواد، الجزائر" },
                 { name: "وحدة الحماية المدنية - الدويرة", lat: 36.7167, lng: 3.2000, phone: "014 14 14 16", address: "الدويرة، الجزائر" }
+            ],
+            pharmacy: [
+                { name: "صيدلية الشفاء", lat: 36.7538, lng: 3.0588, phone: "023 41 41 41", address: "الجزائر العاصمة" },
+                { name: "صيدلية الحياة", lat: 36.7550, lng: 3.0600, phone: "023 41 42 42", address: "بني مسوس، الجزائر" },
+                { name: "مستشفى الدويرة", lat: 36.7222, lng: 3.2097, phone: "023 41 43 43", address: "الدويرة، الجزائر" },
+                { name: "صيدلية الأمل", lat: 36.7510, lng: 3.0550, phone: "023 41 44 44", address: "باب الواد، الجزائر" }
+            ],
+            Laboratory: [
+                { name: "مختبر النور", lat: 36.7538, lng: 3.0588, phone: "023 41 41 41", address: "الجزائر العاصمة" },
+                { name: "مختبر المستقبل", lat: 36.7550, lng: 3.0600, phone: "023 41 42 42", address: "بني مسوس، الجزائر" },
+                { name: "مختبر بومرداس", lat: 36.7222, lng: 3.2097, phone: "023 41 43 43", address: "الدويرة، الجزائر" },
+                { name: "مختبر التحاليل البيولوجية", lat: 36.7510, lng: 3.0550, phone: "023 41 44 44", address: "باب الواد، الجزائر" }
             ]
         };
 
@@ -1282,7 +1447,9 @@
                 hospitals: [],
                 police: [],
                 military: [],
-                civilDefense: []
+                civilDefense: [],
+                pharmacy: [],
+                Laboratory: []
             };
 
             // لكل نوع خدمة، نحسب المسافة ونرتبها
@@ -1309,11 +1476,16 @@
             const policeList = document.getElementById('policeList');
             const militaryList = document.getElementById('militaryList');
             const civilDefenseList = document.getElementById('civilDefenseList');
+            const pharmacyList = document.getElementById('pharmacyList');
+            const LaboratoryList = document.getElementById('LaboratoryList');
+
 
             hospitalsList.innerHTML = '';
             policeList.innerHTML = '';
             militaryList.innerHTML = '';
             civilDefenseList.innerHTML = '';
+            pharmacyList.innerHTML = '';
+            LaboratoryList.innerHTML = '';
 
             // المستشفيات
             services.hospitals.forEach((hospital, index) => {
@@ -1370,7 +1542,6 @@
             });
 
             // الحماية المدنية
-            // الحماية المدنية
             services.civilDefense.forEach((civil, index) => {
                 const item = document.createElement('div');
                 item.className = 'service-item';
@@ -1386,10 +1557,48 @@
                 item.addEventListener('click', () => showRouteToService(civil));
                 civilDefenseList.appendChild(item);
             });
+
+            // صيدليات
+            services.pharmacy.forEach((pharmacy, index) => {
+                const item = document.createElement('div');
+                item.className = 'service-item';
+
+                if (index === 0) {
+                    item.classList.add('nearest');
+                }
+
+                item.innerHTML = `
+        <span>${pharmacy.name}</span>
+        <span class="distance">${pharmacy.distance.toFixed(1)} كم</span>
+    `;
+
+                item.addEventListener('click', () => showRouteToService(pharmacy));
+                pharmacyList.appendChild(item);
+            });
+
+            // مختبرات
+            services.Laboratory.forEach((Laboratory, index) => {
+                const item = document.createElement('div');
+                item.className = 'service-item';
+
+                if (index === 0) {
+                    item.classList.add('nearest');
+                }
+
+                item.innerHTML = `
+        <span>${Laboratory.name}</span>
+        <span class="distance">${Laboratory.distance.toFixed(1)} كم</span>
+    `;
+
+                item.addEventListener('click', () => showRouteToService(Laboratory));
+                LaboratoryList.appendChild(item);
+            });
+
         }
 
         // وظيفة إضافة العلامات على الخريطة
         function addMarkersToMap(services) {
+
             // إزالة العلامات القديمة ما عدا علامة المستخدم
             map.eachLayer(layer => {
                 if (layer instanceof L.Marker && layer !== userMarker) {
@@ -1401,7 +1610,7 @@
             services.hospitals.forEach(hospital => {
                 L.marker([hospital.lat, hospital.lng], {
                     icon: L.divIcon({
-                        html: '<i class="fas fa-hospital" style="color: #e63946; font-size: 20px;"></i>',
+                        html: `<i class="fas fa-hospital" style="color:var(--hospital-color);font-size:20px;"></i>`,
                         iconSize: [20, 20],
                         className: 'hospital-marker'
                     })
@@ -1436,12 +1645,11 @@
                     .bindPopup(`<b>${military.name}</b><br>${military.address}<br>الهاتف: ${military.phone}<br>المسافة: ${military.distance.toFixed(1)} كم`);
             });
 
-
             // الحماية المدنية
             services.civilDefense.forEach(civilDefense => {
                 L.marker([civilDefense.lat, civilDefense.lng], {
                     icon: L.divIcon({
-                        html: '<i class="fas fa-fire-extinguisher" style="color: #ff9e00; font-size: 20px;"></i>',
+                        html: `<i class="fas fa-fire-extinguisher" style="color:var(--civil-defense-color);font-size:20px;"></i>`,
                         iconSize: [20, 20],
                         className: 'civil-defense-marker'
                     })
@@ -1449,6 +1657,34 @@
                     .addTo(map)
                     .bindPopup(`<b>${civilDefense.name}</b><br>${civilDefense.address}<br>الهاتف: ${civilDefense.phone}<br>المسافة: ${civilDefense.distance.toFixed(1)} كم`);
             });
+
+            // إضافة علامات للصيدليات
+            services.pharmacy.forEach(pharmacy => {
+                L.marker([pharmacy.lat, pharmacy.lng], {
+                    icon: L.divIcon({
+                        html: `<i class="fas fa-capsules" style="color:var(--pharmacy-color);font-size:20px;"></i>`,
+
+                        iconSize: [20, 20],
+                        className: 'pharmacy-marker'
+                    })
+                })
+                    .addTo(map)
+                    .bindPopup(`<b>${pharmacy.name}</b><br>${pharmacy.address}<br>الهاتف: ${pharmacy.phone}<br>المسافة: ${pharmacy.distance.toFixed(1)} كم`);
+            });
+
+            // إضافة علامات للمختبرات البيولوجية
+            services.Laboratory.forEach(Laboratory => {
+                L.marker([Laboratory.lat, Laboratory.lng], {
+                    icon: L.divIcon({
+                        html: `<i class="fas fa-vial" style="color:var(--laboratory-color);font-size:20px;"></i>`,
+                        iconSize: [20, 20],
+                        className: 'Laboratory-marker'
+                    })
+                })
+                    .addTo(map)
+                    .bindPopup(`<b>${Laboratory.name}</b><br>${Laboratory.address}<br>الهاتف: ${Laboratory.phone}<br>المسافة: ${Laboratory.distance.toFixed(1)} كم`);
+            });
+
         }
 
         // وظيفة تحديد موقع المستخدم
@@ -1582,7 +1818,15 @@
                 civilDefense: serviceLocations.civilDefense.map(c => ({
                     ...c,
                     distance: calculateDistance(userLocation.lat, userLocation.lng, c.lat, c.lng)
-                }))
+                })),
+                pharmacy: serviceLocations.pharmacy.map(h => ({
+                    ...h,
+                    distance: calculateDistance(userLocation.lat, userLocation.lng, h.lat, h.lng)
+                })),
+                Laboratory: serviceLocations.Laboratory.map(h => ({
+                    ...h,
+                    distance: calculateDistance(userLocation.lat, userLocation.lng, h.lat, h.lng)
+                })),
             };
 
             // عرض جميع الخدمات
@@ -1596,7 +1840,10 @@
                 ...allServices.hospitals,
                 ...allServices.police,
                 ...allServices.military,
-                ...allServices.civilDefense
+                ...allServices.civilDefense,
+                ...allServices.pharmacy,
+                ...allServices.Laboratory
+
             ].map(s => [s.lat, s.lng]);
 
             if (allPoints.length > 0) {
