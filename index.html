@@ -1577,7 +1577,7 @@
             });
 
             // مختبرات
-            services.Laboratory.forEach((Laboratory, index) => {
+            services.laboratory.forEach((laboratory, index) => {
                 const item = document.createElement('div');
                 item.className = 'service-item';
 
@@ -1586,12 +1586,12 @@
                 }
 
                 item.innerHTML = `
-        <span>${Laboratory.name}</span>
-        <span class="distance">${Laboratory.distance.toFixed(1)} كم</span>
+        <span>${laboratory.name}</span>
+        <span class="distance">${laboratory.distance.toFixed(1)} كم</span>
     `;
 
-                item.addEventListener('click', () => showRouteToService(Laboratory));
-                LaboratoryList.appendChild(item);
+                item.addEventListener('click', () => showRouteToService(laboratory));
+                laboratoryList.appendChild(item);
             });
 
         }
@@ -1673,8 +1673,8 @@
             });
 
             // إضافة علامات للمختبرات البيولوجية
-            services.Laboratory.forEach(Laboratory => {
-                L.marker([Laboratory.lat, Laboratory.lng], {
+            services.laboratory.forEach(laboratory => {
+                L.marker([laboratory.lat, laboratory.lng], {
                     icon: L.divIcon({
                         html: `<i class="fas fa-vial" style="color:var(--laboratory-color);font-size:20px;"></i>`,
                         iconSize: [20, 20],
@@ -1682,7 +1682,7 @@
                     })
                 })
                     .addTo(map)
-                    .bindPopup(`<b>${Laboratory.name}</b><br>${Laboratory.address}<br>الهاتف: ${Laboratory.phone}<br>المسافة: ${Laboratory.distance.toFixed(1)} كم`);
+                    .bindPopup(`<b>${laboratory.name}</b><br>${laboratory.address}<br>الهاتف: ${laboratory.phone}<br>المسافة: ${laboratory.distance.toFixed(1)} كم`);
             });
 
         }
