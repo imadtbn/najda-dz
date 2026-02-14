@@ -40,9 +40,11 @@
             /* أحمر طوارئ */
 
 
-    /* أمنية */
-    --police-color: #0d47a1;          /* أزرق داكن رسمي */
-    --military-color: #1b5e20;     /* أخضر عسكري */
+            /* أمنية */
+            --police-color: #0d47a1;
+            /* أزرق داكن رسمي */
+            --military-color: #1b5e20;
+            /* أخضر عسكري */
 
             --service-bg: #ffffff;
             --service-border-radius: 14px;
@@ -74,15 +76,25 @@
             border-right: 5px solid var(--civil-defense-color);
         }
 
-/* الدرك */
-.service-card.military .service-icon i {
-    color: var(--gendarmerie-color);
-}
+        /* الدرك الوطني */
+        .service-card.military {
+            border-right: 5px solid var(--military-color);
+        }
 
-/* الشرطة */
-.service-card.police {
-    border-right-color: var(--police-color);
-}
+        /* الدرك الوطني */
+        .service-card.police {
+            border-right: 5px solid var(--police-color);
+        }
+
+        /* الدرك */
+        .service-card.military .service-icon i {
+            color: var(--military-color);
+        }
+
+        /* الشرطة */
+        .service-card.police {
+            border-right-color: var(--police-color);
+        }
 
         .service-card.pharmacy .service-icon i {
             color: var(--pharmacy-color);
@@ -984,11 +996,13 @@
                     <h3>الخريطة التفاعلية</h3>
                 </div>
                 <div id="map"></div>
+
             </div>
 
             <!-- Services Section -->
             <div class="services">
 
+                <!-- hospital -->
                 <div class="service-card hospital">
                     <div class="service-header">
                         <div class="service-title">
@@ -1004,14 +1018,16 @@
                             <p>اضغط على "تحديد موقعي" لعرض أقرب المستشفيات</p>
                         </div>
                     </div>
-                        <!-- زر المزيد -->
-    <div style="margin-top: 15px; text-align: left;">
-        <a href="hospitals.html" class="btn btn-secondary" style="display: inline-flex; gap: 8px; padding: 8px 16px;">
-            <i class="fas fa-arrow-left"></i> عرض الكل
-        </a>
-    </div>
+                    <!-- زر المزيد -->
+                    <div style="margin-top: 15px; text-align: left;">
+                        <a href="pages/hospitals.html" class="btn btn-secondary"
+                            style="display: inline-flex; gap: 8px; padding: 8px 16px;">
+                            <i class="fas fa-arrow-left"></i> عرض الكل
+                        </a>
+                    </div>
                 </div>
 
+                <!-- police -->
                 <div class="service-card police">
                     <div class="service-header">
                         <div class="service-title">
@@ -1029,6 +1045,7 @@
                     </div>
                 </div>
 
+                <!-- gendarmerie -->
                 <div class="service-card military">
                     <div class="service-header">
                         <div class="service-title">
@@ -1044,8 +1061,16 @@
                             <p>اضغط على "تحديد موقعي" لعرض أقرب فرقة للدرك الوطني</p>
                         </div>
                     </div>
+                    <!-- زر المزيد -->
+                    <div style="margin-top: 15px; text-align: left;">
+                        <a href="pages/gendarmerie.html" class="btn btn-secondary"
+                            style="display: inline-flex; gap: 8px; padding: 8px 16px;">
+                            <i class="fas fa-arrow-left"></i> عرض الكل
+                        </a>
+                    </div>
                 </div>
 
+                <!-- protectio civil -->
                 <div class="service-card civil-defense">
                     <div class="service-header">
                         <div class="service-title">
@@ -1062,8 +1087,16 @@
                             <p>اضغط على "تحديد موقعي" لعرض أقرب وحدات الحماية المدنية </p>
                         </div>
                     </div>
+                    <!-- زر المزيد -->
+                    <div style="margin-top: 15px; text-align: left;">
+                        <a href="pages/protectioncivil.html" class="btn btn-secondary"
+                            style="display: inline-flex; gap: 8px; padding: 8px 16px;">
+                            <i class="fas fa-arrow-left"></i> عرض الكل
+                        </a>
+                    </div>
                 </div>
 
+                <!-- pharmacy -->
                 <div class="service-card pharmacy">
                     <div class="service-header">
 
@@ -1083,9 +1116,16 @@
                             <p>اضغط على "تحديد موقعي" لعرض أقرب الصيدليات</p>
                         </div>
                     </div>
-
+                    <!-- زر المزيد -->
+                    <div style="margin-top: 15px; text-align: left;">
+                        <a href="pages/pharmacies.html" class="btn btn-secondary"
+                            style="display: inline-flex; gap: 8px; padding: 8px 16px;">
+                            <i class="fas fa-arrow-left"></i> عرض الكل
+                        </a>
+                    </div>
                 </div>
 
+                <!-- laboratory -->
                 <div class="service-card laboratory">
                     <div class="service-header">
                         <div class="service-title">
@@ -1103,10 +1143,14 @@
                             <p>اضغط على "تحديد موقعي" لعرض أقرب مخابر التحاليل البيولوجية</p>
                         </div>
                     </div>
+                    <!-- زر المزيد -->
+                    <div style="margin-top: 15px; text-align: left;">
+                        <a href="pages/laboratories.html" class="btn btn-secondary"
+                            style="display: inline-flex; gap: 8px; padding: 8px 16px;">
+                            <i class="fas fa-arrow-left"></i> عرض الكل
+                        </a>
+                    </div>
                 </div>
-
-
-
             </div>
         </div>
 
@@ -1330,12 +1374,12 @@
             </div>
             <p>خدمة وطنية لتحديد مواقع خدمات الطوارئ في جميع أنحاء الجزائر</p>
             <div class="footer-links">
-                <a href="about">عن الموقع</a>
-                <a href="Contact.html">اتصل بنا</a>
-                <a href="privacypolicy.html">سياسة الخصوصية</a>
-                <a href="guideline.html">الإرشادات</a>
+                <a href="pages/about.html">عن الموقع</a>
+                <a href="pages/Contact.html">اتصل بنا</a>
+                <a href="pages/privacypolicy.html">سياسة الخصوصية</a>
+                <a href="pages/guideline.html">الإرشادات</a>
             </div>
-            <p>جميع الحقوق محفوظة &copy; 2023</p>
+            <p>جميع الحقوق محفوظة &copy; 2026</p>
         </div>
     </footer>
 
@@ -1363,8 +1407,7 @@
     <!-- JavaScript -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
-     <script src="sos.js"></script>
-
+    <script src="sos.js"></script>
 
     <script>
         // زر الطوارئ العائم
@@ -1404,6 +1447,102 @@
             lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
         });
 
+    </script>
+
+    <script>
+        // دالة مساعدة لحساب الفرق بالدقائق
+        function getMinutesDiff(timestamp) {
+            return (Date.now() - timestamp) / (1000 * 60);
+        }
+
+        // استرجاع الموقع المخزن
+        function getStoredLocation() {
+            const lat = localStorage.getItem('userLat');
+            const lon = localStorage.getItem('userLon');
+            const timestamp = localStorage.getItem('locationTimestamp');
+            const denied = localStorage.getItem('locationDenied') === 'true';
+            if (lat && lon && timestamp && !denied) {
+                if (getMinutesDiff(parseInt(timestamp)) < 30) { // صلاحية 30 دقيقة
+                    return { lat: parseFloat(lat), lon: parseFloat(lon) };
+                } else {
+                    // انتهت الصلاحية، نمسح البيانات القديمة
+                    localStorage.removeItem('userLat');
+                    localStorage.removeItem('userLon');
+                    localStorage.removeItem('locationTimestamp');
+                }
+            }
+            return null;
+        }
+
+        // حفظ الموقع
+        function saveLocation(lat, lon) {
+            localStorage.setItem('userLat', lat);
+            localStorage.setItem('userLon', lon);
+            localStorage.setItem('locationTimestamp', Date.now());
+            localStorage.removeItem('locationDenied'); // إزالة حالة الرفض
+        }
+
+        // حفظ حالة الرفض
+        function saveDenied() {
+            localStorage.setItem('locationDenied', 'true');
+        }
+
+        // طلب الموقع الجديد
+        function requestLocation(updateCallback) {
+            if (!navigator.geolocation) {
+                document.getElementById('locationStatus').innerText = 'المتصفح لا يدعم تحديد الموقع';
+                return;
+            }
+            const statusEl = document.getElementById('locationStatus');
+            statusEl.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري تحديد الموقع...';
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    const lat = position.coords.latitude;
+                    const lon = position.coords.longitude;
+                    saveLocation(lat, lon);
+                    statusEl.innerHTML = '<i class="fas fa-check-circle"></i> تم تحديد موقعك بنجاح';
+                    if (updateCallback) updateCallback(lat, lon);
+                },
+                (error) => {
+                    statusEl.innerText = 'فشل تحديد الموقع: ' + error.message;
+                    saveDenied(); // منع الطلب التلقائي مستقبلاً
+                    if (updateCallback) updateCallback(null, null);
+                }
+            );
+        }
+
+        // تهيئة الموقع عند تحميل الصفحة
+        (function initPageLocation() {
+            const stored = getStoredLocation();
+            if (stored) {
+                // استخدام الموقع المخزن
+                document.getElementById('locationStatus').innerHTML = '<i class="fas fa-check-circle"></i> تم استرجاع موقعك المخزن';
+                if (typeof displayUpdatedData === 'function') {
+                    displayUpdatedData(stored.lat, stored.lon);
+                }
+            } else {
+                // طلب الموقع الجديد
+                requestLocation((lat, lon) => {
+                    if (lat && lon && typeof displayUpdatedData === 'function') {
+                        displayUpdatedData(lat, lon);
+                    } else {
+                        // عرض البيانات بدون ترتيب
+                        if (typeof displayUpdatedData === 'function') displayUpdatedData(null, null);
+                    }
+                });
+            }
+        })();
+
+        // ربط زر تحديث الموقع
+        document.getElementById('getLocation').addEventListener('click', function () {
+            requestLocation((lat, lon) => {
+                if (lat && lon && typeof displayUpdatedData === 'function') {
+                    displayUpdatedData(lat, lon);
+                } else {
+                    if (typeof displayUpdatedData === 'function') displayUpdatedData(null, null);
+                }
+            });
+        });
     </script>
 
 </body>
