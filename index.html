@@ -4,11 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>الطوارئ والنجدة في الجزائر</title>
+    <title>Najda Dz النجدة</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- أيقونة الموقع -->
+    <link rel="icon" href="icons/najda_icon_1.png" alt="icon" type="image/png" loading="lazy" class="welcome-logo">
 
     <style>
         * {
@@ -195,10 +198,15 @@
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(29, 53, 87, 0.9), rgba(69, 123, 157, 0.9)), url('https://images.unsplash.com/photo-1582719508461-905c673771fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background:
+                linear-gradient(to bottom,
+                    rgba(29, 53, 87, 0.3),
+                    rgba(29, 53, 87, 0.7)),
+                url('images/najda_hero_image.png');
+
             background-size: cover;
             background-position: center;
-            color: rgb(255, 255, 255);
+            color: white;
             padding: 3rem 0;
             text-align: center;
         }
@@ -210,7 +218,7 @@
 
         .hero p {
             font-size: 1.1rem;
-            max-width: 700px;
+            max-width: 750px;
             margin: 0 auto 1.5rem;
         }
 
@@ -421,38 +429,217 @@
         }
 
         /* Footer */
+        /* ===== Footer Modern ===== */
+
         footer {
-            background-color: var(--secondary);
+            background: linear-gradient(135deg, var(--secondary), #14213d);
             color: white;
-            padding: 2rem 0;
+            padding: 3rem 0 2rem;
             margin-top: 3rem;
-            text-align: center;
         }
 
+        /* إزالة التوسيط العمودي القديم */
         .footer-content {
+            width: 100%;
+        }
+
+        /* توزيع الأعمدة */
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 40px;
+            text-align: right;
+        }
+
+        /* عناوين الأعمدة */
+        .footer-col h4 {
+            margin-bottom: 18px;
+            font-size: 1.1rem;
             display: flex;
-            flex-direction: column;
             align-items: center;
-            gap: 1rem;
+            gap: 8px;
+            color: #ffffff;
         }
 
-        .footer-links {
-            display: flex;
-            gap: 20px;
-            margin-top: 1rem;
-            flex-wrap: wrap;
-            justify-content: center;
+        /* القوائم */
+        .footer-col ul {
+            list-style: none;
+            padding: 0;
         }
 
-        .footer-links a {
-            color: #ddd;
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        /* الروابط */
+        .footer-col ul li a {
+            color: #ccc;
             text-decoration: none;
-            transition: color 0.3s;
+            /* منع التسطير نهائياً */
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            position: relative;
         }
 
-        .footer-links a:hover {
+        /* تأثير احترافي */
+        .footer-col ul li a:hover {
+            color: #ffffff;
+            transform: translateX(-8px);
+        }
+
+        /* تأثير أيقونة */
+        .footer-col ul li a i {
+            transition: 0.3s ease;
+        }
+
+        .footer-col ul li a:hover i {
+            color: #e63946;
+            transform: scale(1.25);
+        }
+
+        /* خط سفلي متحرك احترافي */
+        .footer-col ul li a::after {
+            content: "";
+            position: absolute;
+            bottom: -3px;
+            right: 0;
+            width: 0%;
+            height: 2px;
+            background: #e63946;
+            transition: 0.3s ease;
+        }
+
+        .footer-col ul li a:hover::after {
+            width: 100%;
+        }
+
+        /* الجزء السفلي */
+        .footer-bottom {
+            margin-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            padding-top: 20px;
+            text-align: center;
+            font-size: 0.95rem;
+            color: #bbb;
+        }
+
+        /* ===== زر الرجوع للأعلى ===== */
+
+        #scrollTopBtn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            border: none;
+            background: #e63946;
             color: white;
-            text-decoration: underline;
+            font-size: 20px;
+            cursor: pointer;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            display: none;
+            transition: all 0.3s ease;
+            z-index: 9999;
+        }
+
+        #scrollTopBtn:hover {
+            background: #b71c1c;
+            transform: scale(1.15);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+        }
+
+
+
+
+
+        .footer-col ul li a {
+            color: #ccc;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+
+            position: relative;
+        }
+
+        .footer-col ul li a:hover {
+            color: #ffffff;
+            transform: translateX(-6px);
+            text-shadow: 0 0 8px rgba(230, 57, 70, 0.7);
+        }
+
+        /* Glow للأيقونة */
+        .footer-col ul li a:hover i {
+            color: #e63946;
+            transform: scale(1.25);
+            text-shadow: 0 0 10px rgba(230, 57, 70, 0.9);
+        }
+
+        footer {
+            background: linear-gradient(135deg, var(--secondary), #14213d);
+            color: white;
+            padding: 3rem 0 2rem;
+            margin-top: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* طبقة إضاءة متحركة */
+        footer::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: -50%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(120deg,
+                    transparent,
+                    rgba(255, 255, 255, 0.08),
+                    transparent);
+            transform: skewX(-20deg);
+            animation: lightMove 8s infinite linear;
+        }
+
+        /* حركة الإضاءة */
+        @keyframes lightMove {
+            0% {
+                right: -60%;
+            }
+
+            100% {
+                right: 120%;
+            }
+        }
+
+
+        /* زر الرجوع للأعلى */
+        #scrollTopBtn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            border: none;
+            background: #e63946;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            display: none;
+            transition: all 0.3s ease;
+            z-index: 9999;
+        }
+
+        #scrollTopBtn:hover {
+            background: #c62828;
+            transform: scale(1.1);
         }
 
         /* Modal */
@@ -933,6 +1120,59 @@
             background: transparent;
             border: none;
         }
+
+                        /* تحسين شعار الفوتر */
+        .footer-logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .footer-logo img {
+            width: 90px;
+            height: 90px;
+            object-fit: cover;
+            border-radius: 50%;
+            background: white;
+            padding: 10px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .footer-logo img:hover {
+            transform: scale(1.08);
+            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35);
+        }
+
+        .footer-logo h2 {
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            /* المسافة بين الصورة والنص */
+        }
+
+        .logo img {
+            display: block;
+            width: 50px;
+            /* حجم الشعار */
+            height: 50px;
+            border-radius: 50%;
+            /* يجعل الصورة دائرية */
+            object-fit: cover;
+            /* لضمان عدم تشويه الصورة داخل الدائرة */
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 0;
+        }
     </style>
 
 </head>
@@ -942,8 +1182,8 @@
     <header>
         <div class="container header-content">
             <div class="logo">
-                <i class="fas fa-crosshairs"></i>
-                <h1>الطوارئ والنجدة في الجزائر</h1>
+                <img src="icons/najda_icon_3.png" alt="شعار النجدة Dz" width="50" height="50" loading="lazy">
+                <h1>النجدة والطوارئ في الجزائر</h1>
             </div>
             <!--             <a href="tel:1021" class="emergency-contact call-link">
                 <img src="icons/dgpc.svg" alt="logo dgpc" width="24" height="24" loading="lazy">
@@ -959,7 +1199,7 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h2>خدمات الطوارئ والنجدة في الجزائر</h2>
+            <h2>خدمات النجدة والطوارئ في الجزائر</h2>
             <p>في حالة الطوارئ، حدد موقعك للحصول على أقرب مستشفى، مركز شرطة، فرقة الدرك الوطني أو وحدة الحماية المدنية
                 مع أرقام الهاتف
                 وإمكانية تكوين المسارات</p>
@@ -1032,7 +1272,7 @@
                     <div class="service-header">
                         <div class="service-title">
                             <div class="service-icon">
-                                <i class="fas fa-shield-alt"></i>
+                                <img src="icons/dgsn.png" alt="logo dgpc" width="55" height="55" loading="lazy"></i>
                             </div>
                             <h3>مراكز الشرطة</h3>
                         </div>
@@ -1058,7 +1298,7 @@
                     <div class="service-header">
                         <div class="service-title">
                             <div class="service-icon">
-                                <i class="fas fa-star"></i>
+                                <img src="icons/CGN.jpg" alt="logo dgpc" width="55" height="55" loading="lazy"></i>
                             </div>
                             <h3>فرق الدرك الوطني</h3>
                         </div>
@@ -1083,7 +1323,7 @@
                     <div class="service-header">
                         <div class="service-title">
                             <div class="service-icon">
-                                <i class="fas fa-fire-extinguisher"></i>
+                                <img src="icons/dgpc.svg" alt="logo dgpc" width="55" height="55" loading="lazy"></i>
                             </div>
                             <h3>وحدات الحماية المدنية</h3>
                         </div>
@@ -1171,6 +1411,7 @@
 
             <div class="numbers-grid">
 
+                <!-- الحماية المدنية -->
                 <div class="number-card pulse">
                     <h4>
                         <img src="icons/dgpc.svg" alt="logo dgpc" width="31" height="32" loading="lazy">
@@ -1185,7 +1426,7 @@
                     </p>
                 </div>
 
-
+                <!-- الدرك الوطني -->
                 <div class="number-card">
                     <h4>
                         <img src="icons/CGN.jpg" alt="logo CGN" width="31" height="32" loading="lazy">
@@ -1200,21 +1441,22 @@
                     </p>
                 </div>
 
+                <!-- الدرك الوطني طريقي-->
                 <div class="number-card">
                     <h4>
                         <img src="icons/tariki.jpg" alt="logo tariki" width="31" height="32" loading="lazy">
-                        مركز الإعلام والتنسيق المروري - طريقي - عبر المسنجر
+                        مركز الإعلام والتنسيق المروري
                     </h4>
 
                     <p>
-                        <a href="https://m.me/tariki.Gn" target="_blank"
-                            class="messenger-link">
+                        <a href="https://m.me/tariki.Gn" target="_blank" class="messenger-link">
                             <i class="fab fa-facebook-messenger"></i>
                             <span class="phone-number-Emergency">Tariki.GN.طريقي</span>
                         </a>
                     </p>
                 </div>
 
+                <!-- حرس السواحل -->
                 <div class="number-card">
                     <h4>
                         <img src="icons/CFN.png" alt="logo cfa" width="31" height="32" loading="lazy">
@@ -1229,6 +1471,7 @@
                     </p>
                 </div>
 
+                <!-- الشرطة الجزائرية -->
                 <div class="number-card">
                     <h4>
                         <img src="icons/dgsn.png" alt="logo dgsn" width="31" height="32" loading="lazy">
@@ -1243,6 +1486,7 @@
                     </p>
                 </div>
 
+                <!-- جمهرة العمليات الخاصة للشرطة -->
                 <div class="number-card">
                     <h4>
                         <img src="icons/gosp.jpg" alt="logo gosp" width="31" height="32" loading="lazy">
@@ -1257,12 +1501,26 @@
                     </p>
                 </div>
 
+                <!-- الهلال الأحمر -->
+                <div class="number-card">
+                    <h4>
+                        <img src="icons/cra.webp" alt="logo gosp" width="31" height="32" loading="lazy">
+                        الهلال الأحمر الجزائري
+                    </h4>
 
+                    <p>
+                        <a href="tel:+21323778232" class="call-link-Emergency">
+                            <i class="fas fa-phone"></i>
+                            <span class="phone-number-Emergency">+21323778232</span>
+                        </a>
+                    </p>
+                </div>
 
+                <!-- سونلغاز للكهرباء والغاز -->
                 <div class="number-card">
                     <h4>
                         <img src="icons/sonelgaz.png" alt="logo sonelgaz" width="31" height="32" loading="lazy">
-                        الكهرباء والغاز
+                        سونلغاز للكهرباء والغاز
                     </h4>
 
                     <p>
@@ -1273,6 +1531,7 @@
                     </p>
                 </div>
 
+                <!-- الجزائرية للمياه -->
                 <div class="number-card">
                     <h4>
                         <img src="icons/ade.png" alt="logo ade" width="31" height="32" loading="lazy">
@@ -1287,6 +1546,7 @@
                     </p>
                 </div>
 
+                <!-- سيال للتطهير والمياه -->
                 <div class="number-card">
                     <h4>
                         <img src="icons/seaal.webp" alt="logo seaal" width="31" height="32" loading="lazy">
@@ -1301,7 +1561,7 @@
                     </p>
                 </div>
 
-
+                <!-- نفطال للمحروقات والوقود -->
                 <div class="number-card">
                     <h4>
                         <img src="icons/naftal.webp" alt="logo naftal" width="31" height="32" loading="lazy">
@@ -1316,9 +1576,7 @@
                     </p>
                 </div>
 
-
-
-
+                <!-- المديرية العامة للغابات -->
                 <div class="number-card">
                     <h4>
                         <img src="icons/DGF.png" alt="logo DGF" width="31" height="32" loading="lazy">
@@ -1333,7 +1591,7 @@
                     </p>
                 </div>
 
-
+                <!-- معهد باستور -->
                 <div class="number-card">
                     <h4>
                         <img src="icons/pasteur.jpg" alt="logo naftal" width="31" height="32" loading="lazy">
@@ -1376,19 +1634,63 @@
     <!-- Footer -->
     <footer>
         <div class="container footer-content">
-            <div class="logo">
-                <i class="fas fa-crosshairs"></i>
-                <h2>الطوارئ والنجدة في الجزائر</h2>
+            <div class="footer-grid">
+
+                <!-- تعريف -->
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <h2>النجدة Dz</h2>
+                        <p>منصة وطنية لتحديد أقرب خدمات النجدة والطوارئ في الجزائر بدقة وسرعة.</p>
+                        <img src="icons/najda_icon_11.png" alt="شعار النجدة Dz" loading="lazy">
+                    </div>
+
+                </div>
+
+                <!-- خدمات الطوارئ -->
+                <div class="footer-col">
+                    <h4><i class="fas fa-ambulance"></i> خدمات النجدة والطوارئ</h4>
+                    <ul>
+                        <li><a href="pages/hospitals.html"><i class="fas fa-hospital"></i> المستشفيات</a></li>
+                        <li><a href="pages/police.html"><i class="fas fa-shield-alt"></i> مراكز الشرطة</a></li>
+                        <li><a href="pages/gendarmerie.html"><i class="fas fa-star"></i>الدرك الوطني</a></li>
+                        <li><a href="pages/protectioncivil.html"><i class="fas fa-fire-extinguisher"></i> الحماية
+                                المدنية</a></li>
+                    </ul>
+                </div>
+
+                <!-- خدمات صحية -->
+                <div class="footer-col">
+                    <h4><i class="fas fa-heartbeat"></i> خدمات صحية</h4>
+                    <ul>
+                        <li><a href="pages/pharmacies.html"><i class="fas fa-prescription-bottle-alt"></i> الصيدليات</a>
+                        </li>
+                        <li><a href="pages/laboratories.html"><i class="fas fa-vials"></i> مخابر التحاليل البيولوجية</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- روابط مهمة -->
+                <div class="footer-col">
+                    <h4><i class="fas fa-link"></i> روابط مهمة</h4>
+                    <ul>
+                        <li><a href="pages/about.html"><i class="fas fa-info-circle"></i> عن الموقع</a></li>
+                        <li><a href="pages/contact.html"><i class="fas fa-envelope"></i> اتصل بنا</a></li>
+                        <li><a href="pages/privacypolicy.html"><i class="fas fa-user-shield"></i> سياسة الخصوصية</a>
+                        </li>
+                        <li><a href="pages/guideline.html"><i class="fas fa-book"></i> الإرشادات</a></li>
+                    </ul>
+                </div>
+
             </div>
-            <p>خدمة وطنية لتحديد مواقع خدمات الطوارئ في جميع أنحاء الجزائر</p>
-            <div class="footer-links">
-                <a href="pages/about.html">عن الموقع</a>
-                <a href="pages/Contact.html">اتصل بنا</a>
-                <a href="pages/privacypolicy.html">سياسة الخصوصية</a>
-                <a href="pages/guideline.html">الإرشادات</a>
+
+            <div class="footer-bottom">
+                <p>جميع الحقوق محفوظة &copy; 2026</p>
             </div>
-            <p>جميع الحقوق محفوظة &copy; 2026</p>
+
         </div>
+
+        <!-- زر الرجوع للأعلى -->
+        <button id="scrollTopBtn"><i class="fas fa-arrow-up"></i></button>
     </footer>
 
     <!-- زر الطوارئ العائم -->
@@ -1416,6 +1718,7 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
     <script src="sos.js"></script>
+
 
     <script>
         // زر الطوارئ العائم
@@ -1457,101 +1760,8 @@
 
     </script>
 
-    <script>
-        // دالة مساعدة لحساب الفرق بالدقائق
-        function getMinutesDiff(timestamp) {
-            return (Date.now() - timestamp) / (1000 * 60);
-        }
 
-        // استرجاع الموقع المخزن
-        function getStoredLocation() {
-            const lat = localStorage.getItem('userLat');
-            const lon = localStorage.getItem('userLon');
-            const timestamp = localStorage.getItem('locationTimestamp');
-            const denied = localStorage.getItem('locationDenied') === 'true';
-            if (lat && lon && timestamp && !denied) {
-                if (getMinutesDiff(parseInt(timestamp)) < 30) { // صلاحية 30 دقيقة
-                    return { lat: parseFloat(lat), lon: parseFloat(lon) };
-                } else {
-                    // انتهت الصلاحية، نمسح البيانات القديمة
-                    localStorage.removeItem('userLat');
-                    localStorage.removeItem('userLon');
-                    localStorage.removeItem('locationTimestamp');
-                }
-            }
-            return null;
-        }
 
-        // حفظ الموقع
-        function saveLocation(lat, lon) {
-            localStorage.setItem('userLat', lat);
-            localStorage.setItem('userLon', lon);
-            localStorage.setItem('locationTimestamp', Date.now());
-            localStorage.removeItem('locationDenied'); // إزالة حالة الرفض
-        }
-
-        // حفظ حالة الرفض
-        function saveDenied() {
-            localStorage.setItem('locationDenied', 'true');
-        }
-
-        // طلب الموقع الجديد
-        function requestLocation(updateCallback) {
-            if (!navigator.geolocation) {
-                document.getElementById('locationStatus').innerText = 'المتصفح لا يدعم تحديد الموقع';
-                return;
-            }
-            const statusEl = document.getElementById('locationStatus');
-            statusEl.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري تحديد الموقع...';
-            navigator.geolocation.getCurrentPosition(
-                (position) => {
-                    const lat = position.coords.latitude;
-                    const lon = position.coords.longitude;
-                    saveLocation(lat, lon);
-                    statusEl.innerHTML = '<i class="fas fa-check-circle"></i> تم تحديد موقعك بنجاح';
-                    if (updateCallback) updateCallback(lat, lon);
-                },
-                (error) => {
-                    statusEl.innerText = 'فشل تحديد الموقع: ' + error.message;
-                    saveDenied(); // منع الطلب التلقائي مستقبلاً
-                    if (updateCallback) updateCallback(null, null);
-                }
-            );
-        }
-
-        // تهيئة الموقع عند تحميل الصفحة
-        (function initPageLocation() {
-            const stored = getStoredLocation();
-            if (stored) {
-                // استخدام الموقع المخزن
-                document.getElementById('locationStatus').innerHTML = '<i class="fas fa-check-circle"></i> تم استرجاع موقعك المخزن';
-                if (typeof displayUpdatedData === 'function') {
-                    displayUpdatedData(stored.lat, stored.lon);
-                }
-            } else {
-                // طلب الموقع الجديد
-                requestLocation((lat, lon) => {
-                    if (lat && lon && typeof displayUpdatedData === 'function') {
-                        displayUpdatedData(lat, lon);
-                    } else {
-                        // عرض البيانات بدون ترتيب
-                        if (typeof displayUpdatedData === 'function') displayUpdatedData(null, null);
-                    }
-                });
-            }
-        })();
-
-        // ربط زر تحديث الموقع
-        document.getElementById('getLocation').addEventListener('click', function () {
-            requestLocation((lat, lon) => {
-                if (lat && lon && typeof displayUpdatedData === 'function') {
-                    displayUpdatedData(lat, lon);
-                } else {
-                    if (typeof displayUpdatedData === 'function') displayUpdatedData(null, null);
-                }
-            });
-        });
-    </script>
 
 </body>
 
