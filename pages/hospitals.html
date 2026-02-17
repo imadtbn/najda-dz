@@ -26,6 +26,7 @@
             --light: #f1faee;
             --warning: #ff9e00;
             --success: #2a9d8f;
+            --hospital-color: #1565c0;
         }
 
         body {
@@ -346,7 +347,7 @@
             color: #bbb;
         }
 
-                /* تحسين شعار الفوتر */
+        /* تحسين شعار الفوتر */
         .footer-logo {
             display: flex;
             flex-direction: column;
@@ -398,7 +399,18 @@
             font-weight: 700;
             margin: 0;
         }
+
+        .phone-card-link {
+            transition: color 0.2s ease;
+            display: inline-block;
+        }
+
+        .phone-card-link:hover {
+            color: var(--primary) !important;
+            text-decoration: underline !important;
+        }
     </style>
+
 </head>
 
 <body>
@@ -423,6 +435,129 @@
         </div>
     </section>
 
+    <!-- قسم البحث -->
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="ابحث عن مستشفى / عيادة / طبيب ...">
+        <button id="searchBtn"><i class="fas fa-search"></i> بحث</button>
+    </div>
+
+    <style>
+                .search-container {
+            display: flex;
+            gap: 10px;
+            margin: 20px auto;
+            max-width: 800px;
+            background: white;
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        #searchInput {
+            flex: 1;
+            padding: 12px 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: 'Cairo', sans-serif;
+            transition: 0.3s;
+        }
+
+        #searchInput:focus {
+            border-color: var(--hospital-color);
+            outline: none;
+        }
+
+        #searchBtn {
+            background: var(--hospital-color);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 0 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.3s;
+        }
+
+        #searchBtn:hover {
+            background: #095707;
+            transform: translateY(-2px);
+        }
+
+
+        .no-results {
+            text-align: center;
+            padding: 40px 20px;
+            background: #2f8148;
+            border-radius: 12px;
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .no-results i {
+            font-size: 3rem;
+            color: #ff9800;
+            margin-bottom: 15px;
+        }
+
+        .google-fallback-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #4285f4;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            margin-top: 10px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .google-fallback-link:hover {
+            background: #3367d6;
+            transform: translateY(-2px);
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 40px 20px;
+            background: #f9f9f9;
+            border-radius: 12px;
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .no-results i {
+            font-size: 3rem;
+            color: #ff9800;
+            margin-bottom: 15px;
+        }
+
+        .google-fallback-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #4285f4;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            margin-top: 10px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .google-fallback-link:hover {
+            background: #3367d6;
+            transform: translateY(-2px);
+        }
+    </style>
+
     <div class="container">
         <div id="hospitalsList" class="hospitals-grid">
             <!-- سيتم ملؤها بالبيانات -->
@@ -430,7 +565,7 @@
         </div>
     </div>
 
-        <!-- Footer -->
+    <!-- Footer -->
     <footer>
         <div class="container footer-content">
             <div class="footer-grid">
@@ -461,10 +596,11 @@
                 <div class="footer-col">
                     <h4><i class="fas fa-heartbeat"></i> خدمات صحية</h4>
                     <ul>
-                        <li><a href="pharmacies.html"><i class="fas fa-prescription-bottle-alt"></i> الصيدليات</a>
-                        </li>
-                        <li><a href="laboratories.html"><i class="fas fa-vials"></i> مخابر التحاليل البيولوجية</a>
-                        </li>
+                    <ul>
+                        <li><a href="doctors.html"><i class="fas fa-user-md"></i>أطباء مختلف التخصصات</a></li>
+                        <li><a href="laboratories.html"><i class="fas fa-vials"></i> مخابر التحاليل البيولوجية</a></li>
+                        <li><a href="pharmacies.html"><i class="fas fa-capsules"></i> الصيدليات</a></li>
+                    </ul>
                     </ul>
                 </div>
 
@@ -492,20 +628,30 @@
         <button id="scrollTopBtn"><i class="fas fa-arrow-up"></i></button>
     </footer>
 
-    <script src="../javascript/java-btn-pst.js"></script>
+    <!-- إضافة رابط ملف البيانات قبل الـ script -->
+    <script src="../script/hospitals-data.js"></script>
 
     <script>
-        // بيانات تجريبية للمستشفيات (يمكن استبدالها ب API حقيقي)
-        const hospitalsData = [
-            { name: "مستشفى مصطفى باشا", wilaya: "الجزائر", baladia: "مصطفى باشا", phone: "023 45 67 89", lat: 36.7538, lon: 3.0588 },
-            { name: "مستشفى نفيسة حمود", wilaya: "الجزائر", baladia: "حسين داي", phone: "023 67 89 10", lat: 36.7592, lon: 3.0922 },
-            { name: "مستشفى بارني", wilaya: "الجزائر", baladia: "الحراش", phone: "023 89 10 11", lat: 36.7241, lon: 3.1431 },
-            { name: "مستشفى وهران الجامعي", wilaya: "وهران", baladia: "وهران", phone: "041 34 56 78", lat: 35.6997, lon: -0.6419 },
-            { name: "مستشفى قسنطينة", wilaya: "قسنطينة", baladia: "قسنطينة", phone: "031 45 67 89", lat: 36.365, lon: 6.6147 },
-            { name: "مستشفى عنابة", wilaya: "عنابة", baladia: "عنابة", phone: "038 56 78 90", lat: 36.9023, lon: 7.7559 }
-        ];
 
+        // بداية السكربت
         let userLat = null, userLon = null;
+
+        // استرجاع الموقع المخزن
+        const savedLat = localStorage.getItem('userLat');
+        const savedLon = localStorage.getItem('userLon');
+        const savedTime = localStorage.getItem('locationTimestamp');
+        const ONE_HOUR = 60 * 60 * 1000;
+
+        if (savedLat && savedLon && savedTime && (Date.now() - savedTime < ONE_HOUR)) {
+            userLat = parseFloat(savedLat);
+            userLon = parseFloat(savedLon);
+            document.getElementById('locationStatus').innerHTML =
+                '<i class="fas fa-check-circle"></i> تم استخدام موقعك المخزن';
+            displayHospitals();
+        } else {
+            displayHospitals(); // عرض بدون ترتيب
+        }
+
 
         // دالة حساب المسافة (هافرسين)
         function calculateDistance(lat1, lon1, lat2, lon2) {
@@ -548,16 +694,27 @@
         function renderHospitalCard(h, distance) {
             const distText = distance ? `<div class="distance-badge"><i class="fas fa-location-dot"></i> ${distance} كم</div>` : '';
             const googleMapsLink = `https://www.google.com/maps/dir/?api=1&destination=${h.lat},${h.lon}`;
+
+            // تنظيف رقم الهاتف من الرموز غير الرقمية (الشرطات، المسافات) مع الاحتفاظ بـ +
+            const cleanPhone = h.phone ? h.phone.replace(/[^\d+]/g, '') : '';
+            // إنشاء رابط الهاتف فقط إذا كان الرقم موجودًا
+            const phoneLink = h.phone
+                ? `<a href="tel:${cleanPhone}" class="phone-card-link" dir="ltr" style="text-decoration:none; color:inherit;">${h.phone}</a>`
+                : '';
+
             return `
-                <div class="hospital-card">
-                    <div class="hospital-icon"><i class="fas fa-hospital"></i></div>
-                    <div class="hospital-name">${h.name}</div>
-                    <div class="hospital-detail"><i class="fas fa-map-marker-alt"></i> ولاية: ${h.wilaya} - بلدية: ${h.baladia}</div>
-                    <div class="hospital-detail"><i class="fas fa-phone"></i> ${h.phone}</div>
-                    ${distText}
-                    <a href="${googleMapsLink}" target="_blank" class="google-route-btn"><i class="fab fa-google"></i> التوجه عبر خرائط Google</a>
-                </div>
-            `;
+        <div class="hospital-card">
+            <div class="hospital-icon"><i class="fas fa-hospital"></i></div>
+            <div class="hospital-name">${h.name}</div>
+            <div class="hospital-detail"><i class="fas fa-map-marker-alt"></i> ولاية: ${h.wilaya} - بلدية: ${h.baladia}</div>
+            <div class="hospital-detail">
+                <i class="fas fa-phone"></i> 
+                ${phoneLink}
+            </div>
+            ${distText}
+            <a href="${googleMapsLink}" target="_blank" class="google-route-btn"><i class="fab fa-google"></i> التوجه عبر خرائط Google</a>
+        </div>
+    `;
         }
 
         // تحديد الموقع الجغرافي
@@ -584,6 +741,96 @@
 
         // عرض أولي بدون موقع
         displayHospitals();
+
+        // عناصر البحث
+        const searchInput = document.getElementById('searchInput');
+        const searchBtn = document.getElementById('searchBtn');
+
+        // دالة البحث
+        function performSearch() {
+            const query = searchInput.value.trim().toLowerCase();
+            if (query === '') {
+                // إعادة عرض جميع البيانات (بدون موقع)
+                // تأكد من اسم الدالة الأصلية في الصفحة (غالبًا displayHospitals)
+                if (typeof displayHospitals === 'function') {
+                    displayHospitals();
+                } else {
+                    // إذا لم توجد، أعد تحميل البيانات بالطريقة الافتراضية
+                    location.reload(); // أو استدعاء دالة أخرى
+                }
+                return;
+            }
+
+            // تصفية البيانات (hospitalsData هي المصفوفة العامة)
+            const filtered = hospitalsData.filter(item => {
+                return item.name.toLowerCase().includes(query) ||
+                    (item.wilaya && item.wilaya.toLowerCase().includes(query)) ||
+                    (item.baladia && item.baladia.toLowerCase().includes(query)) ||
+                    (item.phone && item.phone.includes(query));
+            });
+
+            // عرض النتائج
+            const container = document.getElementById('hospitalsList'); // تأكد من أن id صحيح
+            if (filtered.length === 0) {
+                // رسالة عدم وجود نتائج + رابط بحث Google
+                const googleSearchUrl = `https://www.google.com/search?q=${encodeURIComponent(query)}+مستشفى+الجزائر`;
+                container.innerHTML = `
+            <div class="no-results">
+                <i class="fas fa-hospital"></i>
+                <p>لم نتمكن من العثور على "${searchInput.value}" في قاعدة بياناتنا.</p>
+                <p>قد تجد النتائج التي تبحث عنها عبر 
+                    <a href="${googleSearchUrl}" target="_blank" class="google-fallback-link">
+                        <i class="fab fa-google"></i> بحث Google
+                    </a>
+                </p>
+            </div>
+        `;
+            } else {
+                // عرض النتائج
+                let html = '';
+                filtered.forEach(item => {
+                    // استخدم دالة العرض الأصلية إذا كانت موجودة، أو استخدم الدالة المعدلة
+                    if (typeof renderHospitalCard === 'function') {
+                        html += renderHospitalCard(item, null);
+                    } else {
+                        html += renderHospitalsCard(item, null); // الدالة المعرفة هنا
+                    }
+                });
+                container.innerHTML = html;
+            }
+        }
+
+        // أحداث البحث
+        searchBtn.addEventListener('click', performSearch);
+        searchInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') performSearch();
+        });
+
+        // تعريف دالة عرض البطاقة (إذا لم تكن موجودة في الصفحة)
+        function renderHospitalsCard(p, distance) {
+            const distText = distance ? `<div class="distance-badge"><i class="fas fa-location-dot"></i> ${distance} كم</div>` : '';
+            const googleMapsLink = `https://www.google.com/maps/dir/?api=1&destination=${p.lat},${p.lon}`;
+
+            const cleanPhone = p.phone ? p.phone.replace(/[^\d+]/g, '') : '';
+            const phoneLink = p.phone
+                ? `<a href="tel:${cleanPhone}" class="phone-card-link" dir="ltr" style="text-decoration:none; color:inherit;">${p.phone}</a>`
+                : '';
+
+            // استخدام الكلاسات المعتادة (hospital-card بدلاً من hospitals-card)
+            return `
+        <div class="hospital-card">
+            <div class="hospital-icon"><i class="fas fa-hospital"></i></div>
+            <div class="hospital-name">${p.name}</div>
+            <div class="hospital-detail"><i class="fas fa-map-marker-alt"></i> ولاية: ${p.wilaya} - بلدية: ${p.baladia}</div>
+            <div class="hospital-detail">
+                <i class="fas fa-phone"></i> 
+                ${phoneLink}
+            </div>
+            ${distText}
+            <a href="${googleMapsLink}" target="_blank" class="google-route-btn"><i class="fab fa-google"></i> التوجه عبر خرائط Google</a>
+        </div>
+    `;
+        }
     </script>
 </body>
 

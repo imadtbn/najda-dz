@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>الأطباء الخواص - النجدة DZ</title>
+    <title>الأطباء مختلف التخصصات - النجدة DZ</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap">
     <link rel="icon" href="../icons/najda_icon_1.png" type="image/png">
 
-                    <img src="../icons/najda_icon_3.png" alt="شعار النجدة Dz" width="50" height="50" loading="lazy">
     <style>
+        /* (نفس الأنماط الموجودة، مع إضافة تنسيقات البحث) */
         * {
             margin: 0;
             padding: 0;
@@ -26,7 +26,6 @@
             --warning: #ff9e00;
             --success: #2a9d8f;
             --doctor-color: #2a9d8f;
-            /* لون الأطباء (أخضر/أزرق) */
         }
 
         body {
@@ -43,7 +42,6 @@
             padding: 0 15px;
         }
 
-        /* Header */
         header {
             background: linear-gradient(135deg, var(--secondary) 0%, var(--accent) 100%);
             color: white;
@@ -98,12 +96,8 @@
             color: white;
         }
 
-        /* Hero Section */
         .hero {
-            background: linear-gradient(to bottom,
-                    rgba(29, 53, 87, 0.5),
-                    rgba(29, 53, 87, 0.8)),
-                url('../images/hero-doctors.jpg');
+            background: linear-gradient(to bottom, rgba(29, 53, 87, 0.3), rgba(29, 53, 87, 0.7)), url('../images/hero-doctor.webp');
             background-size: cover;
             background-position: center;
             color: white;
@@ -147,7 +141,52 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
-        /* فلترة الاختصاصات */
+        .search-container {
+            display: flex;
+            gap: 10px;
+            margin: 20px auto;
+            max-width: 800px;
+            background: white;
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        #searchInput {
+            flex: 1;
+            padding: 12px 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: 'Cairo', sans-serif;
+            transition: 0.3s;
+        }
+
+        #searchInput:focus {
+            border-color: var(--doctor-color);
+            outline: none;
+        }
+
+        #searchBtn {
+            background: var(--doctor-color);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 0 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.3s;
+        }
+
+        #searchBtn:hover {
+            background: #1e7b6e;
+            transform: translateY(-2px);
+        }
+
         .filter-section {
             margin: 30px 0 20px;
             text-align: center;
@@ -171,17 +210,12 @@
             transition: 0.3s;
         }
 
-        .filter-btn.active {
-            background: var(--doctor-color);
-            color: white;
-        }
-
+        .filter-btn.active,
         .filter-btn:hover {
             background: var(--doctor-color);
             color: white;
         }
 
-        /* قائمة الأطباء */
         .doctor-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -196,7 +230,6 @@
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
             transition: 0.3s;
             border-right: 6px solid var(--doctor-color);
-            position: relative;
         }
 
         .doctor-card:hover {
@@ -322,16 +355,44 @@
             }
         }
 
-        /* Footer */
+        .no-results {
+            text-align: center;
+            padding: 40px 20px;
+            border-radius: 12px;
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .no-results i {
+            font-size: 3rem;
+            color: #ff9800;
+            margin-bottom: 15px;
+        }
+
+        .google-fallback-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #4285f4;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            margin-top: 10px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .google-fallback-link:hover {
+            background: #3367d6;
+            transform: translateY(-2px);
+        }
+
         footer {
             background: linear-gradient(135deg, var(--secondary), #14213d);
             color: white;
             padding: 3rem 0 2rem;
             margin-top: 3rem;
-        }
-
-        .footer-content {
-            width: 100%;
         }
 
         .footer-grid {
@@ -365,18 +426,13 @@
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            transition: all 0.3s ease;
-            font-weight: 500;
+            transition: 0.3s;
             position: relative;
         }
 
         .footer-col ul li a:hover {
             color: #ffffff;
             transform: translateX(-8px);
-        }
-
-        .footer-col ul li a i {
-            transition: 0.3s ease;
         }
 
         .footer-col ul li a:hover i {
@@ -392,7 +448,7 @@
             width: 0%;
             height: 2px;
             background: #e63946;
-            transition: 0.3s ease;
+            transition: 0.3s;
         }
 
         .footer-col ul li a:hover::after {
@@ -423,7 +479,7 @@
             background: white;
             padding: 10px;
             box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: 0.3s;
         }
 
         .footer-logo img:hover {
@@ -435,6 +491,16 @@
             font-size: 1.3rem;
             font-weight: 700;
         }
+
+
+        .phone-card-link {
+            transition: color 0.2s ease;
+        }
+
+        .phone-card-link:hover {
+            color: var(--primary) !important;
+            text-decoration: underline !important;
+        }
     </style>
 </head>
 
@@ -442,16 +508,16 @@
     <header>
         <div class="container header-content">
             <div class="logo">
-                <img src="../icons/doctor-icon.png" alt="شعار الأطباء" onerror="this.src='https://via.placeholder.com/50/2a9d8f/ffffff?text=Dr'">
-                <h1>الأطباء الخواص</h1>
+                <img src="../icons/najda_icon_3.png" alt="شعار النجدة Dz">
+                <h1>الأطباء</h1>
             </div>
-            <a href="../pages/index.html" class="back-home"><i class="fas fa-arrow-right"></i> العودة</a>
+            <a href="../index.html" class="back-home"><i class="fas fa-arrow-right"></i> العودة</a>
         </div>
     </header>
 
     <section class="hero">
         <div class="container">
-            <h2>أقرب الأطباء الخواص إليك</h2>
+            <h2>أقرب الأطباء مختلف التخصصات إليك</h2>
             <p>ابحث عن طبيب حسب الاختصاص واعثر على أقرب عيادة</p>
             <div class="location-access">
                 <button id="getLocation" class="btn"><i class="fas fa-map-marker-alt"></i> تحديد موقعي</button>
@@ -461,19 +527,23 @@
     </section>
 
     <div class="container">
-        <!-- أزرار التصفية حسب الاختصاص -->
-        <div class="filter-section">
-            <div class="filter-buttons" id="filterButtons">
-                <!-- يتم تعبئتها بواسطة JavaScript -->
-            </div>
+        <!-- قسم البحث -->
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="ابحث عن طبيب...">
+            <button id="searchBtn"><i class="fas fa-search"></i> بحث</button>
         </div>
 
+        <!-- أزرار التصفية حسب الاختصاص -->
+        <div class="filter-section">
+            <div class="filter-buttons" id="filterButtons"></div>
+        </div>
+
+        <!-- شبكة عرض الأطباء -->
         <div id="doctorList" class="doctor-grid">
             <div class="spinner"></div>
         </div>
     </div>
 
-    <!-- Footer -->
     <footer>
         <div class="container footer-content">
             <div class="footer-grid">
@@ -490,15 +560,16 @@
                         <li><a href="hospitals.html"><i class="fas fa-hospital"></i> المستشفيات</a></li>
                         <li><a href="police.html"><i class="fas fa-shield-alt"></i> مراكز الشرطة</a></li>
                         <li><a href="gendarmerie.html"><i class="fas fa-star"></i> الدرك الوطني</a></li>
-                        <li><a href="protectioncivil.html"><i class="fas fa-fire-extinguisher"></i> الحماية المدنية</a></li>
+                        <li><a href="protectioncivil.html"><i class="fas fa-fire-extinguisher"></i> الحماية المدنية</a>
+                        </li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h4><i class="fas fa-heartbeat"></i> خدمات صحية</h4>
                     <ul>
-                        <li><a href="pharmacies.html"><i class="fas fa-prescription-bottle-alt"></i> الصيدليات</a></li>
+                        <li><a href="doctors.html"><i class="fas fa-user-md"></i>أطباء مختلف التخصصات</a></li>
                         <li><a href="laboratories.html"><i class="fas fa-vials"></i> مخابر التحاليل البيولوجية</a></li>
-                        <li><a href="doctors.html"><i class="fas fa-user-md"></i> الأطباء الخواص</a></li>
+                        <li><a href="pharmacies.html"><i class="fas fa-capsules"></i> الصيدليات</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -518,169 +589,270 @@
         <button id="scrollTopBtn"><i class="fas fa-arrow-up"></i></button>
     </footer>
 
+    <!-- تحميل البيانات من ملف خارجي -->
+    <script src="../script/doctors-data.js"></script>
+
+    <!-- السكريبت الرئيسي الموحد -->
     <script>
-        // بيانات تجريبية للأطباء الخواص
-        const doctorsData = [
-            { firstName: "محمد", lastName: "بن علي", specialty: "طب الأسنان", phone: "0550123456", wilaya: "الجزائر", baladia: "باش جراح", address: "شارع ديدوش مراد", lat: 36.7538, lon: 3.0588, workDays: "الأحد - الخميس 9ص-5م", image: null },
-            { firstName: "فاطمة", lastName: "زهراء", specialty: "طب الأعصاب", phone: "0550987654", wilaya: "وهران", baladia: "السانية", address: "حي الأطباء", lat: 35.6971, lon: -0.6308, workDays: "الأحد - الأربعاء 10ص-6م", image: null },
-            { firstName: "عبد الرحمن", lastName: "بوزيد", specialty: "الطب الداخلي", phone: "0550112233", wilaya: "قسنطينة", baladia: "الخروب", address: "شارع 1 نوفمبر", lat: 36.3650, lon: 6.6147, workDays: "السبت - الخميس 8ص-4م", image: null },
-            { firstName: "سلمى", lastName: "حساني", specialty: "طب الأطفال", phone: "0550445566", wilaya: "عنابة", baladia: "عنابة", address: "شارع العربي بن مهيدي", lat: 36.9000, lon: 7.7667, workDays: "الأحد - الثلاثاء 9ص-3م", image: null },
-            { firstName: "لخضر", lastName: "منصوري", specialty: "الجراحة العامة", phone: "0550778899", wilaya: "البليدة", baladia: "بوفاريك", address: "شارع فلسطين", lat: 36.4700, lon: 2.8330, workDays: "السبت - الأربعاء 10ص-7م", image: null },
-            { firstName: "نورة", lastName: "بكوش", specialty: "طب النساء والتوليد", phone: "0550334455", wilaya: "سطيف", baladia: "سطيف", address: "شارع العقيد عميروش", lat: 36.1900, lon: 5.4100, workDays: "الأحد - الخميس 9ص-5م", image: null },
-            { firstName: "كمال", lastName: "حمدوش", specialty: "طب العيون", phone: "0550667788", wilaya: "تيزي وزو", baladia: "تيزي وزو", address: "شارع الإخوة بوعلام", lat: 36.7169, lon: 4.0497, workDays: "الاثنين - الجمعة 8ص-2م", image: null },
-            { firstName: "نادية", lastName: "شاوي", specialty: "طب الجلدية", phone: "0550990011", wilaya: "بجاية", baladia: "بجاية", address: "حي الياسمين", lat: 36.7525, lon: 5.0556, workDays: "السبت - الأربعاء 9ص-4م", image: null },
-            { firstName: "جمال", lastName: "عياشي", specialty: "طب الأنف والأذن والحنجرة", phone: "0550223344", wilaya: "تلمسان", baladia: "تلمسان", address: "شارع الإمام", lat: 34.8828, lon: -1.3167, workDays: "الأحد - الخميس 10ص-6م", image: null },
-            { firstName: "وهيبة", lastName: "عبدلي", specialty: "طب الأعصاب", phone: "0550556677", wilaya: "باتنة", baladia: "باتنة", address: "شارع الإستقلال", lat: 35.5559, lon: 6.1741, workDays: "السبت - الأربعاء 9ص-3م", image: null },
-            { firstName: "إبراهيم", lastName: "بوجمعة", specialty: "طب الأسنان", phone: "0550889900", wilaya: "الشلف", baladia: "الشلف", address: "شارع محمد خميستي", lat: 36.1653, lon: 1.3345, workDays: "الأحد - الخميس 8ص-2م", image: null },
-            { firstName: "كريمة", lastName: "زروقي", specialty: "الطب الداخلي", phone: "0550123789", wilaya: "المسيلة", baladia: "المسيلة", address: "حي 5 جويلية", lat: 35.7058, lon: 4.5419, workDays: "السبت - الأربعاء 10ص-5م", image: null },
-            { firstName: "علي", lastName: "مزياني", specialty: "طب الأطفال", phone: "0550456789", wilaya: "برج بوعريريج", baladia: "برج بوعريريج", address: "شارع الإخوة مرسلي", lat: 36.0732, lon: 4.7611, workDays: "الأحد - الخميس 9ص-4م", image: null },
-            { firstName: "نوال", lastName: "بلخير", specialty: "الجراحة العامة", phone: "0550891234", wilaya: "بومرداس", baladia: "بومرداس", address: "شارع 20 أوت", lat: 36.7667, lon: 3.4667, workDays: "الاثنين - الجمعة 10ص-6م", image: null },
-            { firstName: "مصطفى", lastName: "لعجال", specialty: "طب النساء والتوليد", phone: "0550234567", wilaya: "المدية", baladia: "المدية", address: "شارع أحمد زبانة", lat: 36.2642, lon: 2.7539, workDays: "السبت - الأربعاء 9ص-5م", image: null },
-            { firstName: "جميلة", lastName: "بوقصة", specialty: "طب العيون", phone: "0550678901", wilaya: "تيارت", baladia: "تيارت", address: "شارع الأمير عبد القادر", lat: 35.3710, lon: 1.3160, workDays: "الأحد - الخميس 8ص-2م", image: null },
-            { firstName: "مراد", lastName: "بوبكر", specialty: "طب الجلدية", phone: "0550345678", wilaya: "سيدي بلعباس", baladia: "سيدي بلعباس", address: "شارع فلسطين", lat: 35.1900, lon: -0.6300, workDays: "السبت - الأربعاء 9ص-3م", image: null },
-            { firstName: "نادية", lastName: "قداش", specialty: "طب الأسنان", phone: "0550789012", wilaya: "مستغانم", baladia: "مستغانم", address: "شارع بن بولعيد", lat: 35.9311, lon: 0.0892, workDays: "الأحد - الخميس 9ص-5م", image: null },
-            { firstName: "عبد القادر", lastName: "سعدي", specialty: "طب الأعصاب", phone: "0550456123", wilaya: "ورقلة", baladia: "ورقلة", address: "حي النصر", lat: 31.9556, lon: 5.3411, workDays: "السبت - الأربعاء 8ص-4م", image: null },
-            { firstName: "فضيلة", lastName: "بوعلام", specialty: "الطب الداخلي", phone: "0550893456", wilaya: "بشار", baladia: "بشار", address: "شارع 1 نوفمبر", lat: 31.6167, lon: -2.2167, workDays: "الأحد - الخميس 10ص-6م", image: null },
-            // يمكن إضافة المزيد من الأطباء حتى 50...
-        ];
+        (function () {
+            // ---------- 1. التحقق من البيانات ----------
 
-        // دمج الاسم الأول واللقب في الاسم الكامل للعرض
-        const doctors = doctorsData.map(doc => ({
-            ...doc,
-            fullName: `${doc.firstName} ${doc.lastName}`,
-            // إنشاء أيقونة افتراضية بالحرف الأول من الاسم إذا لم توجد صورة
-            avatarLetter: doc.firstName.charAt(0)
-        }));
 
-        let userLat = null, userLon = null;
-        let currentFilter = 'الكل';
-
-        // استخراج الاختصاصات الفريدة
-        const specialties = ['الكل', ...new Set(doctors.map(d => d.specialty))];
-
-        // دالة حساب المسافة (هافرسين)
-        function calculateDistance(lat1, lon1, lat2, lon2) {
-            const R = 6371;
-            const dLat = (lat2 - lat1) * Math.PI / 180;
-            const dLon = (lon2 - lon1) * Math.PI / 180;
-            const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-                Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
-                Math.sin(dLon / 2) * Math.sin(dLon / 2);
-            const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-            return R * c;
-        }
-
-        // عرض أزرار التصفية
-        function renderFilterButtons() {
-            const container = document.getElementById('filterButtons');
-            container.innerHTML = '';
-            specialties.forEach(spec => {
-                const btn = document.createElement('button');
-                btn.className = `filter-btn ${spec === currentFilter ? 'active' : ''}`;
-                btn.innerText = spec;
-                btn.addEventListener('click', () => {
-                    currentFilter = spec;
-                    // تحديث الحالة النشطة
-                    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-                    btn.classList.add('active');
-                    displayDoctors();
-                });
-                container.appendChild(btn);
-            });
-        }
-
-        // عرض الأطباء
-        function displayDoctors() {
-            const container = document.getElementById('doctorList');
-            let filtered = doctors;
-            if (currentFilter !== 'الكل') {
-                filtered = doctors.filter(d => d.specialty === currentFilter);
+            // نتأكد أن البيانات محملة (من الملف الخارجي يجب أن تعرّف window.doctorsData أو متغير عام doctorsData)
+            if (typeof window.doctorsData === 'undefined' && typeof doctorsData !== 'undefined') {
+                window.doctorsData = doctorsData; // نجعلها عامة
+            }
+            if (!window.doctorsData || !Array.isArray(window.doctorsData) || window.doctorsData.length === 0) {
+                console.error('بيانات الأطباء غير موجودة أو فارغة!');
+                // يمكن وضع بيانات احتياطية أو إظهار رسالة
+                window.doctorsData = []; // مصفوفة فارغة لتجنب الأخطاء
             }
 
-            if (!userLat || !userLon) {
-                // عرض بدون ترتيب
-                let html = '';
-                filtered.forEach(d => {
-                    html += renderDoctorCard(d, null);
-                });
-                container.innerHTML = html || '<p style="text-align:center; color:#999;">لا يوجد أطباء في هذا الاختصاص</p>';
-                return;
+            // ---------- 2. المتغيرات العامة ----------
+            let userLat = null;
+            let userLon = null;
+            let currentFilter = 'الكل'; // التصنيف الحالي
+
+            // تحويل البيانات إلى الشكل المطلوب (إضافة fullName)
+            const doctors = window.doctorsData.map(doc => ({
+                ...doc,
+                fullName: doc.firstName && doc.lastName ? `${doc.firstName} ${doc.lastName}` : (doc.name || 'طبيب'),
+                avatarLetter: doc.firstName ? doc.firstName.charAt(0) : 'ط'
+            }));
+
+            // استخراج الاختصاصات الفريدة
+            const specialties = ['الكل', ...new Set(doctors.map(d => d.specialty).filter(s => s))];
+
+            // ---------- 3. الدوال المساعدة ----------
+            function calculateDistance(lat1, lon1, lat2, lon2) {
+                if (!lat1 || !lon1 || !lat2 || !lon2) return Infinity;
+                const R = 6371;
+                const dLat = (lat2 - lat1) * Math.PI / 180;
+                const dLon = (lon2 - lon1) * Math.PI / 180;
+                const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                    Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+                    Math.sin(dLon / 2) * Math.sin(dLon / 2);
+                const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+                return R * c;
             }
 
-            // حساب المسافة والترتيب
-            const withDistance = filtered.map(d => {
-                const dist = calculateDistance(userLat, userLon, d.lat, d.lon);
-                return { ...d, distance: dist };
-            }).sort((a, b) => a.distance - b.distance);
+            // دالة عرض بطاقة طبيب
+            function renderDoctorCard(doctor, distance) {
+                const distText = distance ? `<div class="distance-badge"><i class="fas fa-location-dot"></i> ${distance} كم</div>` : '';
+                const googleMapsLink = `https://www.google.com/maps/dir/?api=1&destination=${doctor.lat},${doctor.lon}`;
 
-            let html = '';
-            withDistance.forEach(d => {
-                html += renderDoctorCard(d, d.distance.toFixed(1));
-            });
-            container.innerHTML = html || '<p style="text-align:center; color:#999;">لا يوجد أطباء في هذا الاختصاص</p>';
-        }
+                // إنشاء محتوى الصورة الرمزية (أيقونة أو صورة حقيقية)
+                const avatarHtml = doctor.image ?
+                    `<img src="${doctor.image}" alt="${doctor.fullName}">` :
+                    `<i class="fas fa-user-md"></i>`;
 
-        function renderDoctorCard(doc, distance) {
-            const distText = distance ? `<div class="distance-badge"><i class="fas fa-location-dot"></i> ${distance} كم</div>` : '';
-            const googleMapsLink = `https://www.google.com/maps/dir/?api=1&destination=${doc.lat},${doc.lon}`;
-            // صورة شخصية (إذا لم توجد نستخدم أيقونة)
-            const avatarHtml = doc.image ?
-                `<img src="${doc.image}" alt="${doc.fullName}">` :
-                `<i class="fas fa-user-md"></i>`;
+                // تنظيف رقم الهاتف من الرموز غير الرقمية مع الاحتفاظ بـ +
+                const cleanPhone = doctor.phone ? doctor.phone.replace(/[^\d+]/g, '') : '';
+                // إنشاء رابط اتصال مع اتجاه LTR للأرقام
+                const phoneLink = doctor.phone ?
+                    `<a href="tel:${cleanPhone}" class="phone-card-link" dir="ltr" style="text-decoration:none; color:inherit;">${doctor.phone}</a>` :
+                    '';
 
-            return `
-                <div class="doctor-card">
-                    <div class="doctor-header">
-                        <div class="doctor-avatar">
-                            ${avatarHtml}
-                        </div>
-                        <div>
-                            <div class="doctor-name">${doc.fullName}</div>
-                            <div class="doctor-specialty"><i class="fas fa-stethoscope"></i> ${doc.specialty}</div>
-                        </div>
-                    </div>
-                    <div class="doctor-detail"><i class="fas fa-map-marker-alt"></i> ولاية: ${doc.wilaya} - بلدية: ${doc.baladia}</div>
-                    <div class="doctor-detail"><i class="fas fa-phone"></i> ${doc.phone}</div>
-                    <div class="doctor-detail"><i class="fas fa-address-card"></i> ${doc.address}</div>
-                    <div class="work-days"><i class="fas fa-calendar-alt"></i> ${doc.workDays}</div>
-                    ${distText}
-                    <a href="${googleMapsLink}" target="_blank" class="google-route-btn"><i class="fab fa-google"></i> التوجه عبر خرائط Google</a>
+                return `
+        <div class="doctor-card">
+            <div class="doctor-header">
+                <div class="doctor-avatar">${avatarHtml}</div>
+                <div>
+                    <div class="doctor-name">${doctor.fullName}</div>
+                    <div class="doctor-specialty"><i class="fas fa-stethoscope"></i> ${doctor.specialty || 'عام'}</div>
                 </div>
-            `;
-        }
-
-        // تحديد الموقع الجغرافي
-        document.getElementById('getLocation').addEventListener('click', function () {
-            const status = document.getElementById('locationStatus');
-            if (!navigator.geolocation) {
-                status.innerText = 'المتصفح لا يدعم تحديد الموقع';
-                return;
+            </div>
+            <div class="doctor-detail"><i class="fas fa-map-marker-alt"></i> ولاية: ${doctor.wilaya || ''} - بلدية: ${doctor.baladia || ''}</div>
+            <div class="doctor-detail"><i class="fas fa-phone"></i> ${phoneLink}</div>
+            <div class="doctor-detail"><i class="fas fa-address-card"></i> ${doctor.address || ''}</div>
+            <div class="work-days"><i class="fas fa-calendar-alt"></i> ${doctor.workDays || 'غير محدد'}</div>
+            ${distText}
+            <a href="${googleMapsLink}" target="_blank" class="google-route-btn"><i class="fab fa-google"></i> التوجه عبر خرائط Google</a>
+        </div>
+    `;
             }
-            status.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري تحديد الموقع...';
-            navigator.geolocation.getCurrentPosition(
-                (position) => {
-                    userLat = position.coords.latitude;
-                    userLon = position.coords.longitude;
-                    status.innerHTML = `<i class="fas fa-check-circle"></i> تم تحديد موقعك بنجاح`;
-                    displayDoctors();
-                },
-                (error) => {
-                    status.innerText = 'فشل تحديد الموقع: ' + error.message;
-                    displayDoctors();
+
+            // دالة عرض قائمة الأطباء (مرشحة حسب الفلتر والبحث والموقع)
+            function displayDoctors(filteredDoctors = null) {
+                const container = document.getElementById('doctorList');
+                if (!container) return;
+
+                // إذا تم تمرير قائمة محددة استخدمها، وإلا استخدم الأطباء مع تطبيق الفلتر
+                let listToShow = filteredDoctors !== null ? filteredDoctors : doctors;
+
+                // تطبيق فلتر الاختصاص
+                if (currentFilter !== 'الكل') {
+                    listToShow = listToShow.filter(d => d.specialty === currentFilter);
                 }
-            );
-        });
 
-        // زر العودة للأعلى
-        const scrollTopBtn = document.getElementById('scrollTopBtn');
-        scrollTopBtn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
+                if (listToShow.length === 0) {
+                    container.innerHTML = `
+                        <div class="no-results">
+                            <i class="fas fa-user-md"></i>
+                            <p>لا يوجد أطباء مطابقين لمعايير البحث.</p>
+                        </div>
+                    `;
+                    return;
+                }
 
-        // تهيئة الصفحة
-        renderFilterButtons();
-        displayDoctors();
+                // إذا كان الموقع متاحاً، نحسب المسافة ونرتب
+                if (userLat && userLon) {
+                    const withDistance = listToShow.map(d => {
+                        const dist = calculateDistance(userLat, userLon, d.lat, d.lon);
+                        return { ...d, distance: dist };
+                    }).sort((a, b) => a.distance - b.distance);
+
+                    let html = '';
+                    withDistance.forEach(d => {
+                        html += renderDoctorCard(d, d.distance.toFixed(1));
+                    });
+                    container.innerHTML = html;
+                } else {
+                    // بدون موقع، عرض بدون مسافة
+                    let html = '';
+                    listToShow.forEach(d => {
+                        html += renderDoctorCard(d, null);
+                    });
+                    container.innerHTML = html;
+                }
+            }
+
+            // دالة إنشاء أزرار التصفية
+            function renderFilterButtons() {
+                const container = document.getElementById('filterButtons');
+                if (!container) return;
+                container.innerHTML = '';
+                specialties.forEach(spec => {
+                    const btn = document.createElement('button');
+                    btn.className = `filter-btn ${spec === currentFilter ? 'active' : ''}`;
+                    btn.innerText = spec;
+                    btn.addEventListener('click', () => {
+                        currentFilter = spec;
+                        // تحديث الحالة النشطة
+                        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                        btn.classList.add('active');
+                        // إعادة العرض مع إعادة تعيين البحث (يمكن الاحتفاظ بنص البحث إذا أردت)
+                        performSearch(false); // false يعني لا نغير نص البحث
+                    });
+                    container.appendChild(btn);
+                });
+            }
+
+            // دالة البحث
+            function performSearch(resetFilter = true) {
+                const searchInput = document.getElementById('searchInput');
+                const query = searchInput ? searchInput.value.trim().toLowerCase() : '';
+
+                if (query === '') {
+                    // إذا كان البحث فارغاً، نعرض كل الأطباء مع الفلتر الحالي
+                    displayDoctors();
+                    return;
+                }
+
+                // تصفية الأطباء حسب الاسم، الولاية، البلدية، التخصص، رقم الهاتف
+                const filtered = doctors.filter(doc => {
+                    return (doc.fullName && doc.fullName.toLowerCase().includes(query)) ||
+                        (doc.firstName && doc.firstName.toLowerCase().includes(query)) ||
+                        (doc.lastName && doc.lastName.toLowerCase().includes(query)) ||
+                        (doc.wilaya && doc.wilaya.toLowerCase().includes(query)) ||
+                        (doc.baladia && doc.baladia.toLowerCase().includes(query)) ||
+                        (doc.specialty && doc.specialty.toLowerCase().includes(query)) ||
+                        (doc.phone && doc.phone.includes(query));
+                });
+
+                if (filtered.length === 0) {
+                    // عرض رابط بحث Google
+                    const googleSearchUrl = `https://www.google.com/search?q=${encodeURIComponent(query)}+طبيب+الجزائر`;
+                    const container = document.getElementById('doctorList');
+                    if (container) {
+                        container.innerHTML = `
+                            <div class="no-results">
+                                <i class="fas fa-search"></i>
+                                <p>لم نتمكن من العثور على "${searchInput.value}" في قاعدة بياناتنا.</p>
+                                <p>قد تجد النتائج التي تبحث عنها عبر 
+                                    <a href="${googleSearchUrl}" target="_blank" class="google-fallback-link">
+                                        <i class="fab fa-google"></i> بحث Google
+                                    </a>
+                                </p>
+                            </div>
+                        `;
+                    }
+                } else {
+                    displayDoctors(filtered);
+                }
+            }
+
+            // ---------- 4. التعامل مع الموقع الجغرافي والتخزين المحلي ----------
+            function loadStoredLocation() {
+                const savedLat = localStorage.getItem('userLat');
+                const savedLon = localStorage.getItem('userLon');
+                const savedTime = localStorage.getItem('locationTimestamp');
+                const ONE_HOUR = 60 * 60 * 1000;
+
+                if (savedLat && savedLon && savedTime && (Date.now() - savedTime < ONE_HOUR)) {
+                    userLat = parseFloat(savedLat);
+                    userLon = parseFloat(savedLon);
+                    document.getElementById('locationStatus').innerHTML =
+                        '<i class="fas fa-check-circle"></i> تم استخدام موقعك المخزن';
+                    return true;
+                }
+                return false;
+            }
+
+            // حدث تحديد الموقع
+            document.getElementById('getLocation')?.addEventListener('click', function () {
+                const status = document.getElementById('locationStatus');
+                if (!navigator.geolocation) {
+                    status.innerText = 'المتصفح لا يدعم تحديد الموقع';
+                    return;
+                }
+                status.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري تحديد الموقع...';
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        userLat = position.coords.latitude;
+                        userLon = position.coords.longitude;
+                        // تخزين الموقع مع الوقت
+                        localStorage.setItem('userLat', userLat);
+                        localStorage.setItem('userLon', userLon);
+                        localStorage.setItem('locationTimestamp', Date.now());
+                        status.innerHTML = '<i class="fas fa-check-circle"></i> تم تحديد موقعك بنجاح';
+                        // إعادة عرض الأطباء مع الموقع الجديد
+                        displayDoctors();
+                    },
+                    (error) => {
+                        status.innerText = 'فشل تحديد الموقع: ' + error.message;
+                        displayDoctors(); // عرض بدون ترتيب
+                    }
+                );
+            });
+
+            // زر العودة للأعلى
+            document.getElementById('scrollTopBtn')?.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // أحداث البحث
+            const searchBtn = document.getElementById('searchBtn');
+            const searchInput = document.getElementById('searchInput');
+            if (searchBtn && searchInput) {
+                searchBtn.addEventListener('click', () => performSearch());
+                searchInput.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') performSearch();
+                });
+            }
+
+            // ---------- 5. تهيئة الصفحة ----------
+            // محاولة تحميل الموقع المخزن
+            const locationLoaded = loadStoredLocation();
+
+            // رسم أزرار التصفية
+            renderFilterButtons();
+
+            // عرض الأطباء (إذا كان هناك موقع مخزن سيتم الترتيب، وإلا عرض بدون)
+            displayDoctors();
+        })();
     </script>
+
 </body>
 
 </html>

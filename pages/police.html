@@ -400,11 +400,22 @@
             font-weight: 700;
             margin: 0;
         }
+
+        .phone-card-link {
+            transition: color 0.2s ease;
+            display: inline-block;
+        }
+
+        .phone-card-link:hover {
+            color: var(--primary) !important;
+            text-decoration: underline !important;
+        }
     </style>
 
 </head>
 
 <body>
+
     <header>
         <div class="container header-content">
             <div class="logo">
@@ -425,6 +436,96 @@
             <div id="locationStatus" style="color: #ffdddd;"></div>
         </div>
     </section>
+
+
+    <!-- قسم البحث -->
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="ابحث عن مركز شرطة ...">
+        <button id="searchBtn"><i class="fas fa-search"></i> بحث</button>
+    </div>
+
+    <style>
+                .search-container {
+            display: flex;
+            gap: 10px;
+            margin: 20px auto;
+            max-width: 800px;
+            background: white;
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        #searchInput {
+            flex: 1;
+            padding: 12px 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: 'Cairo', sans-serif;
+            transition: 0.3s;
+        }
+
+        #searchInput:focus {
+            border-color: var(--police-color);
+            outline: none;
+        }
+
+        #searchBtn {
+            background: var(--police-color);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 0 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.3s;
+        }
+
+        #searchBtn:hover {
+            background: #0a3a7a;
+            transform: translateY(-2px);
+        }
+
+
+        .no-results {
+            text-align: center;
+            padding: 40px 20px;
+            background: #f9f9f9;
+            border-radius: 12px;
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .no-results i {
+            font-size: 3rem;
+            color: #ff9800;
+            margin-bottom: 15px;
+        }
+
+        .google-fallback-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #4285f4;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            margin-top: 10px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .google-fallback-link:hover {
+            background: #3367d6;
+            transform: translateY(-2px);
+        }
+    </style>
 
     <div class="container">
         <div id="policeList" class="police-grid">
@@ -464,10 +565,11 @@
                 <div class="footer-col">
                     <h4><i class="fas fa-heartbeat"></i> خدمات صحية</h4>
                     <ul>
-                        <li><a href="pharmacies.html"><i class="fas fa-prescription-bottle-alt"></i> الصيدليات</a>
-                        </li>
-                        <li><a href="laboratories.html"><i class="fas fa-vials"></i> مخابر التحاليل البيولوجية</a>
-                        </li>
+                    <ul>
+                        <li><a href="doctors.html"><i class="fas fa-user-md"></i>أطباء مختلف التخصصات</a></li>
+                        <li><a href="laboratories.html"><i class="fas fa-vials"></i> مخابر التحاليل البيولوجية</a></li>
+                        <li><a href="pharmacies.html"><i class="fas fa-capsules"></i> الصيدليات</a></li>
+                    </ul>
                     </ul>
                 </div>
 
@@ -495,61 +597,106 @@
         <button id="scrollTopBtn"><i class="fas fa-arrow-up"></i></button>
     </footer>
 
+    <!-- إضافة رابط ملف البيانات قبل الـ script -->
+    <script src="../script/police-data.js"></script>
+
     <script>
-        // بيانات تجريبية لمراكز الشرطة (يمكن استبدالها ب API حقيقي)
-        const policeData = [
-            { name: "أمن ولاية تيميمون", wilaya: "تيميمون", baladia: "تيميمون", phone: "049300366", lat: 29.2639, lon: 0.2300 },
-            { name: "أمن ولاية برج باجي مختار", wilaya: "برج باجي مختار", baladia: "برج باجي مختار", phone: "049326702", lat: 21.3278, lon: 0.9539 },
-            { name: "أمن ولاية أولاد جلال", wilaya: "أولاد جلال", baladia: "أولاد جلال", phone: "033666670", lat: 34.4167, lon: 5.0667 },
-            { name: "أمن ولاية بني عباس", wilaya: "بني عباس", baladia: "بني عباس", phone: "049285330", lat: 30.1333, lon: -2.1667 },
-            { name: "أمن ولاية إن صالح", wilaya: "إن صالح", baladia: "إن صالح", phone: "029365551", lat: 27.2000, lon: 2.4833 },
-            { name: "أمن ولاية إن قزام", wilaya: "إن قزام", baladia: "إن قزام", phone: "029354132", lat: 19.5667, lon: 5.7500 },
-            { name: "أمن ولاية توقرت", wilaya: "توقرت", baladia: "توقرت", phone: "029663935", lat: 33.1053, lon: 6.0574 },
-            { name: "أمن ولاية جانت", wilaya: "جانت", baladia: "جانت", phone: "029480442", lat: 24.5542, lon: 9.4847 },
-            { name: "أمن ولاية المغير", wilaya: "المغير", baladia: "المغير", phone: "032186547", lat: 33.9500, lon: 5.9167 },
-            { name: "أمن ولاية المنيعة", wilaya: "المنيعة", baladia: "المنيعة", phone: "029212030", lat: 30.5833, lon: 2.8833 },
-            { name: "أمن ولاية أدرار", wilaya: "أدرار", baladia: "أدرار", phone: "049361020", lat: 27.8743, lon: -0.2939 },
-            { name: "أمن ولاية الشلف", wilaya: "الشلف", baladia: "الشلف", phone: "027771000", lat: 36.1653, lon: 1.3345 },
-            { name: "أمن ولاية الأغواط", wilaya: "الأغواط", baladia: "الأغواط", phone: "029152124", lat: 33.8076, lon: 2.8651 },
-            { name: "أمن ولاية أم البواقي", wilaya: "أم البواقي", baladia: "أم البواقي", phone: "032521409", lat: 35.8754, lon: 7.1135 },
-            { name: "أمن ولاية باتنة", wilaya: "باتنة", baladia: "باتنة", phone: "033857944", lat: 35.5559, lon: 6.1741 },
-            { name: "أمن ولاية بجاية", wilaya: "بجاية", baladia: "بجاية", phone: "034163646", lat: 36.7525, lon: 5.0556 },
-            { name: "أمن ولاية بسكرة", wilaya: "بسكرة", baladia: "بسكرة", phone: "033502008", lat: 34.8515, lon: 5.7280 },
-            { name: "أمن ولاية بشار", wilaya: "بشار", baladia: "بشار", phone: "049244902", lat: 31.6167, lon: -2.2167 },
-            { name: "أمن ولاية البليدة", wilaya: "البليدة", baladia: "البليدة", phone: "025237927", lat: 36.4700, lon: 2.8330 },
-            { name: "أمن ولاية البويرة", wilaya: "البويرة", baladia: "البويرة", phone: "026727701", lat: 36.3800, lon: 3.9000 },
-            { name: "أمن ولاية تمنراست", wilaya: "تمنراست", baladia: "تمنراست", phone: "029318032", lat: 22.7850, lon: 5.5228 },
-            { name: "أمن ولاية تبسة", wilaya: "تبسة", baladia: "تبسة", phone: "037510031", lat: 35.4042, lon: 8.1242 },
-            { name: "أمن ولاية تلمسان", wilaya: "تلمسان", baladia: "تلمسان", phone: "043417905", lat: 34.8828, lon: -1.3167 },
-            { name: "أمن ولاية تيارت", wilaya: "تيارت", baladia: "تيارت", phone: "046203504", lat: 35.3710, lon: 1.3160 },
-            { name: "أمن ولاية تيزي وزو", wilaya: "تيزي وزو", baladia: "تيزي وزو", phone: "026194930", lat: 36.7169, lon: 4.0497 },
-            { name: "أمن ولاية الجزائر", wilaya: "الجزائر", baladia: "الجزائر", phone: "023498200", lat: 36.7538, lon: 3.0588 },
-            { name: "أمن ولاية الجلفة", wilaya: "الجلفة", baladia: "الجلفة", phone: "027908701", lat: 34.6728, lon: 3.2630 },
-            { name: "أمن ولاية جيجل", wilaya: "جيجل", baladia: "جيجل", phone: "034472046", lat: 36.8200, lon: 5.7667 },
-            { name: "أمن ولاية سطيف", wilaya: "سطيف", baladia: "سطيف", phone: "036441533", lat: 36.1900, lon: 5.4100 },
-            { name: "أمن ولاية سعيدة", wilaya: "سعيدة", baladia: "سعيدة", phone: "048428912", lat: 34.8300, lon: 0.1517 },
-            { name: "أمن ولاية سكيكدة", wilaya: "سكيكدة", baladia: "سكيكدة", phone: "038756805", lat: 36.8762, lon: 6.9092 },
-            { name: "أمن ولاية سيدي بلعباس", wilaya: "سيدي بلعباس", baladia: "سيدي بلعباس", phone: "048711309", lat: 35.1900, lon: -0.6300 },
-            { name: "أمن ولاية عنابة", wilaya: "عنابة", baladia: "عنابة", phone: "038402500", lat: 36.9000, lon: 7.7667 },
-            { name: "أمن ولاية قالمة", wilaya: "قالمة", baladia: "قالمة", phone: "037260630", lat: 36.4621, lon: 7.4337 },
-            { name: "أمن ولاية قسنطينة", wilaya: "قسنطينة", baladia: "قسنطينة", phone: "031926481", lat: 36.3650, lon: 6.6147 },
-            { name: "أمن ولاية المدية", wilaya: "المدية", baladia: "المدية", phone: "025734907", lat: 36.2642, lon: 2.7539 },
-            { name: "أمن ولاية مستغانم", wilaya: "مستغانم", baladia: "مستغانم", phone: "045352837", lat: 35.9311, lon: 0.0892 },
-            { name: "أمن ولاية المسيلة", wilaya: "المسيلة", baladia: "المسيلة", phone: "035350100", lat: 35.7058, lon: 4.5419 },
-            { name: "أمن ولاية معسكر", wilaya: "معسكر", baladia: "معسكر", phone: "045753510", lat: 35.3966, lon: 0.1403 },
-            { name: "أمن ولاية ورقلة", wilaya: "ورقلة", baladia: "ورقلة", phone: "029600061", lat: 31.9556, lon: 5.3411 },
-            { name: "أمن ولاية وهران", wilaya: "وهران", baladia: "وهران", phone: "041242880", lat: 35.6971, lon: -0.6308 },
-            { name: "أمن ولاية البيض", wilaya: "البيض", baladia: "البيض", phone: "049614001", lat: 33.6843, lon: 1.0193 },
-            { name: "أمن ولاية إليزي", wilaya: "إليزي", baladia: "إليزي", phone: "029411071", lat: 26.4833, lon: 8.4667 },
-            { name: "أمن ولاية برج بوعريريج", wilaya: "برج بوعريريج", baladia: "برج بوعريريج", phone: "035722913", lat: 36.0732, lon: 4.7611 },
-            { name: "أمن ولاية بومرداس", wilaya: "بومرداس", baladia: "بومرداس", phone: "024949412", lat: 36.7667, lon: 3.4667 },
-            { name: "أمن ولاية الطارف", wilaya: "الطارف", baladia: "الطارف", phone: "038301401", lat: 36.7672, lon: 8.3138 },
-            { name: "أمن ولاية تندوف", wilaya: "تندوف", baladia: "تندوف", phone: "049372902", lat: 27.6711, lon: -8.1474 },
-            { name: "أمن ولاية تيسمسيلت", wilaya: "تيسمسيلت", baladia: "تيسمسيلت", phone: "046575530", lat: 35.6072, lon: 1.8108 },
-            { name: "أمن ولاية الوادي", wilaya: "الوادي", baladia: "الوادي", phone: "032112904", lat: 33.3683, lon: 6.8674 }
-        ];
 
         let userLat = null, userLon = null;
+
+        // استرجاع الموقع المخزن
+        const savedLat = localStorage.getItem('userLat');
+        const savedLon = localStorage.getItem('userLon');
+        const savedTime = localStorage.getItem('locationTimestamp');
+        const ONE_HOUR = 60 * 60 * 1000;
+
+        if (savedLat && savedLon && savedTime && (Date.now() - savedTime < ONE_HOUR)) {
+            userLat = parseFloat(savedLat);
+            userLon = parseFloat(savedLon);
+            document.getElementById('locationStatus').innerHTML =
+                '<i class="fas fa-check-circle"></i> تم استخدام موقعك المخزن';
+            displayPolice();
+        } else {
+            displayPolice(); // عرض بدون ترتيب
+        }
+
+
+        // استخدام window.policeData مباشرة
+        function displayPolice() {
+            const container = document.getElementById('policeData');
+            if (!userLat || !userLon) {
+                let html = '';
+                window.policeData.forEach(p => {
+                    html += renderPoliceCard(p, null);
+                });
+                container.innerHTML = html || '<p>لا توجد بيانات</p>';
+                return;
+            }
+
+            const withDistance = window.policeData.map(p => {
+                const dist = calculateDistance(userLat, userLon, p.lat, p.lon);
+                return { ...p, distance: dist };
+            }).sort((a, b) => a.distance - b.distance);
+
+            let html = '';
+            withDistance.forEach(p => {
+                html += renderPoliceCard(p, p.distance.toFixed(1));
+            });
+            container.innerHTML = html;
+        }
+
+        // عناصر البحث
+        const searchInput = document.getElementById('searchInput');
+        const searchBtn = document.getElementById('searchBtn');
+
+        // دالة البحث
+        function performSearch() {
+            const query = searchInput.value.trim().toLowerCase();
+            if (query === '') {
+                // إعادة عرض جميع البيانات (بدون موقع)
+                displayPolice(); // هذه الدالة تستخدم policeData وترتب حسب المسافة إن وجدت
+                return;
+            }
+
+            // تصفية البيانات (policeData هي المصفوفة العامة)
+            const filtered = policeData.filter(item => {
+                return item.name.toLowerCase().includes(query) ||
+                    (item.wilaya && item.wilaya.toLowerCase().includes(query)) ||
+                    (item.baladia && item.baladia.toLowerCase().includes(query)) ||
+                    (item.phone && item.phone.includes(query));
+            });
+
+            // عرض النتائج
+            const container = document.getElementById('policeList');
+            if (filtered.length === 0) {
+                // رسالة عدم وجود نتائج + رابط بحث Google
+                const googleSearchUrl = `https://www.google.com/search?q=${encodeURIComponent(query)}+الجزائر+مركز+شرطة`;
+                container.innerHTML = `
+            <div class="no-results">
+                <i class="fas fa-exclamation-triangle"></i>
+                <p>لم نتمكن من العثور على "${searchInput.value}" في قاعدة بياناتنا.</p>
+                <p>قد تجد النتائج التي تبحث عنها عبر 
+                    <a href="${googleSearchUrl}" target="_blank" class="google-fallback-link">
+                        <i class="fab fa-google"></i> بحث Google
+                    </a>
+                </p>
+            </div>
+        `;
+            } else {
+                // عرض النتائج (بدون مسافات، لأننا لا نعرف موقع المستخدم)
+                let html = '';
+                filtered.forEach(p => {
+                    html += renderPoliceCard(p, null); // نستخدم دالة العرض الموجودة
+                });
+                container.innerHTML = html;
+            }
+        }
+
+        // أحداث البحث
+        searchBtn.addEventListener('click', performSearch);
+        searchInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') performSearch();
+        });
 
         // دالة حساب المسافة (هافرسين)
         function calculateDistance(lat1, lon1, lat2, lon2) {
@@ -589,19 +736,28 @@
             container.innerHTML = html;
         }
 
+        // دالة عرض بطاقة الشرطة
+
         function renderPoliceCard(p, distance) {
             const distText = distance ? `<div class="distance-badge"><i class="fas fa-location-dot"></i> ${distance} كم</div>` : '';
             const googleMapsLink = `https://www.google.com/maps/dir/?api=1&destination=${p.lat},${p.lon}`;
+
+            // تنظيف رقم الهاتف من الرموز غير الرقمية (الشرطات، المسافات) مع الاحتفاظ بـ +
+            const cleanPhone = p.phone ? p.phone.replace(/[^\d+]/g, '') : '';
+
             return `
-                <div class="police-card">
-                    <div class="police-icon"><i class="fas fa-shield-alt"></i></div>
-                    <div class="police-name">${p.name}</div>
-                    <div class="police-detail"><i class="fas fa-map-marker-alt"></i> ولاية: ${p.wilaya} - بلدية: ${p.baladia}</div>
-                    <div class="police-detail"><i class="fas fa-phone"></i> ${p.phone}</div>
-                    ${distText}
-                    <a href="${googleMapsLink}" target="_blank" class="google-route-btn"><i class="fab fa-google"></i> التوجه عبر خرائط Google</a>
-                </div>
-            `;
+        <div class="police-card">
+            <div class="police-icon"><i class="fas fa-shield-alt"></i></div>
+            <div class="police-name">${p.name}</div>
+            <div class="police-detail"><i class="fas fa-map-marker-alt"></i> ولاية: ${p.wilaya} - بلدية: ${p.baladia}</div>
+            <div class="police-detail">
+                <i class="fas fa-phone"></i> 
+                <a href="tel:${cleanPhone}" class="phone-card-link" dir="ltr" style="text-decoration:none; color:inherit;">${p.phone}</a>
+            </div>
+            ${distText}
+            <a href="${googleMapsLink}" target="_blank" class="google-route-btn"><i class="fab fa-google"></i> التوجه عبر خرائط Google</a>
+        </div>
+    `;
         }
 
         // تحديد الموقع الجغرافي
@@ -619,6 +775,7 @@
                     status.innerHTML = `<i class="fas fa-check-circle"></i> تم تحديد موقعك بنجاح`;
                     displayPolice();
                 },
+
                 (error) => {
                     status.innerText = 'فشل تحديد الموقع: ' + error.message;
                     displayPolice(); // عرض بدون ترتيب
@@ -629,6 +786,7 @@
         // عرض أولي بدون موقع
         displayPolice();
     </script>
+
 </body>
 
 </html>
