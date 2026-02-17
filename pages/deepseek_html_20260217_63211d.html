@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خدمات النجدة والطوارئ - الجزائر | اشتراكات مدفوعة ومجانية</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        :root {
+            --primary: #e63946;
+            --secondary: #1d3557;
+            --accent: #457b9d;
+            --light: #f1faee;
+            --warning: #ff9e00;
+            --success: #2a9d8f;
+            --gold: #ffd700;
+            --silver: #c0c0c0;
+        }
+
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--accent) 100%);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo i {
+            font-size: 2.2rem;
+            color: var(--primary);
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(29, 53, 87, 0.9), rgba(69, 123, 157, 0.9)), url('https://images.unsplash.com/photo-1582719508461-905c673771fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 1.5rem;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .btn-secondary {
+            background-color: var(--accent);
+            color: white;
+        }
+
+        .btn-success {
+            background-color: var(--success);
+            color: white;
+        }
+
+        .btn-gold {
+            background-color: var(--gold);
+            color: var(--secondary);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Plans Section */
+        .plans-section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        .section-title p {
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .plans-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 2rem;
+        }
+
+        .plan-card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid transparent;
+        }
+
+        .plan-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .plan-card.premium {
+            border-color: var(--gold);
+        }
+
+        .plan-card.free {
+            border-color: var(--silver);
+        }
+
+        .plan-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: var(--gold);
+            color: var(--secondary);
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.8rem;
+        }
+
+        .plan-card.free .plan-badge {
+            background-color: var(--silver);
+            color: white;
+        }
+
+        .plan-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: rgba(69, 123, 157, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2.5rem;
+            color: var(--accent);
+        }
+
+        .plan-card.premium .plan-icon {
+            color: var(--gold);
+        }
+
+        .plan-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            text-align: center;
+            color: var(--secondary);
+        }
+
+        .plan-price {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .plan-price span {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        .plan-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .plan-features li {
+            padding: 8px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .plan-features li i {
+            color: var(--success);
+        }
+
+        .plan-card.free .plan-features li i {
+            color: var(--silver);
+        }
+
+        /* Registration Form Section */
+        .registration-section {
+            background-color: white;
+            border-radius: 12px;
+            padding: 3rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            margin: 3rem 0;
+        }
+
+        .form-title {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .form-title h3 {
+            font-size: 1.8rem;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group.full-width {
+            grid-column: span 2;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--secondary);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .payment-methods {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 0.5rem;
+        }
+
+        .payment-method {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-submit {
+            background-color: var(--success);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 700;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+
+        .btn-submit:hover {
+            background-color: #21867a;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: white;
+            width: 90%;
+            max-width: 400px;
+            border-radius: 12px;
+            overflow: hidden;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .modal-icon {
+            font-size: 4rem;
+            color: var(--success);
+            margin-bottom: 1rem;
+        }
+
+        .modal h3 {
+            font-size: 1.5rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        .modal p {
+            margin-bottom: 1.5rem;
+            color: #666;
+        }
+
+        .modal .btn {
+            width: 100%;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary);
+            color: white;
+            padding: 2rem 0;
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 20px;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-group.full-width {
+                grid-column: span 1;
+            }
+
+            .registration-section {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <i class="fas fa-crosshairs"></i>
+                <h1>الطوارئ والنجدة في الجزائر</h1>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">الرئيسية</a>
+                <a href="#" class="active">الخدمات المدفوعة</a>
+                <a href="#">الخدمات المجانية</a>
+                <a href="#">اتصل بنا</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <h2>خدمات الطوارئ والنجدة المدفوعة والمجانية</h2>
+            <p>استفد من خدماتنا المجانية للوصول السريع إلى المستشفيات والشرطة والجيش والدفاع المدني. أو اشترك في الباقات المدفوعة المخصصة للأطباء ومخابر التحاليل والصيادلة للظهور في نتائج البحث والوصول إلى المزيد من المميزات.</p>
+            <div>
+                <a href="#plans" class="btn btn-primary">عرض الباقات</a>
+                <a href="#registration" class="btn btn-secondary">اشترك الآن</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Plans Section -->
+    <section id="plans" class="plans-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>باقات الاشتراك</h2>
+                <p>اختر الباقة المناسبة لظهورك في منصتنا والوصول إلى آلاف الباحثين عن خدمات الطوارئ والنجدة في الجزائر.</p>
+            </div>
+
+            <div class="plans-grid">
+                <!-- Free Plan -->
+                <div class="plan-card free">
+                    <div class="plan-badge">مجاني</div>
+                    <div class="plan-icon">
+                        <i class="fas fa-hospital"></i>
+                    </div>
+                    <h3 class="plan-title">الباقة المجانية</h3>
+                    <div class="plan-price">0 د.ج <span>/ شهرياً</span></div>
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check-circle"></i> عرض المستشفيات والخدمات العامة</li>
+                        <li><i class="fas fa-check-circle"></i> الوصول إلى خريطة الطوارئ</li>
+                        <li><i class="fas fa-check-circle"></i> أرقام الطوارئ الأساسية</li>
+                        <li><i class="fas fa-times-circle" style="color: #999;"></i> ظهور في نتائج البحث المدفوعة</li>
+                        <li><i class="fas fa-times-circle" style="color: #999;"></i> إعلانات ممولة</li>
+                    </ul>
+                    <a href="#" class="btn btn-secondary" style="width: 100%; justify-content: center;">الاستمرار مجاناً</a>
+                </div>
+
+                <!-- Premium Plan for Doctors -->
+                <div class="plan-card premium">
+                    <div class="plan-badge">مدفوع</div>
+                    <div class="plan-icon">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <h3 class="plan-title">باقة الأطباء</h3>
+                    <div class="plan-price">2500 د.ج <span>/ شهرياً</span></div>
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check-circle"></i> ظهور عيادتك في بحث المستشفيات</li>
+                        <li><i class="fas fa-check-circle"></i> أيقونة مميزة (طبيب معتمد)</li>
+                        <li><i class="fas fa-check-circle"></i> إمكانية إضافة أوقات العمل والتخصص</li>
+                        <li><i class="fas fa-check-circle"></i> رابط مباشر للحجز عبر الهاتف</li>
+                        <li><i class="fas fa-check-circle"></i> إحصائيات الزوار</li>
+                    </ul>
+                    <button class="btn btn-gold" style="width: 100%; justify-content: center;" onclick="selectPlan('طبيب')">اختيار الباقة</button>
+                </div>
+
+                <!-- Premium Plan for Labs -->
+                <div class="plan-card premium">
+                    <div class="plan-badge">مدفوع</div>
+                    <div class="plan-icon">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <h3 class="plan-title">مخابر التحاليل</h3>
+                    <div class="plan-price">2000 د.ج <span>/ شهرياً</span></div>
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check-circle"></i> ظهور المختبر في بحث الخدمات</li>
+                        <li><i class="fas fa-check-circle"></i> إظهار التحاليل المتوفرة</li>
+                        <li><i class="fas fa-check-circle"></i> أوقات العمل والعنوان الدقيق</li>
+                        <li><i class="fas fa-check-circle"></i> رابط الاتصال المباشر</li>
+                        <li><i class="fas fa-check-circle"></i> إحصائيات الزوار</li>
+                    </ul>
+                    <button class="btn btn-gold" style="width: 100%; justify-content: center;" onclick="selectPlan('مخبر تحاليل')">اختيار الباقة</button>
+                </div>
+
+                <!-- Premium Plan for Pharmacies -->
+                <div class="plan-card premium">
+                    <div class="plan-badge">مدفوع</div>
+                    <div class="plan-icon">
+                        <i class="fas fa-pills"></i>
+                    </div>
+                    <h3 class="plan-title">الصيادلة</h3>
+                    <div class="plan-price">1500 د.ج <span>/ شهرياً</span></div>
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check-circle"></i> ظهور الصيدلية في بحث الصيدليات</li>
+                        <li><i class="fas fa-check-circle"></i> أيقونة صيدلية مميزة</li>
+                        <li><i class="fas fa-check-circle"></i> أوقات العمل (بما في ذلك المناوبة)</li>
+                        <li><i class="fas fa-check-circle"></i> إمكانية إضافة خدمات التوصيل</li>
+                        <li><i class="fas fa-check-circle"></i> إحصائيات الزوار</li>
+                    </ul>
+                    <button class="btn btn-gold" style="width: 100%; justify-content: center;" onclick="selectPlan('صيدلي')">اختيار الباقة</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Form Section -->
+    <section id="registration" class="registration-section container">
+        <div class="form-title">
+            <h3>التسجيل في الخدمة المدفوعة</h3>
+            <p>املأ النموذج أدناه للاشتراك في إحدى الباقات المدفوعة. سيتم التواصل معك لتأكيد الاشتراك وإتمام عملية الدفع.</p>
+        </div>
+
+        <form id="subscriptionForm">
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="serviceType">نوع الخدمة</label>
+                    <select id="serviceType" required>
+                        <option value="">اختر نوع الخدمة</option>
+                        <option value="طبيب">طبيب / عيادة</option>
+                        <option value="مخبر تحاليل">مخبر تحاليل بيولوجية</option>
+                        <option value="صيدلي">صيدلية</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="fullname">الاسم الكامل / اسم المؤسسة</label>
+                    <input type="text" id="fullname" placeholder="مثال: عيادة الأمل" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">رقم الهاتف</label>
+                    <input type="tel" id="phone" placeholder="05XXXXXXXX" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">البريد الإلكتروني</label>
+                    <input type="email" id="email" placeholder="example@domain.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="wilaya">الولاية</label>
+                    <select id="wilaya" required>
+                        <option value="">اختر الولاية</option>
+                        <option value="01">أدرار</option>
+                        <option value="02">الشلف</option>
+                        <option value="03">الأغواط</option>
+                        <option value="04">أم البواقي</option>
+                        <option value="05">باتنة</option>
+                        <option value="06">بجاية</option>
+                        <option value="07">بسكرة</option>
+                        <option value="08">بشار</option>
+                        <option value="09">البليدة</option>
+                        <option value="10">البويرة</option>
+                        <option value="11">تمنراست</option>
+                        <option value="12">تبسة</option>
+                        <option value="13">تلمسان</option>
+                        <option value="14">تيارت</option>
+                        <option value="15">تيزي وزو</option>
+                        <option value="16">الجزائر</option>
+                        <option value="17">الجلفة</option>
+                        <option value="18">جيجل</option>
+                        <option value="19">سطيف</option>
+                        <option value="20">سعيدة</option>
+                        <option value="21">سكيكدة</option>
+                        <option value="22">سيدي بلعباس</option>
+                        <option value="23">عنابة</option>
+                        <option value="24">قالمة</option>
+                        <option value="25">قسنطينة</option>
+                        <option value="26">المدية</option>
+                        <option value="27">مستغانم</option>
+                        <option value="28">المسيلة</option>
+                        <option value="29">معسكر</option>
+                        <option value="30">ورقلة</option>
+                        <option value="31">وهران</option>
+                        <option value="32">البيض</option>
+                        <option value="33">إليزي</option>
+                        <option value="34">برج بوعريريج</option>
+                        <option value="35">بومرداس</option>
+                        <option value="36">الطارف</option>
+                        <option value="37">تندوف</option>
+                        <option value="38">تيسمسيلت</option>
+                        <option value="39">الوادي</option>
+                        <option value="40">خنشلة</option>
+                        <option value="41">سوق أهراس</option>
+                        <option value="42">تيبازة</option>
+                        <option value="43">ميلة</option>
+                        <option value="44">عين الدفلى</option>
+                        <option value="45">النعامة</option>
+                        <option value="46">عين تموشنت</option>
+                        <option value="47">غرداية</option>
+                        <option value="48">غليزان</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="address">العنوان التفصيلي</label>
+                    <input type="text" id="address" placeholder="الشارع، الحي، رقم العيادة..." required>
+                </div>
+
+                <div class="form-group full-width">
+                    <label for="notes">ملاحظات إضافية (اختياري)</label>
+                    <textarea id="notes" rows="3" placeholder="أي معلومات إضافية ترغب في إضافتها..."></textarea>
+                </div>
+
+                <div class="form-group full-width">
+                    <label>طريقة الدفع</label>
+                    <div class="payment-methods">
+                        <label class="payment-method">
+                            <input type="radio" name="paymentMethod" value="بطاقة ائتمان" checked> بطاقة ائتمان (CCP)
+                        </label>
+                        <label class="payment-method">
+                            <input type="radio" name="paymentMethod" value="تحويل بنكي"> تحويل بنكي
+                        </label>
+                        <label class="payment-method">
+                            <input type="radio" name="paymentMethod" value="بريد الجزائر"> بريد الجزائر
+                        </label>
+                        <label class="payment-method">
+                            <input type="radio" name="paymentMethod" value="الدفع عند التسليم"> الدفع عند التسليم
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="btn-submit">إرسال الطلب والانتقال إلى الدفع</button>
+        </form>
+    </section>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h3>تم إرسال طلبك بنجاح!</h3>
+            <p>سيتم التواصل معك قريباً على الرقم المدخل لتأكيد الاشتراك وإتمام عملية الدفع. شكراً لثقتك.</p>
+            <button class="btn btn-primary" onclick="closeModal()">حسناً</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <div class="logo">
+                <i class="fas fa-crosshairs"></i>
+                <h2>الطوارئ والنجدة في الجزائر</h2>
+            </div>
+            <p>خدمة وطنية لتحديد مواقع خدمات الطوارئ في جميع أنحاء الجزائر</p>
+            <div class="footer-links">
+                <a href="#">عن الموقع</a>
+                <a href="#">اتصل بنا</a>
+                <a href="#">سياسة الخصوصية</a>
+                <a href="#">الإرشادات</a>
+                <a href="#">الاشتراكات المدفوعة</a>
+            </div>
+            <p>جميع الحقوق محفوظة &copy; 2023</p>
+        </div>
+    </footer>
+
+    <script>
+        // وظيفة لتحديد الباقة المحددة وتمريرها إلى النموذج
+        function selectPlan(planType) {
+            const serviceTypeSelect = document.getElementById('serviceType');
+            for (let option of serviceTypeSelect.options) {
+                if (option.value === planType) {
+                    option.selected = true;
+                    break;
+                }
+            }
+            // التمرير إلى نموذج التسجيل
+            document.getElementById('registration').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // التعامل مع تقديم النموذج
+        document.getElementById('subscriptionForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // جمع البيانات (يمكن إرسالها إلى الخادم هنا)
+            const formData = {
+                serviceType: document.getElementById('serviceType').value,
+                fullname: document.getElementById('fullname').value,
+                phone: document.getElementById('phone').value,
+                email: document.getElementById('email').value,
+                wilaya: document.getElementById('wilaya').value,
+                address: document.getElementById('address').value,
+                notes: document.getElementById('notes').value,
+                paymentMethod: document.querySelector('input[name="paymentMethod"]:checked').value
+            };
+
+            console.log('بيانات الاشتراك:', formData);
+
+            // محاكاة إرسال البيانات وعرض رسالة النجاح
+            document.getElementById('successModal').style.display = 'flex';
+
+            // إعادة تعيين النموذج (اختياري)
+            // this.reset();
+        });
+
+        // إغلاق النافذة المنبثقة
+        function closeModal() {
+            document.getElementById('successModal').style.display = 'none';
+        }
+
+        // إغلاق النافذة بالنقر خارجها
+        window.addEventListener('click', function(event) {
+            const modal = document.getElementById('successModal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
