@@ -113,35 +113,7 @@
             border-right-color: var(--police-color);
         }
 
-        .service-card.pharmacy .service-icon i {
-            color: var(--pharmacy-color);
-        }
-
-        .service-card.doctor .service-icon i {
-            color: var(--doctor-color);
-        }
-
-        .service-card.laboratory .service-icon i {
-            color: var(--laboratory-color);
-        }
-
-        .service-card.hospital .service-icon i {
-            color: var(--hospital-color);
-        }
-
-        .service-card.civil .service-icon i {
-            color: var(--civil-defense-color);
-        }
-
-        .service-police .service-icon i {
-            color: var(--police-color);
-        }
-
-        .service-depannage .service-icon i {
-            color: var(--depannage-color);
-        }
-
-        .service-item.nearest {
+               .service-item.nearest {
             background: rgba(0, 0, 0, 0.04);
             border-right: 4px solid currentColor;
             font-weight: bold;
