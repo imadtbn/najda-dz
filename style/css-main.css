@@ -1,0 +1,1568 @@
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        :root {
+            --primary: #e63946;
+            --secondary: #1d3557;
+            --accent: #457b9d;
+            --light: #f1faee;
+            --warning: #ff9e00;
+            --success: #2a9d8f;
+
+        }
+
+        :root {
+            --pharmacy-color: #2e7d32;
+            /* أخضر طبي */
+            --laboratory-color: #6a1b9a;
+            /* بنفسجي علمي */
+            --hospital-color: #8db2db;
+            /* أزرق صحي */
+            --civil-defense-color: #d32f2f;
+            /* أحمر طوارئ */
+
+            /* أمنية */
+            --police-color: #0d47a1;
+            /* أزرق داكن رسمي */
+            --military-color: #1b5e20;
+            /* أخضر عسكري */
+            --doctor-color: #2a9d8f;
+            /*  أطباء */
+            --depannage-color: #e66216;
+            /*depannage */
+
+            --service-bg: #ffffff;
+            --service-border-radius: 14px;
+        }
+
+
+        .service-card {
+            background: var(--service-bg);
+            border-radius: var(--service-border-radius);
+            transition: 0.3s ease;
+        }
+
+        /* صيدليات */
+        .service-card.pharmacy {
+            border-right: 5px solid var(--pharmacy-color);
+        }
+
+        /* depannage */
+        .service-card.depannage {
+            border-right: 5px solid var(--depannage-color);
+        }
+
+        /* أطباء */
+        .service-card.doctor {
+            border-right: 5px solid var(--doctor-color);
+        }
+
+        /* مخابر */
+        .service-card.laboratory {
+            border-right: 5px solid var(--laboratory-color);
+        }
+
+        /* مستشفيات */
+        .service-card.hospital {
+            border-right: 5px solid var(--hospital-color);
+        }
+
+        /* حماية مدنية */
+        .service-card.civil-defense {
+            border-right: 5px solid var(--civil-defense-color);
+        }
+
+        /* الشرطة */
+        .service-card.police {
+            border-right: 5px solid var(--police-color);
+        }
+
+        /* الدرك الوطني */
+        .service-card.military {
+            border-right: 5px solid var(--military-color);
+        }
+
+        /* الدرك */
+        .service-card.military .service-icon i {
+            color: var(--military-color);
+        }
+
+        /* depannage */
+        .service-card.depannage .service-icon i {
+            color: var(--depannage-color);
+        }
+
+
+        /* أطباء */
+        .service-card.doctor {
+            border-right: 5px solid var(--doctor-color);
+        }
+
+        /* أطباء */
+        .service-card.doctor .service-icon i {
+            color: var(--doctor-color);
+        }
+
+        /* الشرطة */
+        .service-card.police {
+            border-right-color: var(--police-color);
+        }
+
+        .service-card.pharmacy .service-icon i {
+            color: var(--pharmacy-color);
+        }
+
+        .service-card.doctor .service-icon i {
+            color: var(--doctor-color);
+        }
+
+        .service-card.laboratory .service-icon i {
+            color: var(--laboratory-color);
+        }
+
+        .service-card.hospital .service-icon i {
+            color: var(--hospital-color);
+        }
+
+        .service-card.civil .service-icon i {
+            color: var(--civil-defense-color);
+        }
+
+        .service-police .service-icon i {
+            color: var(--police-color);
+        }
+
+        .service-depannage .service-icon i {
+            color: var(--depannage-color);
+        }
+
+        .service-item.nearest {
+            background: rgba(0, 0, 0, 0.04);
+            border-right: 4px solid currentColor;
+            font-weight: bold;
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+        }
+
+
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        body {
+            padding-top: 78px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--accent) 100%);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+            z-index: 1000;
+            transition: transform 0.3s ease-in-out;
+        }
+
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo i {
+            font-size: 2.2rem;
+            color: var(--primary);
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .emergency-contact {
+            background-color: var(--primary);
+            padding: 8px 15px;
+            border-radius: 50px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 3px 8px rgba(230, 57, 70, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            background:
+                linear-gradient(to bottom,
+                    rgba(29, 53, 87, 0.3),
+                    rgba(29, 53, 87, 0.7)),
+                url('../images/najda_hero_image.png');
+
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 750px;
+            margin: 0 auto 1.5rem;
+        }
+
+        .location-access {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .btn-secondary {
+            background-color: var(--accent);
+            color: white;
+        }
+
+        .btn-warning {
+            background-color: var(--warning);
+            color: white;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .subscription-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .subscription-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .more-btn-wrapper {
+            margin-top: 15px;
+            text-align: left;
+        }
+
+        .more-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            text-decoration: none;
+            /* إزالة التسطير */
+            font-weight: 500;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .more-btn:hover {
+            text-decoration: none;
+            /* منع عودته عند hover */
+            transform: translateX(-3px);
+        }
+
+
+        /* Main Content */
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            padding: 2rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Map Section */
+        .map-section {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+
+        .section-header {
+            background-color: var(--secondary);
+            color: white;
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        #map {
+            height: 500px;
+            width: 100%;
+        }
+
+        /* Services Section */
+        .services {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .service-card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+
+        .service-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .service-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .hospital .service-icon {
+            background-color: var(--primary);
+        }
+
+        .police .service-icon {
+            background-color: var(--secondary);
+        }
+
+        .military .service-icon {
+            background-color: #555;
+        }
+
+        .civil-defense .service-icon {
+            background-color: var(--warning);
+        }
+
+        .service-phone {
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .service-details {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px dashed #eee;
+        }
+
+        .service-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #f5f5f5;
+        }
+
+        .service-item:last-child {
+            border-bottom: none;
+        }
+
+        .distance {
+            color: var(--success);
+            font-weight: 700;
+        }
+
+        /* Emergency Numbers */
+        .emergency-numbers {
+            background-color: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            margin-top: 2rem;
+        }
+
+        .numbers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 1.5rem;
+        }
+
+        .number-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 1rem;
+            border-radius: 10px;
+            border-right: 5px solid var(--primary);
+        }
+
+        .number-card h4 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+            color: var(--secondary);
+        }
+
+        .number-card p {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-align: center;
+            direction: ltr;
+        }
+
+        /* Footer */
+        /* ===== Footer Modern ===== */
+
+        footer {
+            background: linear-gradient(135deg, var(--secondary), #14213d);
+            color: white;
+            padding: 3rem 0 2rem;
+            margin-top: 3rem;
+        }
+
+        /* إزالة التوسيط العمودي القديم */
+        .footer-content {
+            width: 100%;
+        }
+
+        /* توزيع الأعمدة */
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 40px;
+            text-align: right;
+        }
+
+        /* عناوين الأعمدة */
+        .footer-col h4 {
+            margin-bottom: 18px;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #ffffff;
+        }
+
+        /* القوائم */
+        .footer-col ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        /* الروابط */
+        .footer-col ul li a {
+            color: #ccc;
+            text-decoration: none;
+            /* منع التسطير نهائياً */
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            position: relative;
+        }
+
+        /* تأثير احترافي */
+        .footer-col ul li a:hover {
+            color: #ffffff;
+            transform: translateX(-8px);
+        }
+
+        /* تأثير أيقونة */
+        .footer-col ul li a i {
+            transition: 0.3s ease;
+        }
+
+        .footer-col ul li a:hover i {
+            color: #e63946;
+            transform: scale(1.25);
+        }
+
+        /* خط سفلي متحرك احترافي */
+        .footer-col ul li a::after {
+            content: "";
+            position: absolute;
+            bottom: -3px;
+            right: 0;
+            width: 0%;
+            height: 2px;
+            background: #e63946;
+            transition: 0.3s ease;
+        }
+
+        .footer-col ul li a:hover::after {
+            width: 100%;
+        }
+
+        /* الجزء السفلي */
+        .footer-bottom {
+            margin-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            padding-top: 20px;
+            text-align: center;
+            font-size: 0.95rem;
+            color: #bbb;
+        }
+
+        /* ===== زر الرجوع للأعلى ===== */
+
+        #scrollTopBtn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            border: none;
+            background: #e63946;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            display: none;
+            transition: all 0.3s ease;
+            z-index: 9999;
+        }
+
+        #scrollTopBtn:hover {
+            background: #b71c1c;
+            transform: scale(1.15);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+        }
+
+
+        .footer-col ul li a {
+            color: #ccc;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+
+            position: relative;
+        }
+
+        .footer-col ul li a:hover {
+            color: #ffffff;
+            transform: translateX(-6px);
+            text-shadow: 0 0 8px rgba(230, 57, 70, 0.7);
+        }
+
+        /* Glow للأيقونة */
+        .footer-col ul li a:hover i {
+            color: #e63946;
+            transform: scale(1.25);
+            text-shadow: 0 0 10px rgba(230, 57, 70, 0.9);
+        }
+
+        footer {
+            background: linear-gradient(135deg, var(--secondary), #14213d);
+            color: white;
+            padding: 3rem 0 2rem;
+            margin-top: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* طبقة إضاءة متحركة */
+        footer::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: -50%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(120deg,
+                    transparent,
+                    rgba(255, 255, 255, 0.08),
+                    transparent);
+            transform: skewX(-20deg);
+            animation: lightMove 8s infinite linear;
+        }
+
+        /* حركة الإضاءة */
+        @keyframes lightMove {
+            0% {
+                right: -60%;
+            }
+
+            100% {
+                right: 120%;
+            }
+        }
+
+
+        /* زر الرجوع للأعلى */
+        #scrollTopBtn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            border: none;
+            background: #e63946;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            display: none;
+            transition: all 0.3s ease;
+            z-index: 9999;
+        }
+
+        #scrollTopBtn:hover {
+            background: #c62828;
+            transform: scale(1.1);
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: white;
+            width: 90%;
+            max-width: 500px;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .modal-header {
+            background-color: var(--secondary);
+            color: white;
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-body {
+            padding: 1.5rem;
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .route-info {
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+        }
+
+        .route-steps {
+            margin-top: 1rem;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .route-step {
+            padding: 8px 0;
+            border-bottom: 1px solid #f5f5f5;
+            display: flex;
+            gap: 10px;
+        }
+
+        .route-step i {
+            color: var(--accent);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .location-access {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        /* Loading spinner */
+        .spinner {
+            display: none;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid var(--primary);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /*....زر الطوارئ عائم*/
+        .floating-emergency {
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            background: #e63946;
+            color: white;
+            border: none;
+            font-size: 22px;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            transition: 0.3s;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .phone-link {
+            text-decoration: none;
+            color: #e63946;
+            /* نفس لون الطوارئ في الموقع */
+            font-weight: 700;
+            font-size: 1.4rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .phone-link i {
+            font-size: 1rem;
+        }
+
+
+        .call-link {
+            text-decoration: none;
+            color: white;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .call-link:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .phone-number {
+            font-weight: 700;
+            font-size: 1.1rem;
+            direction: ltr;
+        }
+
+
+        /* نفس لون الطوارئ في Emergency Numbers */
+
+        .call-link-Emergency {
+            text-decoration: none;
+            color: rgb(235, 9, 9);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .phone-number-Emergency {
+            font-weight: 700;
+            font-size: 1.3rem;
+            direction: ltr;
+        }
+
+
+        .messenger-link {
+            text-decoration: none;
+            color: #0084FF;
+            /* لون ماسنجر الرسمي */
+            font-weight: 700;
+            font-size: 1.2rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .messenger-link:hover {
+            opacity: 0.85;
+        }
+
+        .floating-wrapper {
+            position: fixed;
+            bottom: 25px;
+            left: 25px;
+            z-index: 9999;
+        }
+
+
+        .floating-emergency:hover {
+            transform: scale(1.1);
+        }
+
+        .emergency-menu {
+            position: absolute;
+            bottom: 80px;
+            left: 0;
+            display: none;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .emergency-menu a {
+            background: white;
+            color: #333;
+            padding: 10px 15px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+            transition: 0.2s;
+        }
+
+        .emergency-menu a:hover {
+            background: #e63946;
+            color: white;
+        }
+
+        .google-route-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: #1a73e8;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 15px;
+        }
+
+        .google-route-btn:hover {
+            background: #1558b0;
+            transform: translateY(-2px);
+        }
+
+        .modern-modal {
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .modal-header {
+            background: #1d3557;
+            color: white;
+            padding: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .close-modal {
+            background: rgba(255, 255, 255, 0.15);
+            border: none;
+            color: white;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        .close-modal:hover {
+            background: #e63946;
+            transform: rotate(90deg);
+        }
+
+        .destination-image img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 15px;
+        }
+
+        .google-route-btn {
+            display: block;
+            text-align: center;
+            background: #1a73e8;
+            color: white;
+            padding: 14px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            margin-top: 15px;
+            transition: 0.3s;
+        }
+
+        .google-route-btn:hover {
+            background: #1558b0;
+        }
+
+        .mini-map-container {
+            margin: 15px 0;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #ddd;
+        }
+
+        #miniMap {
+            height: 250px;
+            width: 100%;
+        }
+
+        .google-route-btn {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 10px 18px;
+            background: #1a73e8;
+            color: #fff;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+            z-index: 1000;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        header.hide-header {
+            transform: translateY(-100%);
+        }
+
+        /* أول عنصر (الأقرب) يكون مميز بصريًا */
+
+        .service-item.nearest {
+            background: #f1faee;
+            border-right: 4px solid var(--success);
+            padding-right: 10px;
+            font-weight: 700;
+        }
+
+        .service-item.nearest .distance {
+            color: var(--primary);
+            font-size: 1.05rem;
+        }
+
+        .nearest-marker i {
+            animation: pulse-marker 1.5s infinite;
+        }
+
+        @keyframes pulse-marker {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .service-item {
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .service-item:hover {
+            background: #f8f9fa;
+            transform: translateX(-4px);
+        }
+
+
+        /* تأثير نبض على أرقام الطوارئ */
+        .phone-number-Emergency {
+            font-weight: 700;
+            font-size: 1.3rem;
+            direction: ltr;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .number-card:hover .phone-number-Emergency {
+            color: #ff4d4d;
+            /* لون جذاب عند المرور */
+            transform: scale(1.2);
+            /* تكبير الرقم قليلاً */
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.6);
+        }
+
+        /* نبض مستمر */
+        @keyframes pulseNumber {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.15);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .number-card.important .phone-number-Emergency {
+            animation: pulseNumber 1.5s infinite;
+        }
+
+
+        /* تأثير نبض لأرقام الطوارئ */
+        @keyframes pulse-card {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 5px 15px rgba(230, 57, 70, 0.3);
+            }
+
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 10px 25px rgba(230, 57, 70, 0.5);
+            }
+
+            100% {
+                transform: scale(1);
+                box-shadow: 0 5px 15px rgba(230, 57, 70, 0.3);
+            }
+        }
+
+        /* تطبيق النبض */
+        .number-card.pulse {
+            animation: pulse-card 1.5s infinite;
+        }
+
+        .pharmacy-marker {
+            background: transparent;
+            border: none;
+        }
+
+        .pharmacy-marker i {
+            display: block;
+            line-height: 20px;
+            text-align: center;
+        }
+
+
+        .leaflet-div-icon {
+            background: transparent;
+            border: none;
+        }
+
+        /* تحسين شعار الفوتر */
+        .footer-logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .footer-logo img {
+            width: 90px;
+            height: 90px;
+            object-fit: cover;
+            border-radius: 50%;
+            background: white;
+            padding: 10px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .footer-logo img:hover {
+            transform: scale(1.08);
+            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35);
+        }
+
+        .footer-logo h2 {
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            /* المسافة بين الصورة والنص */
+        }
+
+        .logo img {
+            display: block;
+            width: 50px;
+            /* حجم الشعار */
+            height: 50px;
+            border-radius: 50%;
+            /* يجعل الصورة دائرية */
+            object-fit: cover;
+            /* لضمان عدم تشويه الصورة داخل الدائرة */
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        /* تنسيق رقم الهاتف في النافذة المنبثقة */
+        #routeDetails .phone-number {
+            direction: ltr;
+            display: inline-block;
+            unicode-bidi: embed;
+            text-align: left;
+        }
+
+        /* لجميع أرقام الهاتف في أي مكان */
+        .phone-number,
+        [class*="phone"] {
+            direction: ltr;
+            display: inline-block;
+            unicode-bidi: embed;
+        }
+
+        .phone-link:hover {
+            color: var(--primary) !important;
+            text-decoration: underline !important;
+        }
+
+        .custom-popup .leaflet-popup-content-wrapper {
+            border-radius: 12px;
+            padding: 0;
+        }
+
+        .map-popup {
+            font-family: 'Cairo', sans-serif;
+            direction: rtl;
+            padding: 10px;
+        }
+
+        .popup-title {
+            font-weight: bold;
+            font-size: 15px;
+            margin-bottom: 6px;
+            color: #1d3557;
+        }
+
+        .popup-doctor-name {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .popup-specialty {
+            font-size: 13px;
+            color: #555;
+            margin-bottom: 6px;
+        }
+
+        .popup-row {
+            font-size: 13px;
+            margin-bottom: 4px;
+        }
+
+        .popup-distance {
+            margin-top: 6px;
+            font-weight: bold;
+            color: #e63946;
+            font-size: 13px;
+        }
+
+
+        /* تأثير ناعم للفتح */
+        .leaflet-popup {
+            animation: popupFade 0.25s ease-in-out;
+        }
+
+        @keyframes popupFade {
+            from {
+                opacity: 0;
+                transform: translateY(10px) scale(0.95);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* شكل عام */
+        .custom-popup .leaflet-popup-content-wrapper {
+            border-radius: 14px;
+            padding: 0;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .map-popup {
+            direction: rtl;
+            padding: 14px;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        /* شارة الأقرب */
+        .nearest-badge {
+            background: #e63946;
+            color: #fff;
+            font-size: 11px;
+            padding: 3px 8px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 8px;
+        }
+
+        /* العنوان */
+        .popup-title {
+            font-weight: bold;
+            font-size: 16px;
+            margin-bottom: 6px;
+            color: #1d3557;
+        }
+
+        /* المسافة */
+        .popup-distance {
+            margin-top: 8px;
+            font-weight: bold;
+            color: #e63946;
+        }
+
+        /* زر التوجيه */
+        .popup-route-btn {
+            display: block;
+            text-align: center;
+            margin-top: 12px;
+            background: #1d3557;
+            color: #fff;
+            padding: 8px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 13px;
+            transition: 0.2s;
+        }
+
+        .popup-route-btn:hover {
+            background: #457b9d;
+        }
+
+        /* زر الإغلاق أكبر للهواتف */
+        .leaflet-popup-close-button {
+            font-size: 22px !important;
+            padding: 6px !important;
+        }
+
+
+               .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 30px;
+            transition: background 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            background-color: var(--primary);
+        }
+
+
+        .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* موبايل */
+@media (max-width: 768px) {
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 80px;
+        right: 0;
+        width: 100%;
+        background: #1d3557;
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+        padding: 20px 0;
+        display: none;
+    }
+
+    .nav-links a {
+        color: white;
+        font-size: 1.1rem;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+}
+/* إخفاء الزر افتراضيًا */
+.close-menu {
+    display: none;
+}
+
+/* داخل الموبايل فقط */
+@media (max-width: 768px) {
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -280px;
+        width: 260px;
+        height: 100%;
+        background: #1d3557;
+        flex-direction: column;
+        padding: 80px 20px 20px;
+        gap: 20px;
+        transition: 0.4s ease;
+        z-index: 1001;
+    }
+
+    /* يظهر فقط عند فتح القائمة */
+    .nav-links.active .close-menu {
+        display: block;
+    }
+
+    .close-menu {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        background: none;
+        border: none;
+        color: white;
+        font-size: 22px;
+        cursor: pointer;
+    }
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 26px;
+    cursor: pointer;
+}
+
+/* الوضع العادي (كمبيوتر) */
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+/* موبايل */
+@media (max-width: 768px) {
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -280px;
+        width: 260px;
+        height: 100%;
+        background: #1d3557;
+        flex-direction: column;
+        padding: 80px 20px 20px;
+        gap: 20px;
+        transition: 0.4s ease;
+        z-index: 1001;
+    }
+
+    .nav-links a {
+        color: white;
+        font-size: 1.1rem;
+        text-decoration: none;
+        padding: 10px;
+        border-radius: 6px;
+        transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+        background: rgba(255,255,255,0.15);
+    }
+
+    .nav-links.active {
+        right: 0;
+    }
+
+    .close-menu {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        background: none;
+        border: none;
+        color: white;
+        font-size: 22px;
+        cursor: pointer;
+    }
+
+    /* الخلفية المعتمة */
+    .nav-overlay {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.5);
+        opacity: 0;
+        visibility: hidden;
+        transition: 0.3s;
+        z-index: 1000;
+    }
+
+    .nav-overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+}

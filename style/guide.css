@@ -1,0 +1,476 @@
+
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        :root {
+            --primary: #e63946;
+            --secondary: #1d3557;
+            --accent: #457b9d;
+            --light: #f1faee;
+            --warning: #ff9e00;
+            --success: #2a9d8f;
+            --pharmacy-color: #2e7d32;
+            --laboratory-color: #6a1b9a;
+            --hospital-color: #1565c0;
+            --civil-defense-color: #d32f2f;
+            --police-color: #0d47a1;
+            --military-color: #1b5e20;
+        }
+
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            padding-top: 78px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--accent) 100%);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+            z-index: 1000;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        header.hide-header {
+            transform: translateY(-100%);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo i {
+            font-size: 2.2rem;
+            color: var(--primary);
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 30px;
+            transition: background 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            background-color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(29, 53, 87, 0.9), rgba(69, 123, 157, 0.9)), url('https://images.unsplash.com/photo-1582719508461-905c673771fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Guidelines Grid */
+        .guidelines-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            padding: 3rem 0;
+        }
+
+        .guideline-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s;
+            border-top: 6px solid var(--primary);
+        }
+
+        .guideline-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-header {
+            padding: 1.8rem 1.5rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .card-header i {
+            font-size: 2.8rem;
+            color: var(--primary);
+            background: rgba(230, 57, 70, 0.1);
+            padding: 15px;
+            border-radius: 50%;
+        }
+
+        .card-header h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--secondary);
+        }
+
+        .card-body {
+            padding: 0 1.5rem 1.8rem;
+        }
+
+        .guideline-list {
+            list-style: none;
+        }
+
+        .guideline-list li {
+            padding: 0.7rem 0;
+            border-bottom: 1px dashed #eee;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .guideline-list li:last-child {
+            border-bottom: none;
+        }
+
+        .guideline-list li i {
+            color: var(--success);
+            font-size: 1.1rem;
+            margin-top: 4px;
+            min-width: 20px;
+        }
+
+        .guideline-list li span {
+            line-height: 1.5;
+        }
+
+        /* Card color variations */
+        .guideline-card.fire {
+            border-top-color: #e63946;
+        }
+
+        .guideline-card.fire .card-header i {
+            color: #e63946;
+            background: rgba(230, 57, 70, 0.1);
+        }
+
+        .guideline-card.poison {
+            border-top-color: #6a1b9a;
+        }
+
+        .guideline-card.poison .card-header i {
+            color: #6a1b9a;
+            background: rgba(106, 27, 154, 0.1);
+        }
+
+        .guideline-card.electric {
+            border-top-color: #ff9e00;
+        }
+
+        .guideline-card.electric .card-header i {
+            color: #ff9e00;
+            background: rgba(255, 158, 0, 0.1);
+        }
+
+        .guideline-card.traffic {
+            border-top-color: #1d3557;
+        }
+
+        .guideline-card.traffic .card-header i {
+            color: #1d3557;
+            background: rgba(29, 53, 87, 0.1);
+        }
+
+        .guideline-card.food {
+            border-top-color: #2e7d32;
+        }
+
+        .guideline-card.food .card-header i {
+            color: #2e7d32;
+            background: rgba(46, 125, 50, 0.1);
+        }
+
+        .guideline-card.disaster {
+            border-top-color: #d32f2f;
+        }
+
+        .guideline-card.disaster .card-header i {
+            color: #d32f2f;
+            background: rgba(211, 47, 47, 0.1);
+        }
+
+        /* Floating Emergency Button */
+        .floating-wrapper {
+            position: fixed;
+            bottom: 25px;
+            left: 25px;
+            z-index: 9999;
+        }
+
+        .floating-emergency {
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            border: none;
+            font-size: 22px;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            transition: 0.3s;
+        }
+
+        .floating-emergency:hover {
+            transform: scale(1.1);
+        }
+
+        .emergency-menu {
+            position: absolute;
+            bottom: 80px;
+            left: 0;
+            display: none;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .emergency-menu a {
+            background: white;
+            color: #333;
+            padding: 10px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+            transition: 0.2s;
+            white-space: nowrap;
+        }
+
+        .emergency-menu a:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .emergency-menu img {
+            width: 22px;
+            height: 22px;
+        }
+
+        /* Footer */
+        /* ===== Footer Modern ===== */
+
+        footer {
+            background: linear-gradient(135deg, var(--secondary), #14213d);
+            color: white;
+            padding: 3rem 0 2rem;
+            margin-top: 3rem;
+        }
+
+        /* إزالة التوسيط العمودي القديم */
+        .footer-content {
+            width: 100%;
+        }
+
+        /* توزيع الأعمدة */
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 40px;
+            text-align: right;
+        }
+
+        /* عناوين الأعمدة */
+        .footer-col h4 {
+            margin-bottom: 18px;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #ffffff;
+        }
+
+        /* القوائم */
+        .footer-col ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        /* الروابط */
+        .footer-col ul li a {
+            color: #ccc;
+            text-decoration: none;
+            /* منع التسطير نهائياً */
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            position: relative;
+        }
+
+        /* تأثير احترافي */
+        .footer-col ul li a:hover {
+            color: #ffffff;
+            transform: translateX(-8px);
+        }
+
+        /* تأثير أيقونة */
+        .footer-col ul li a i {
+            transition: 0.3s ease;
+        }
+
+        .footer-col ul li a:hover i {
+            color: #e63946;
+            transform: scale(1.25);
+        }
+
+        /* خط سفلي متحرك احترافي */
+        .footer-col ul li a::after {
+            content: "";
+            position: absolute;
+            bottom: -3px;
+            right: 0;
+            width: 0%;
+            height: 2px;
+            background: #e63946;
+            transition: 0.3s ease;
+        }
+
+        .footer-col ul li a:hover::after {
+            width: 100%;
+        }
+
+        /* الجزء السفلي */
+        .footer-bottom {
+            margin-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            padding-top: 20px;
+            text-align: center;
+            font-size: 0.95rem;
+            color: #bbb;
+        }
+
+
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .guidelines-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+                /* تحسين شعار الفوتر */
+        .footer-logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .footer-logo img {
+            width: 90px;
+            height: 90px;
+            object-fit: cover;
+            border-radius: 50%;
+            background: white;
+            padding: 10px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .footer-logo img:hover {
+            transform: scale(1.08);
+            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35);
+        }
+
+        .footer-logo h2 {
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            /* المسافة بين الصورة والنص */
+        }
+
+        .logo img {
+            display: block;
+            width: 50px;
+            /* حجم الشعار */
+            height: 50px;
+            border-radius: 50%;
+            /* يجعل الصورة دائرية */
+            object-fit: cover;
+            /* لضمان عدم تشويه الصورة داخل الدائرة */
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 0;
+        }
+        
