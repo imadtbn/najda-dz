@@ -156,6 +156,146 @@
         }
     </style>
 
+<!-- Structured Data -->
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+    
+        {
+          "@type": "Organization",
+          "@id": "https://imadtbn.github.io/najda-dz/#organization",
+          "name": "Najda Dz - النجدة",
+          "url": "https://imadtbn.github.io/najda-dz/",
+          "logo": "https://imadtbn.github.io/najda-dz/icons/najda_icon_3.png",
+          "description": "منصة وطنية لتحديد أقرب خدمات النجدة والطوارئ في الجزائر مع أرقام الهاتف وإمكانية تكوين المسارات عبر الخريطة التفاعلية.",
+          "areaServed": {
+            "@type": "Country",
+            "name": "Algeria"
+          }
+        },
+    
+        {
+          "@type": "WebSite",
+          "@id": "https://imadtbn.github.io/najda-dz/#website",
+          "url": "https://imadtbn.github.io/najda-dz/",
+          "name": "Najda Dz - خدمات النجدة والطوارئ في الجزائر",
+          "publisher": {
+            "@id": "https://imadtbn.github.io/najda-dz/#organization"
+          },
+          "inLanguage": "ar",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://imadtbn.github.io/najda-dz/pages/search.html?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        },
+    
+        {
+          "@type": "WebApplication",
+          "@id": "https://imadtbn.github.io/najda-dz/#webapp",
+          "name": "تطبيق النجدة والطوارئ في الجزائر",
+          "url": "https://imadtbn.github.io/najda-dz/",
+          "applicationCategory": "EmergencyService",
+          "operatingSystem": "All",
+          "browserRequirements": "Requires JavaScript and GPS support",
+          "description": "تطبيق ويب يحدد موقع المستخدم عبر GPS ويعرض أقرب مستشفيات، شرطة، درك وطني، حماية مدنية، صيدليات، مخابر، أطباء وخدمات جر السيارات مع أرقام الهواتف وتكوين المسارات.",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "DZD"
+          }
+        },
+    
+        {
+          "@type": "SiteNavigationElement",
+          "name": [
+            "المستشفيات",
+            "مراكز الشرطة",
+            "الدرك الوطني",
+            "الحماية المدنية",
+            "الصيدليات",
+            "مخابر التحاليل البيولوجية",
+            "الأطباء",
+            "جر السيارات",
+            "عن الموقع",
+            "اتصل بنا",
+            "سياسة الخصوصية",
+            "الإرشادات"
+          ],
+          "url": [
+            "https://imadtbn.github.io/najda-dz/pages/hospitals.html",
+            "https://imadtbn.github.io/najda-dz/pages/police.html",
+            "https://imadtbn.github.io/najda-dz/pages/gendarmerie.html",
+            "https://imadtbn.github.io/najda-dz/pages/protectioncivil.html",
+            "https://imadtbn.github.io/najda-dz/pages/pharmacies.html",
+            "https://imadtbn.github.io/najda-dz/pages/laboratories.html",
+            "https://imadtbn.github.io/najda-dz/pages/doctors.html",
+            "https://imadtbn.github.io/najda-dz/pages/depannage.html",
+            "https://imadtbn.github.io/najda-dz/pages/about.html",
+            "https://imadtbn.github.io/najda-dz/pages/contact.html",
+            "https://imadtbn.github.io/najda-dz/pages/privacypolicy.html",
+            "https://imadtbn.github.io/najda-dz/pages/guideline.html"
+          ]
+        },
+    
+        {
+          "@type": "ItemList",
+          "name": "أقسام خدمات النجدة",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "المستشفيات" },
+            { "@type": "ListItem", "position": 2, "name": "مراكز الشرطة" },
+            { "@type": "ListItem", "position": 3, "name": "الدرك الوطني" },
+            { "@type": "ListItem", "position": 4, "name": "الحماية المدنية" },
+            { "@type": "ListItem", "position": 5, "name": "الصيدليات" },
+            { "@type": "ListItem", "position": 6, "name": "مخابر التحاليل البيولوجية" },
+            { "@type": "ListItem", "position": 7, "name": "الأطباء" },
+            { "@type": "ListItem", "position": 8, "name": "جر السيارات والشاحنات" }
+          ]
+        },
+    
+        {
+          "@type": "FAQPage",
+          "@id": "https://imadtbn.github.io/najda-dz/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "كيف أحدد أقرب خدمة طوارئ؟",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "اضغط على زر تحديد الموقع GPS ليتم عرض أقرب الخدمات على الخريطة التفاعلية مع المسافة ورقم الهاتف."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "هل الموقع يعمل في جميع ولايات الجزائر؟",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "نعم، المنصة تغطي جميع ولايات الجزائر وتعرض أقرب الخدمات حسب موقع المستخدم."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "هل يمكن تكوين مسار إلى مركز الطوارئ؟",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "نعم، يمكن إنشاء مسار مباشر من موقعك الحالي إلى الخدمة المختارة عبر الخريطة."
+              }
+            }
+          ]
+        },
+    
+        {
+          "@type": "ContactPoint",
+          "contactType": "Emergency",
+          "areaServed": "DZ",
+          "availableLanguage": "Arabic"
+        }
+    
+      ]
+    }
+    </script>
+
 </head>
 
 <body>
@@ -1281,6 +1421,98 @@
 
      
     </script>
+
+    
+<script>
+    /*
+      يتوقع أن تكون المصفوفة بالشكل التالي:
+      {
+        name: "",
+        wilaya: "",
+        baladia: "",
+        phone: "",
+        lat: 36.75,
+        lon: 3.05
+      }
+    */
+
+    /* === خريطة ربط نوع الصفحة بنوع Schema === */
+    const schemaTypes = {
+        hospitalsData: "Hospital",
+        policeData: "PoliceStation",
+        gendarmerieData: "PoliceStation",
+        protectioncivilData: "FireStation",
+        pharmaciesData: "Pharmacy",
+        laboratoriesData: "MedicalLaboratory",
+        doctorsData: "Physician",
+        depannageData: "AutoRepair"
+    };
+
+    /* === حدد اسم المصفوفة الخاصة بالصفحة الحالية === */
+    // مثال:
+    // const currentData = hospitalsData;
+    const currentData = typeof hospitalsData !== "undefined" ? hospitalsData :
+        typeof policeData !== "undefined" ? policeData :
+            typeof gendarmerieData !== "undefined" ? gendarmerieData :
+                typeof protectioncivilData !== "undefined" ? protectioncivilData :
+                    typeof pharmaciesData !== "undefined" ? pharmaciesData :
+                        typeof laboratoriesData !== "undefined" ? laboratoriesData :
+                            typeof doctorsData !== "undefined" ? doctorsData :
+                                typeof depannageData !== "undefined" ? depannageData : [];
+
+    /* === معرفة نوع الـ Schema === */
+    const currentType = Object.keys(schemaTypes).find(key => typeof window[key] !== "undefined");
+    const schemaType = schemaTypes[currentType] || "LocalBusiness";
+
+    /* === بناء JSON-LD === */
+    function generateStructuredData(dataArray, type) {
+
+        const itemList = dataArray.map((item, index) => ({
+            "@type": type,
+            "position": index + 1,
+            "name": item.name,
+            "telephone": item.phone ? "+213" + item.phone.replace(/\D/g, "") : "",
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": item.baladia || "",
+                "addressRegion": item.wilaya || "",
+                "addressCountry": "DZ"
+            },
+            "geo": item.lat && item.lon ? {
+                "@type": "GeoCoordinates",
+                "latitude": item.lat,
+                "longitude": item.lon
+            } : undefined,
+            "hasMap": item.lat && item.lon
+                ? `https://www.google.com/maps?q=${item.lat},${item.lon}`
+                : undefined
+        }));
+
+        return {
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            "name": document.title,
+            "itemListElement": itemList
+        };
+    }
+
+    /* === إدراج السكربت في الصفحة === */
+    if (currentData.length > 0) {
+        const structuredData = generateStructuredData(currentData, schemaType);
+
+        const script = document.createElement("script");
+        script.type = "application/ld+json";
+        script.text = JSON.stringify(structuredData, null, 2);
+        document.head.appendChild(script);
+    }
+
+    /*ظهور أقوى في Google Maps*/
+    
+    "openingHours": "Mo-Su 00:00-23:59",
+        "areaServed": "DZ",
+            "url": window.location.href
+
+</script>
 
 </body>
 
