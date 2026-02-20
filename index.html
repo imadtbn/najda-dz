@@ -196,6 +196,7 @@
         <div class="container">
             <h2>خدمات النجدة والطوارئ في الجزائر</h2>
             <p>في حالة الطوارئ، حدد موقعك للحصول على أقرب مستشفى، مركز شرطة، فرقة الدرك الوطني أو وحدة الحماية المدنية
+                وغيرها ...
                 مع أرقام الهاتف
                 وإمكانية تكوين المسارات</p>
 
@@ -727,8 +728,7 @@
                         <li><a href="pages/gendarmerie.html"><i class="fas fa-star"></i>الدرك الوطني</a></li>
                         <li><a href="pages/protectioncivil.html"><i class="fas fa-fire-extinguisher"></i> الحماية
                                 المدنية</a></li>
-                        <li><a href="pages/depannage.html"><i class="fas fa-truck-pickup"></i>خدمات الجر والرأب للسيارات
-                                والشاحنات</a></li>
+                        <li><a href="pages/depannage.html"><i class="fas fa-truck-pickup"></i> جر ورأب السيارات</a></li>
 
                     </ul>
                 </div>
@@ -1215,7 +1215,7 @@
 
         // عرض المسار
         function showRouteToService(service) {
-            
+
             if (!userLocation) {
                 alert('الرجاء تحديد موقعك أولا للحصول على معلومات دقيقة');
                 return;
@@ -1279,53 +1279,7 @@
 
         });
 
-        // زر العودة للأعلى
-        const scrollBtn = document.getElementById('scrollTopBtn');
-        window.addEventListener('scroll', () => {
-            scrollBtn.style.display = window.pageYOffset > 300 ? 'block' : 'none';
-        });
-        scrollBtn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
-
-        // زر الطوارئ العائم
-
-        const toggleBtn = document.getElementById("emergencyToggle");
-        const menu = document.getElementById("emergencyMenu");
-
-        toggleBtn.addEventListener("click", () => {
-            menu.style.display = menu.style.display === "flex" ? "none" : "flex";
-        });
-
-        // إغلاق القائمة عند الضغط خارجها
-        document.addEventListener("click", function (e) {
-            if (!e.target.closest(".floating-wrapper")) {
-                menu.style.display = "none";
-            }
-        });
-
-
-        // إخفاء الهيدر
-
-        let lastScrollTop = 0;
-        const header = document.querySelector("header");
-
-        window.addEventListener("scroll", function () {
-
-            const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-
-            if (currentScroll > lastScrollTop && currentScroll > 100) {
-                // النزول للأسفل
-                header.classList.add("hide-header");
-            } else {
-                // الصعود للأعلى
-                header.classList.remove("hide-header");
-            }
-
-            lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
-        });
-
+     
     </script>
 
 </body>
