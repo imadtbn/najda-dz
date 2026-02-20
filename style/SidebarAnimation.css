@@ -191,3 +191,28 @@
         }
 
 
+ /* ===== زر الرجوع للأعلى ===== */
+
+ #scrollTopBtn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    border: none;
+    background: #e63946;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    display: none;
+    transition: all 0.3s ease;
+    z-index: 9999;
+}
+
+#scrollTopBtn:hover {
+    background: #b71c1c;
+    transform: scale(1.15);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
