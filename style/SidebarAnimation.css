@@ -226,41 +226,29 @@
 /*حواف الايقونات */
 
 .service-icon {
-    width: 55px;
-    height: 55px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.4rem;
-    background: white;
-    border: 3px solid currentColor; /* الحافة تأخذ لون الأيقونة */
+    font-size: 1.5rem;
+    background: #ffffff;
+    border: 3px solid currentColor;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
 }
 
-.service-card.laboratory .service-icon {
-    color: var(--laboratory-color);
+.service-card:hover .service-icon {
+    transform: scale(1.12);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
-.service-card.pharmacy .service-icon {
-    color: var(--pharmacy-color);
-}
 
-.service-card.hospital .service-icon {
-    color: var(--hospital-color);
-}
-
-.service-card.police .service-icon {
-    color: var(--police-color);
-}
-
-.service-card.military .service-icon {
-    color: var(--military-color);
-}
-
-.service-card.civil-defense .service-icon {
-    color: var(--civil-defense-color);
-}
-
-.service-card.doctor .service-icon {
-    color: var(--doctor-color);
-}
+.service-card.laboratory .service-icon { color: var(--laboratory-color); }
+.service-card.pharmacy .service-icon { color: var(--pharmacy-color); }
+.service-card.hospital .service-icon { color: var(--hospital-color); }
+.service-card.police .service-icon { color: var(--police-color); }
+.service-card.military .service-icon { color: var(--military-color); }
+.service-card.civil-defense .service-icon { color: var(--civil-defense-color); }
+.service-card.doctor .service-icon { color: var(--doctor-color); }
