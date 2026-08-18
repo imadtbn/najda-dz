@@ -1,477 +1,363 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ar" dir="rtl">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>خدمات النجدة والطوارئ - Dz | اشتراكات مدفوعة ومجانية</title>
+    <title>الاشتراك في خدمات النجدة والطوارئ - Najda Dz</title>
+    <meta name="description" content="سجل خدمتك الطبية أو خدمة جر السيارات في منصة النجدة Dz لتظهر للمستخدمين في الجزائر.">
+    <meta name="theme-color" content="#1d3557">
+    <link rel="canonical" href="https://imadtbn.github.io/najda-dz/pages/subscription.html">
+    <link rel="icon" type="image/png" sizes="32x32" href="../icons/najda_icon_3.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../icons/najda_icon_3.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap">
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8310657804532081"
-     crossorigin="anonymous"></script>
-
-    <!-- أيقونة الموقع -->
-    <link rel="icon" href="../icons/najda_icon_1.png" alt="icon" type="image/png" loading="lazy" class="welcome-logo">
-
-    <meta name="description"
-        content="منصة النجدة والطوارئ في الجزائر لتحديد أقرب خدمات الإسعاف، الحماية المدنية، الشرطة، مخابر التحاليل البيولوجية، الصيدليات، الأطباء وجرّ السيارات بسرعة ودقة عبر الموقع الجغرافي. وصول فوري لأرقام الطوارئ والخدمات القريبة منك في جميع الولايات.">
-    <!-- لون شريط المتصفح -->
-    <meta name="theme-color" content="#1d3557">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
-
-    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#1d3557">
-    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0f1f33">
-
-    <!-- أيقونة الموقع -->
-    <link rel="icon" type="image/png" sizes="32x32" href="../icons/najda_icon_3.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="../icons/najda_icon_3.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="../icons/najda_icon_3.png">
-
     <link rel="stylesheet" href="../style/subscrition.css">
     <link rel="stylesheet" href="../style/SidebarAnimation.css">
-
-
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8310657804532081" crossorigin="anonymous"></script>
 </head>
 
 <body>
-
-    <!-- Header -->
     <header>
         <div class="container header-content">
             <div class="logo">
-                <img src="../icons/najda_icon_3.png" alt="شعار النجدة Dz" width="50" height="50" loading="lazy">
-                <h1>إشتراك</h1>
-                <button class="menu-toggle" id="menuToggle">
-                    <i class="fas fa-bars"></i>
+                <img src="../icons/najda_icon_3.png" alt="شعار النجدة Dz" width="50" height="50">
+                <h1>الاشتراك</h1>
+                <button class="menu-toggle" id="menuToggle" type="button" aria-label="فتح القائمة" aria-controls="navLinks" aria-expanded="false">
+                    <i class="fas fa-bars" aria-hidden="true"></i>
                 </button>
             </div>
-
             <div class="nav-overlay" id="navOverlay"></div>
-
-            <nav class="nav-links" id="navLinks">
-                <button class="close-menu" id="closeMenu">
-                    <i class="fas fa-times"></i>
+            <nav class="nav-links" id="navLinks" aria-label="التنقل الرئيسي">
+                <button class="close-menu" id="closeMenu" type="button" aria-label="إغلاق القائمة">
+                    <i class="fas fa-times" aria-hidden="true"></i>
                 </button>
                 <a href="../index.html">الرئيسية</a>
                 <a href="about.html">عن الموقع</a>
                 <a href="contact.html">اتصل بنا</a>
                 <a href="privacy.html">سياسة الخصوصية</a>
                 <a href="guide.html">إرشادات السلامة</a>
-                <a href="subscription.html" class="active">إشتراك </a>
+                <a href="subscription.html" class="active" aria-current="page">الاشتراك</a>
             </nav>
         </div>
     </header>
 
-    <!-- Hero -->
-    <section class="hero">
-        <div class="container">
-            <h2>الإشتراك في خدمات النجدة والطوارئ المجانية والمدفوعة</h2>
-
-            <p>استفد من الخدماتنا المجانية والمدفوعة للوصول السريع إلى أقرب المستشفيات، الأطباء المختصين، مخابر إجراء
-                التحاليل
-                البيولوجية، الصيادلة، مراكز الشرطة والدرك الوطني، خدمات الجر ورأب السيارات والحماية المدنية.
-                المدفوعة المخصصة للأطباء ومخابر التحاليل والصيادلة للظهور في نتائج البحث والوصول إلى المزيد من المميزات.
-            </p>
-            <p>المنصة قيد التجريب</p>
-
-            <div>
-                <a href="#plans" class="btn btn-primary">عرض الباقات</a>
-                <a href="#registration" class="btn btn-secondary">اشترك الآن</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Plans Section -->
-    <section id="plans" class="plans-section">
-        <div class="container">
-            <div class="section-title">
-                <h2>باقات الاشتراك</h2>
-                <p>اختر الباقة المناسبة لظهورك في منصتنا والوصول إلى آلاف الباحثين عن خدمات المساعدة، النجدة والطوارئ في
-                    الجزائر.
-                </p>
-            </div>
-
-            <div class="plans-grid">
-
-
-                <!--                 <div class="plan-card free">
-                    <div class="plan-badge">مجاني</div>
-                    <div class="plan-icon">
-                        <i class="fas fa-hospital"></i>
-                    </div>
-                    <h3 class="plan-title">الباقة المجانية</h3>
-                    <div class="plan-price">0 د.ج <span>/ شهرياً</span></div>
-                    <ul class="plan-features">
-                        <li><i class="fas fa-check-circle"></i> عرض المستشفيات والخدمات العامة</li>
-                        <li><i class="fas fa-check-circle"></i> الوصول إلى خريطة الطوارئ</li>
-                        <li><i class="fas fa-check-circle"></i> أرقام الطوارئ الأساسية</li>
-                        <li><i class="fas fa-times-circle" style="color: #999;"></i> ظهور في نتائج البحث المدفوعة</li>
-                        <li><i class="fas fa-times-circle" style="color: #999;"></i> إعلانات ممولة</li>
-                    </ul>
-                    <a href="#" class="btn btn-secondary" style="width: 100%; justify-content: center;">الاستمرار
-                        مجاناً</a>
-                </div>-->
-
-
-                <!-- Premium Plan for Doctors -->
-                <div class="plan-card premium">
-                    <div class="plan-badge">عرض مجاني</div>
-                    <div class="plan-icon">
-                        <i class="fas fa-user-md"></i>
-                    </div>
-                    <h3 class="plan-title">باقة الأطباء</h3>
-                    <div class="plan-price">0.000 د.ج <span>/ شهرياً</span></div>
-                    <ul class="plan-features">
-                        <li><i class="fas fa-check-circle"></i> ظهور عيادتك في بحث الأطباء</li>
-                        <li><i class="fas fa-check-circle"></i> ظهور عيادتك في الخريطة التفاعلية</li>
-                        <li><i class="fas fa-check-circle"></i> أيقونة مميزة (طبيب معتمد)</li>
-                        <li><i class="fas fa-check-circle"></i> مواقيت العمل والتخصص</li>
-                        <li><i class="fas fa-check-circle"></i> رقم الهاتف لحجز موعد مباشر </li>
-                    </ul>
-                    <button class="btn btn-gold" style="width: 100%; justify-content: center;"
-                        onclick="window.open('https://forms.gle/sVAJK9uTaRS4DEheA', '_blank')">
-                        اختيار الباقة
-                    </button>
-                </div>
-
-                <!-- Premium Plan for Labs -->
-                <div class="plan-card premium">
-                    <div class="plan-badge">عرض مجاني</div>
-                    <div class="plan-icon">
-                        <i class="fas fa-flask"></i>
-                    </div>
-                    <h3 class="plan-title">مخابر التحاليل</h3>
-                    <div class="plan-price">0.00 د.ج <span>/ شهرياً</span></div>
-                    <ul class="plan-features">
-                        <li><i class="fas fa-check-circle"></i> ظهور المختبر في بحث خدمات مخابر التحاليل</li>
-                        <li><i class="fas fa-check-circle"></i> ظهور مخبرك في الخريطة التفاعلية</li>
-                        <li><i class="fas fa-check-circle"></i> أوقات العمل والعنوان الدقيق</li>
-                        <li><i class="fas fa-check-circle"></i> رقم الهاتف لحجز موعد مباشر </li>
-                        <li><i class="fas fa-check-circle"></i> إمكانية إضافة العنوان الإليكتروني</li>
-                    </ul>
-
-                    <button class="btn btn-gold" style="width: 100%; justify-content: center;"
-                        onclick="window.open('https://forms.gle/JH6ttB8dbnh2VRz67', '_blank')">
-                        اختيار الباقة
-                    </button>
-
-                </div>
-
-                <!-- Premium Plan for Pharmacies -->
-                <div class="plan-card premium">
-                    <div class="plan-badge">عرض مجاني</div>
-                    <div class="plan-icon">
-                        <i class="fas fa-pills"></i>
-                    </div>
-                    <h3 class="plan-title">الصيادلة</h3>
-                    <div class="plan-price">0.000 د.ج <span>/ شهرياً</span></div>
-                    <ul class="plan-features">
-                        <li><i class="fas fa-check-circle"></i> ظهور الصيدلية في بحث الصيدليات</li>
-                        <li><i class="fas fa-check-circle"></i> ظهور صيدليتك في الخريطة التفاعلية</li>
-                        <li><i class="fas fa-check-circle"></i> أيقونة صيدلية مميزة</li>
-                        <li><i class="fas fa-check-circle"></i> أوقات العمل (بما في ذلك المناوبة)</li>
-                        <li><i class="fas fa-check-circle"></i> إمكانية إضافة خدمات التوصيل</li>
-                    </ul>
-                    <button class="btn btn-gold" style="width: 100%; justify-content: center;"
-                        onclick="window.open('https://forms.gle/zyN8JsTTjDux2VAu8', '_blank')">
-                        اختيار الباقة
-                    </button>
-                </div>
-
-                <!-- Premium Plan for depannage -->
-                <div class="plan-card premium">
-                    <div class="plan-badge">عرض مجاني</div>
-                    <div class="plan-icon">
-                        <i class="fas fa-truck-pickup"></i>
-                    </div>
-                    <h3 class="plan-title">خدمات الجر ورأب السيارات</h3>
-                    <div class="plan-price">0.000 د.ج <span>/ شهرياً</span></div>
-                    <ul class="plan-features">
-                        <li><i class="fas fa-check-circle"></i> ظهور موقعك في بحث عن خدمات الجر والرأب</li>
-                        <li><i class="fas fa-check-circle"></i> ظهور موقعك التقريبي في الخريطة التفاعلية</li>
-                        <li><i class="fas fa-check-circle"></i> أيقونة جر ورأب مميزة</li>
-                        <li><i class="fas fa-check-circle"></i> رقم الهاتف للإتصال مباشر </li>
-
-                    </ul>
-                    <button class="btn btn-gold" style="width: 100%; justify-content: center;"
-                        onclick="window.open('https://forms.gle/YBhJLSw4uJ5GKvMc6', '_blank')">
-                        اختيار الباقة
-                    </button>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Registration Form 
-         <section id="registration" class="registration-section container">
-        <div class="form-title">
-            <h3>التسجيل في الخدمة المدفوعة</h3>
-            <p>املأ النموذج أدناه للاشتراك في إحدى الباقات المدفوعة. سيتم التواصل معك لتأكيد الاشتراك وإتمام عملية
-                الدفع.</p>
-        </div>
-
-        <form id="subscriptionForm">
-            <div class="form-grid">
-                <div class="form-group">
-                    <label for="serviceType">نوع الخدمة</label>
-                    <select id="serviceType" required>
-                        <option value="">اختر نوع الخدمة</option>
-                        <option value="طبيب">طبيب / عيادة</option>
-                        <option value="مخبر تحاليل">مخبر تحاليل بيولوجية</option>
-                        <option value="صيدلي">صيدلية</option>
-                        <option value="جر السيارات والشاحنات">خدمة جر السيارات والشاحنات</option>
-
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="fullname">الاسم الكامل / اسم المؤسسة</label>
-                    <input type="text" id="fullname" placeholder="مثال: عيادة الأمل" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="phone">رقم الهاتف</label>
-                    <input type="tel" id="phone" placeholder="05XXXXXXXX" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="email">البريد الإلكتروني</label>
-                    <input type="email" id="email" placeholder="example@domain.com" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="wilaya">الولاية</label>
-                    <select id="wilaya" required>
-                        <option value="">اختر الولاية</option>
-                        <option value="01">أدرار</option>
-                        <option value="02">الشلف</option>
-                        <option value="03">الأغواط</option>
-                        <option value="04">أم البواقي</option>
-                        <option value="05">باتنة</option>
-                        <option value="06">بجاية</option>
-                        <option value="07">بسكرة</option>
-                        <option value="08">بشار</option>
-                        <option value="09">البليدة</option>
-                        <option value="10">البويرة</option>
-                        <option value="11">تمنراست</option>
-                        <option value="12">تبسة</option>
-                        <option value="13">تلمسان</option>
-                        <option value="14">تيارت</option>
-                        <option value="15">تيزي وزو</option>
-                        <option value="16">الجزائر</option>
-                        <option value="17">الجلفة</option>
-                        <option value="18">جيجل</option>
-                        <option value="19">سطيف</option>
-                        <option value="20">سعيدة</option>
-                        <option value="21">سكيكدة</option>
-                        <option value="22">سيدي بلعباس</option>
-                        <option value="23">عنابة</option>
-                        <option value="24">قالمة</option>
-                        <option value="25">قسنطينة</option>
-                        <option value="26">المدية</option>
-                        <option value="27">مستغانم</option>
-                        <option value="28">المسيلة</option>
-                        <option value="29">معسكر</option>
-                        <option value="30">ورقلة</option>
-                        <option value="31">وهران</option>
-                        <option value="32">البيض</option>
-                        <option value="33">إليزي</option>
-                        <option value="34">برج بوعريريج</option>
-                        <option value="35">بومرداس</option>
-                        <option value="36">الطارف</option>
-                        <option value="37">تندوف</option>
-                        <option value="38">تيسمسيلت</option>
-                        <option value="39">الوادي</option>
-                        <option value="40">خنشلة</option>
-                        <option value="41">سوق أهراس</option>
-                        <option value="42">تيبازة</option>
-                        <option value="43">ميلة</option>
-                        <option value="44">عين الدفلى</option>
-                        <option value="45">النعامة</option>
-                        <option value="46">عين تموشنت</option>
-                        <option value="47">غرداية</option>
-                        <option value="48">غليزان</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="address">العنوان التفصيلي</label>
-                    <input type="text" id="address" placeholder="الشارع، الحي، رقم العيادة..." required>
-                </div>
-
-                <div class="form-group">
-                    <label for="address">الإحداثيات</label>
-                    <input type="text" id="address"
-                        placeholder=" lat: 36.1628, lon: 5.6900 / أو رابط الموقع من Google Maps..." required>
-                </div>
-
-                <div class="form-group full-width">
-                    <label for="notes">ملاحظات إضافية (اختياري)</label>
-                    <textarea id="notes" rows="3" placeholder="أي معلومات إضافية ترغب في إضافتها..."></textarea>
-                </div>
-
-                <div class="form-group full-width">
-                    <label>طريقة الدفع</label>
-                    <div class="payment-methods">
-                        <label class="payment-method">
-                            <input type="radio" name="paymentMethod" value="بطاقة ائتمان" checked> بطاقة ائتمان (CCP)
-                        </label>
-                        <label class="payment-method">
-                            <input type="radio" name="paymentMethod" value="تحويل بنكي"> تحويل بنكي
-                        </label>
-                        <label class="payment-method">
-                            <input type="radio" name="paymentMethod" value="بريد الجزائر"> بريد الجزائر
-                        </label>
-                        <label class="payment-method">
-                            <input type="radio" name="paymentMethod" value="الدفع عند التسليم"> الدفع عند التسليم
-                        </label>
-                    </div>
+    <main>
+        <section class="hero" aria-labelledby="subscriptionHeroTitle">
+            <div class="container">
+                <h2 id="subscriptionHeroTitle">الاشتراك في خدمات النجدة والطوارئ</h2>
+                <p>سجل عيادتك أو مخبرك أو صيدليتك أو خدمة جر السيارات ليتم التواصل معك ومراجعة بياناتك قبل نشرها في المنصة.</p>
+                <p class="trial-note"><i class="fas fa-flask" aria-hidden="true"></i> المنصة قيد التجريب، والتسجيل مجاني حالياً.</p>
+                <div class="hero-actions" aria-label="إجراءات الاشتراك">
+                    <a href="#plans" class="btn btn-primary">عرض الباقات</a>
+                    <a href="#registration" class="btn btn-secondary">اشترك الآن</a>
                 </div>
             </div>
+        </section>
 
-            <button type="submit" class="btn-submit">إرسال الطلب والانتقال إلى الدفع</button>
-        </form>
-    </section>
-    
-    Section -->
+        <section id="plans" class="plans-section" aria-labelledby="plansTitle">
+            <div class="container">
+                <div class="section-title">
+                    <h2 id="plansTitle">باقات التسجيل</h2>
+                    <p>اختر نوع الخدمة ثم املأ النموذج أسفل الباقات. سيتم إرسال الطلب إلى فريق المنصة للتواصل والتحقق من البيانات.</p>
+                </div>
 
+                <div class="plans-grid">
+                    <article class="plan-card premium">
+                        <div class="plan-badge">مجاني حالياً</div>
+                        <div class="plan-icon" aria-hidden="true"><i class="fas fa-user-md"></i></div>
+                        <h3 class="plan-title">الأطباء والعيادات</h3>
+                        <div class="plan-price">0 د.ج <span>/ حالياً</span></div>
+                        <ul class="plan-features">
+                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> الظهور في بحث الأطباء</li>
+                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> الظهور في الخريطة التفاعلية</li>
+                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> عرض التخصص ومواقيت العمل</li>
+                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> رقم هاتف مباشر للحجز</li>
+                        </ul>
+                        <button class="btn btn-gold plan-select" type="button" data-plan="طبيب / عيادة">اختيار الباقة</button>
+                    </article>
 
-    <!-- Success Modal -->
-    <div id="successModal" class="modal">
+                    <article class="plan-card premium">
+                        <div class="plan-badge">مجاني حالياً</div>
+                        <div class="plan-icon" aria-hidden="true"><i class="fas fa-flask"></i></div>
+                        <h3 class="plan-title">مخابر التحاليل</h3>
+                        <div class="plan-price">0 د.ج <span>/ حالياً</span></div>
+                        <ul class="plan-features">
+                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> الظهور في بحث المخابر</li>
+                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> الظهور في الخريطة التفاعلية</li>
+                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> عرض العنوان ومواقيت العمل</li>
+                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> رقم هاتف مباشر</li>
+                        </ul>
+                        <button class="btn btn-gold plan-select" type="button" data-plan="مخبر تحاليل بيولوجية">اختيار الباقة</button>
+                    </article>
+
+                    <article class="plan-card premium">
+                        <div class="plan-badge">مجاني حالياً</div>
+                        <div class="plan-icon" aria-hidden="true"><i class="fas fa-pills"></i></div>
+                        <h3 class="plan-title">الصيدليات</h3>
+                        <div class="plan-price">0 د.ج <span>/ حالياً</span></div>
+                        <ul class="plan-features">
+                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> الظهور في بحث الصيدليات</li>
+                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> الظهور في الخريطة التفاعلية</li>
+                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> أوقات العمل والمناوبة</li>
+                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> إمكانية إضافة خدمات التوصيل</li>
+                        </ul>
+                        <button class="btn btn-gold plan-select" type="button" data-plan="صيدلية">اختيار الباقة</button>
+                    </article>
+
+                    <article class="plan-card premium">
+                        <div class="plan-badge">مجاني حالياً</div>
+                        <div class="plan-icon" aria-hidden="true"><i class="fas fa-truck-pickup"></i></div>
+                        <h3 class="plan-title">جر السيارات والشاحنات</h3>
+                        <div class="plan-price">0 د.ج <span>/ حالياً</span></div>
+                        <ul class="plan-features">
+                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> الظهور في بحث خدمات الجر</li>
+                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> الظهور التقريبي على الخريطة</li>
+                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> أيقونة خدمة مميزة</li>
+                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> رقم هاتف مباشر</li>
+                        </ul>
+                        <button class="btn btn-gold plan-select" type="button" data-plan="جر السيارات والشاحنات">اختيار الباقة</button>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="registration" class="registration-section container" aria-labelledby="registrationTitle">
+            <div class="form-title">
+                <span class="eyebrow"><i class="fas fa-paper-plane" aria-hidden="true"></i> إرسال طلب التسجيل</span>
+                <h2 id="registrationTitle">أرسل بيانات خدمتك</h2>
+                <p>سيتم إرسال الطلب إلى <strong>contact@dznajda.dz</strong> عبر خدمة FormSubmit، ثم يتواصل معك الفريق لمراجعة البيانات. لا ترسل كلمات مرور أو بيانات دفع حساسة.</p>
+            </div>
+
+            <form id="subscriptionForm" action="https://formsubmit.co/ajax/contact@dznajda.dz" method="POST" novalidate>
+                <input type="hidden" name="_subject" value="طلب تسجيل جديد في منصة النجدة Dz">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_replyto" value="">
+                <input type="text" name="_honey" class="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="serviceType">نوع الخدمة <span aria-hidden="true">*</span></label>
+                        <select id="serviceType" name="serviceType" required data-error-for="serviceType">
+                            <option value="">اختر نوع الخدمة</option>
+                            <option value="طبيب / عيادة">طبيب / عيادة</option>
+                            <option value="مخبر تحاليل بيولوجية">مخبر تحاليل بيولوجية</option>
+                            <option value="صيدلية">صيدلية</option>
+                            <option value="جر السيارات والشاحنات">جر السيارات والشاحنات</option>
+                        </select>
+                        <small class="field-error" data-error="serviceType"></small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="fullname">الاسم الكامل أو اسم المؤسسة <span aria-hidden="true">*</span></label>
+                        <input type="text" id="fullname" name="fullname" autocomplete="organization" minlength="2" maxlength="120" required placeholder="مثال: عيادة الأمل">
+                        <small class="field-error" data-error="fullname"></small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">رقم الهاتف <span aria-hidden="true">*</span></label>
+                        <input type="tel" id="phone" name="phone" autocomplete="tel" inputmode="tel" pattern="[0-9+()\s-]{8,20}" maxlength="20" required placeholder="05 XX XX XX XX">
+                        <small class="field-error" data-error="phone"></small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">البريد الإلكتروني <span aria-hidden="true">*</span></label>
+                        <input type="email" id="email" name="email" autocomplete="email" maxlength="160" required placeholder="example@domain.com">
+                        <small class="field-error" data-error="email"></small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="wilaya">الولاية <span aria-hidden="true">*</span></label>
+                        <select id="wilaya" name="wilaya" required>
+                            <option value="">اختر الولاية</option>
+                            <option>أدرار</option><option>الشلف</option><option>الأغواط</option><option>أم البواقي</option>
+                            <option>باتنة</option><option>بجاية</option><option>بسكرة</option><option>بشار</option>
+                            <option>البليدة</option><option>البويرة</option><option>تمنراست</option><option>تبسة</option>
+                            <option>تلمسان</option><option>تيارت</option><option>تيزي وزو</option><option>الجزائر</option>
+                            <option>الجلفة</option><option>جيجل</option><option>سطيف</option><option>سعيدة</option>
+                            <option>سكيكدة</option><option>سيدي بلعباس</option><option>عنابة</option><option>قالمة</option>
+                            <option>قسنطينة</option><option>المدية</option><option>مستغانم</option><option>المسيلة</option>
+                            <option>معسكر</option><option>ورقلة</option><option>وهران</option><option>البيض</option>
+                            <option>إليزي</option><option>برج بوعريريج</option><option>بومرداس</option><option>الطارف</option>
+                            <option>تندوف</option><option>تيسمسيلت</option><option>الوادي</option><option>خنشلة</option>
+                            <option>سوق أهراس</option><option>تيبازة</option><option>ميلة</option><option>عين الدفلى</option>
+                            <option>النعامة</option><option>عين تموشنت</option><option>غرداية</option><option>غليزان</option>
+                        </select>
+                        <small class="field-error" data-error="wilaya"></small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address">العنوان التفصيلي <span aria-hidden="true">*</span></label>
+                        <input type="text" id="address" name="address" autocomplete="street-address" maxlength="220" required placeholder="الشارع، الحي، رقم العيادة..."><small class="field-error" data-error="address"></small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="coordinates">الإحداثيات أو رابط Google Maps</label>
+                        <input type="text" id="coordinates" name="coordinates" maxlength="240" placeholder="36.1628, 5.6900 أو رابط الخريطة">
+                        <small class="field-hint">اختياري، ويساعدنا على وضع الخدمة في المكان الصحيح.</small>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="notes">ملاحظات إضافية</label>
+                        <textarea id="notes" name="notes" rows="4" maxlength="1000" placeholder="معلومات عن ساعات العمل أو الخدمات الإضافية..."></textarea>
+                    </div>
+
+                    <fieldset class="form-group full-width">
+                        <legend>طريقة التواصل المفضلة</legend>
+                        <div class="payment-methods">
+                            <label class="payment-method"><input type="radio" name="preferredContact" value="الهاتف" checked> الهاتف</label>
+                            <label class="payment-method"><input type="radio" name="preferredContact" value="البريد الإلكتروني"> البريد الإلكتروني</label>
+                            <label class="payment-method"><input type="radio" name="preferredContact" value="واتساب"> واتساب</label>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
+                <div class="form-status form-status-error" id="formError" role="alert" aria-live="assertive"></div>
+                <button type="submit" class="btn-submit" id="submitSubscription">
+                    <i class="fas fa-paper-plane" aria-hidden="true"></i>
+                    <span>إرسال طلب التسجيل</span>
+                </button>
+                <p class="privacy-note"><i class="fas fa-shield-alt" aria-hidden="true"></i> نستخدم بياناتك للتواصل بشأن الطلب فقط، ويمكنك طلب حذفها عبر صفحة <a href="privacy.html">سياسة الخصوصية</a>.</p>
+            </form>
+        </section>
+    </main>
+
+    <div id="successModal" class="modal" hidden role="dialog" aria-modal="true" aria-labelledby="successTitle">
         <div class="modal-content">
-            <div class="modal-icon">
-                <i class="fas fa-check-circle"></i>
-            </div>
-            <h3>تم إرسال طلبك بنجاح!</h3>
-            <p>سيتم التواصل معك قريباً على الرقم المدخل لتأكيد الاشتراك وإتمام عملية الدفع. شكراً لثقتك.</p>
-            <button class="btn btn-primary" onclick="closeModal()">حسناً</button>
+            <div class="modal-icon" aria-hidden="true"><i class="fas fa-check-circle"></i></div>
+            <h2 id="successTitle">تم إرسال طلبك بنجاح</h2>
+            <p>وصل طلب التسجيل إلى خدمة الإرسال. سيتواصل معك فريق النجدة Dz بعد مراجعة البيانات.</p>
+            <button class="btn btn-primary" id="closeSuccessModal" type="button">حسناً</button>
         </div>
     </div>
 
-    <!-- Footer -->
     <footer>
         <div class="container footer-content">
             <div class="footer-grid">
-
-                <!-- تعريف -->
                 <div class="footer-col">
                     <div class="footer-logo">
                         <h2>النجدة Dz</h2>
                         <p>منصة وطنية لتحديد أقرب خدمات النجدة والطوارئ في الجزائر بدقة وسرعة.</p>
-                        <img src="../icons/najda_icon_11.png" alt="شعار النجدة Dz" loading="lazy">
+                        <img src="../icons/najda_icon_11.png" alt="شعار النجدة Dz" width="90" height="90" loading="lazy">
                     </div>
-
                 </div>
-
-                <!-- خدمات الطوارئ -->
                 <div class="footer-col">
-                    <h4><i class="fas fa-ambulance"></i> خدمات النجدة والطوارئ</h4>
+                    <h3><i class="fas fa-ambulance" aria-hidden="true"></i> خدمات النجدة والطوارئ</h3>
                     <ul>
-                        <li><a href="hospitals.html"><i class="fas fa-hospital"></i> المستشفيات</a></li>
-                        <li><a href="police.html"><i class="fas fa-shield-alt"></i> مراكز الشرطة</a></li>
-                        <li><a href="gendarmerie.html"><i class="fas fa-star"></i> الدرك الوطني</a></li>
-                        <li><a href="protectioncivil.html"><i class="fas fa-fire-extinguisher"></i> الحماية
-                                المدنية</a></li>
-                        <li><a href="depannage.html"><i class="fas fa-truck-pickup"></i> جر ورأب السيارات</a></li>
-
+                        <li><a href="hospitals.html">المستشفيات</a></li>
+                        <li><a href="police.html">مراكز الشرطة</a></li>
+                        <li><a href="gendarmerie.html">الدرك الوطني</a></li>
+                        <li><a href="protectioncivil.html">الحماية المدنية</a></li>
+                        <li><a href="depannage.html">جر ورأب السيارات</a></li>
                     </ul>
                 </div>
-
-                <!-- خدمات صحية -->
                 <div class="footer-col">
-                    <h4><i class="fas fa-heartbeat"></i> خدمات صحية</h4>
+                    <h3><i class="fas fa-heartbeat" aria-hidden="true"></i> خدمات صحية</h3>
                     <ul>
-                        <ul>
-                            <li><a href="doctors.html"><i class="fas fa-user-md"></i>أطباء مختلف التخصصات</a></li>
-                            <li><a href="laboratories.html"><i class="fas fa-vials"></i> مخابر التحاليل البيولوجية</a>
-                            </li>
-                            <li><a href="pharmacies.html"><i class="fas fa-capsules"></i> الصيدليات</a></li>
-                        </ul>
+                        <li><a href="doctors.html">أطباء مختلف التخصصات</a></li>
+                        <li><a href="laboratories.html">مخابر التحاليل البيولوجية</a></li>
+                        <li><a href="pharmacies.html">الصيدليات</a></li>
                     </ul>
                 </div>
-
-                <!-- روابط مهمة -->
                 <div class="footer-col">
-                    <h4><i class="fas fa-link"></i> روابط مهمة</h4>
+                    <h3><i class="fas fa-link" aria-hidden="true"></i> روابط مهمة</h3>
                     <ul>
-                        <li><a href="about.html"><i class="fas fa-info-circle"></i> عن الموقع</a></li>
-                        <li><a href="contact.html"><i class="fas fa-envelope"></i> اتصل بنا</a></li>
-                        <li><a href="privacy.html"><i class="fas fa-user-shield"></i> سياسة الخصوصية</a>
-                        </li>
-                        <li><a href="guide.html"><i class="fas fa-book"></i> الإرشادات</a></li>
-                        <li><a href="subscription.html"><i class="fas fa-id-card"></i>الإشتراك في خدمات النجدة</a></li>
-
+                        <li><a href="about.html">عن الموقع</a></li>
+                        <li><a href="contact.html">اتصل بنا</a></li>
+                        <li><a href="privacy.html">سياسة الخصوصية</a></li>
+                        <li><a href="guide.html">الإرشادات</a></li>
+                        <li><a href="subscription.html" aria-current="page">الاشتراك</a></li>
                     </ul>
                 </div>
-
             </div>
-
-            <div class="footer-bottom">
-                <p>جميع الحقوق محفوظة &copy; 2026</p>
-            </div>
-
+            <div class="footer-bottom"><p>جميع الحقوق محفوظة &copy; 2026</p></div>
         </div>
-
-        <!-- زر الرجوع للأعلى -->
-        <button id="scrollTopBtn"><i class="fas fa-arrow-up"></i></button>
+        <button id="scrollTopBtn" type="button" aria-label="العودة إلى أعلى الصفحة"><i class="fas fa-arrow-up" aria-hidden="true"></i></button>
     </footer>
 
-    <!--  القائمة الجانبية  script -->
     <script src="../script/SidebarAnimation.js"></script>
-
     <script>
-        // وظيفة لتحديد الباقة المحددة وتمريرها إلى النموذج
-        function selectPlan(planType) {
-            const serviceTypeSelect = document.getElementById('serviceType');
-            for (let option of serviceTypeSelect.options) {
-                if (option.value === planType) {
-                    option.selected = true;
-                    break;
-                }
-            }
-            // التمرير إلى نموذج التسجيل
-            document.getElementById('registration').scrollIntoView({ behavior: 'smooth' });
-        }
+        (() => {
+            const form = document.getElementById('subscriptionForm');
+            const serviceType = document.getElementById('serviceType');
+            const registration = document.getElementById('registration');
+            const formStatus = document.getElementById('formStatus');
+            const formError = document.getElementById('formError');
+            const submitButton = document.getElementById('submitSubscription');
+            const successModal = document.getElementById('successModal');
+            const closeSuccessModal = document.getElementById('closeSuccessModal');
 
-        // التعامل مع تقديم النموذج
-        document.getElementById('subscriptionForm').addEventListener('submit', function (e) {
-            e.preventDefault();
-
-            // جمع البيانات (يمكن إرسالها إلى الخادم هنا)
-            const formData = {
-                serviceType: document.getElementById('serviceType').value,
-                fullname: document.getElementById('fullname').value,
-                phone: document.getElementById('phone').value,
-                email: document.getElementById('email').value,
-                wilaya: document.getElementById('wilaya').value,
-                address: document.getElementById('address').value,
-                notes: document.getElementById('notes').value,
-                paymentMethod: document.querySelector('input[name="paymentMethod"]:checked').value
+            const clearMessages = () => {
+                formStatus.textContent = '';
+                formError.textContent = '';
+                document.querySelectorAll('[data-error]').forEach(node => { node.textContent = ''; });
+                form.querySelectorAll('[aria-invalid="true"]').forEach(field => field.removeAttribute('aria-invalid'));
             };
 
-            console.log('بيانات الاشتراك:', formData);
+            const validateForm = () => {
+                clearMessages();
+                let valid = true;
+                form.querySelectorAll('[required]').forEach(field => {
+                    if (!field.checkValidity()) {
+                        valid = false;
+                        field.setAttribute('aria-invalid', 'true');
+                        const error = document.querySelector(`[data-error="${field.name}"]`);
+                        if (error) error.textContent = field.validity.typeMismatch ? 'يرجى إدخال قيمة صحيحة.' : 'هذا الحقل مطلوب.';
+                    }
+                });
+                if (!valid) formError.textContent = 'يرجى مراجعة الحقول المحددة ثم المحاولة مرة أخرى.';
+                return valid;
+            };
 
-            // محاكاة إرسال البيانات وعرض رسالة النجاح
-            document.getElementById('successModal').style.display = 'flex';
+            document.querySelectorAll('.plan-select').forEach(button => {
+                button.addEventListener('click', () => {
+                    serviceType.value = button.dataset.plan;
+                    serviceType.focus({ preventScroll: true });
+                    registration.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                });
+            });
 
-            // إعادة تعيين النموذج (اختياري)
-            // this.reset();
-        });
+            form.addEventListener('submit', async event => {
+                event.preventDefault();
+                if (!validateForm()) return;
 
-        // إغلاق النافذة المنبثقة
-        function closeModal() {
-            document.getElementById('successModal').style.display = 'none';
-        }
+                form.elements._replyto.value = form.elements.email.value.trim();
+                submitButton.disabled = true;
+                submitButton.classList.add('is-loading');
+                submitButton.querySelector('span').textContent = 'جارٍ إرسال الطلب...';
+                formStatus.textContent = 'جارٍ إرسال بياناتك بشكل آمن...';
 
-        // إغلاق النافذة بالنقر خارجها
-        window.addEventListener('click', function (event) {
-            const modal = document.getElementById('successModal');
-            if (event.target === modal) {
-                modal.style.display = 'none';
-            }
-        });
+                try {
+                    const response = await fetch(form.action, {
+                        method: 'POST',
+                        headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
+                        body: JSON.stringify(Object.fromEntries(new FormData(form).entries()))
+                    });
+                    const result = await response.json().catch(() => ({}));
+                    if (!response.ok || result.success === false) throw new Error(result.message || 'تعذر إرسال الطلب.');
+
+                    form.reset();
+                    formStatus.textContent = 'تم إرسال الطلب. شكراً لثقتك.';
+                    successModal.hidden = false;
+                    closeSuccessModal.focus();
+                } catch (error) {
+                    formError.textContent = 'تعذر إرسال الطلب حالياً. تحقق من اتصال الإنترنت وحاول مرة أخرى، أو تواصل معنا عبر صفحة الاتصال.';
+                } finally {
+                    submitButton.disabled = false;
+                    submitButton.classList.remove('is-loading');
+                    submitButton.querySelector('span').textContent = 'إرسال طلب التسجيل';
+                }
+            });
+
+            const closeModal = () => {
+                successModal.hidden = true;
+                registration.querySelector('input, select, textarea, button').focus();
+            };
+            closeSuccessModal.addEventListener('click', closeModal);
+            successModal.addEventListener('click', event => { if (event.target === successModal) closeModal(); });
+            document.addEventListener('keydown', event => { if (event.key === 'Escape' && !successModal.hidden) closeModal(); });
+        })();
     </script>
 </body>
 

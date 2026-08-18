@@ -241,7 +241,7 @@
                 <a href="tel:${cleanPhone}" class="phone-card-link" dir="ltr" style="text-decoration:none; color:inherit;">${p.phone}</a>
             </div>
             ${distText}
-            <a href="${googleMapsLink}" target="_blank" class="google-route-btn"><i class="fab fa-google"></i> التوجه عبر خرائط Google</a>
+            <a href="${googleMapsLink}" target="_blank" rel="noopener noreferrer" class="google-route-btn"><i class="fab fa-google"></i> التوجه عبر خرائط Google</a>
         </div>
     `;
         }
@@ -326,7 +326,7 @@
                 <i class="fas fa-exclamation-triangle"></i>
                 <p>لم نتمكن من العثور على "${query}" في قاعدة بياناتنا.</p>
                 <p>قد تجد النتائج التي تبحث عنها عبر 
-                    <a href="${googleSearchUrl}" target="_blank" class="google-fallback-link">
+                    <a href="${googleSearchUrl}" target="_blank" rel="noopener noreferrer" class="google-fallback-link">
                         <i class="fab fa-google"></i> بحث Google
                     </a>
                 </p>

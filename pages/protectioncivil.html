@@ -267,7 +267,7 @@
                 <a href="tel:${cleanPhone}" class="phone-card-link" dir="ltr" style="text-decoration:none; color:inherit;">${u.phone}</a>
             </div>
             ${distText}
-            <a href="${googleMapsLink}" target="_blank" class="google-route-btn"><i class="fab fa-google"></i> التوجه عبر خرائط Google</a>
+            <a href="${googleMapsLink}" target="_blank" rel="noopener noreferrer" class="google-route-btn"><i class="fab fa-google"></i> التوجه عبر خرائط Google</a>
         </div>
     `;
         }
@@ -328,7 +328,7 @@
                 <i class="fas fa-exclamation-triangle"></i>
                 <p>لم نتمكن من العثور على "${searchInput.value}" في قاعدة بياناتنا.</p>
                 <p>قد تجد النتائج التي تبحث عنها عبر 
-                    <a href="${googleSearchUrl}" target="_blank" class="google-fallback-link">
+                    <a href="${googleSearchUrl}" target="_blank" rel="noopener noreferrer" class="google-fallback-link">
                         <i class="fab fa-google"></i> بحث Google
                     </a>
                 </p>
@@ -344,34 +344,9 @@
             }
         }
 
-        document.getElementById("searchInput").addEventListener("keyup", function (e) {
-            if (e.key === "Enter") {
-                performSearch(unitsData); // ضع اسم دالة البحث الخاصة بك هنا
-            }
-
-            const searchInput = document.getElementById("searchInput");
-
-            searchInput.addEventListener("keyup", function (e) {
-
-                const value = this.value.trim();
-
-                // إذا تم مسح البحث بالكامل
-                if (value === "") {
-                    displayUnits(unitsData);
-                    // استبدل displayLaboratories بدالة عرض البيانات الأصلية عندك
-                    return;
-                }
-
-                // تنفيذ البحث عند الضغط على Enter
-                if (e.key === "Enter") {
-                    performSearch(unitsData);
-                }
-            });
-
-        });
-
         // أحداث البحث
-        searchBtn.addEventListener('click', performSearch);
+        searchBtn?.addEventListener('click', performSearch);
+        searchInput.addEventListener('input', performSearch);
         searchInput.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') performSearch();
         });
@@ -397,7 +372,7 @@
                 ${phoneLink}
             </div>
             ${distText}
-            <a href="${googleMapsLink}" target="_blank" class="google-route-btn"><i class="fab fa-google"></i> التوجه عبر خرائط Google</a>
+            <a href="${googleMapsLink}" target="_blank" rel="noopener noreferrer" class="google-route-btn"><i class="fab fa-google"></i> التوجه عبر خرائط Google</a>
         </div>
     `;
         }

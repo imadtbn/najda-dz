@@ -273,7 +273,7 @@
             <div class="doctor-detail"><i class="fas fa-address-card"></i> ${doctor.address || ''}</div>
             <div class="work-days"><i class="fas fa-calendar-alt"></i> ${doctor.workDays || 'غير محدد'}</div>
             ${distText}
-            <a href="${googleMapsLink}" target="_blank" class="google-route-btn"><i class="fab fa-google"></i> التوجه عبر خرائط Google</a>
+            <a href="${googleMapsLink}" target="_blank" rel="noopener noreferrer" class="google-route-btn"><i class="fab fa-google"></i> التوجه عبر خرائط Google</a>
         </div>
     `;
             }
@@ -376,7 +376,7 @@
                                 <i class="fas fa-search"></i>
                                 <p>لم نتمكن من العثور على "${searchInput.value}" في قاعدة بياناتنا.</p>
                                 <p>قد تجد النتائج التي تبحث عنها عبر 
-                                    <a href="${googleSearchUrl}" target="_blank" class="google-fallback-link">
+                                    <a href="${googleSearchUrl}" target="_blank" rel="noopener noreferrer" class="google-fallback-link">
                                         <i class="fab fa-google"></i> بحث Google
                                     </a>
                                 </p>
@@ -388,77 +388,13 @@
                 }
             }
 
-            document.getElementById("searchInput").addEventListener("keyup", function (e) {
-                if (e.key === "Enter") {
-                    performSearch(doctorsData); // ضع اسم دالة البحث الخاصة بك هنا
-                }
-
-                const searchBtn = document.getElementById('searchBtn');
-                const searchInput = document.getElementById('searchInput');
-                if (searchBtn && searchInput) {
-                    searchBtn.addEventListener('click', () => performSearch());
-                    searchInput.addEventListener('keypress', (e) => {
-                        if (e.key === 'Enter') performSearch();
-                    });
-                    searchInput.addEventListener('input', () => performSearch()); // إضافة البحث الفوري
-                }
-            });
-
-            // ---------- 4. التعامل مع الموقع الجغرافي والتخزين المحلي ----------
-            function loadStoredLocation() {
-                const savedLat = localStorage.getItem('userLat');
-                const savedLon = localStorage.getItem('userLon');
-                const savedTime = localStorage.getItem('locationTimestamp');
-                const ONE_HOUR = 60 * 60 * 1000;
-
-                if (savedLat && savedLon && savedTime && (Date.now() - savedTime < ONE_HOUR)) {
-                    userLat = parseFloat(savedLat);
-                    userLon = parseFloat(savedLon);
-                    document.getElementById('locationStatus').innerHTML =
-                        '<i class="fas fa-check-circle"></i> تم استخدام موقعك المخزن';
-                    return true;
-                }
-                return false;
-            }
-
-            // حدث تحديد الموقع
-            document.getElementById('getLocation')?.addEventListener('click', function () {
-                const status = document.getElementById('locationStatus');
-                if (!navigator.geolocation) {
-                    status.innerText = 'المتصفح لا يدعم تحديد الموقع';
-                    return;
-                }
-                status.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري تحديد الموقع...';
-                navigator.geolocation.getCurrentPosition(
-                    (position) => {
-                        userLat = position.coords.latitude;
-                        userLon = position.coords.longitude;
-                        // تخزين الموقع مع الوقت
-                        localStorage.setItem('userLat', userLat);
-                        localStorage.setItem('userLon', userLon);
-                        localStorage.setItem('locationTimestamp', Date.now());
-                        status.innerHTML = '<i class="fas fa-check-circle"></i> تم تحديد موقعك بنجاح';
-                        // إعادة عرض الأطباء مع الموقع الجديد
-                        displayDoctors();
-                    },
-                    (error) => {
-                        status.innerText = 'فشل تحديد الموقع: ' + error.message;
-                        displayDoctors(); // عرض بدون ترتيب
-                    }
-                );
-            });
-
-            // زر العودة للأعلى
-            document.getElementById('scrollTopBtn')?.addEventListener('click', () => {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
-
-            // أحداث البحث
+        // أحداث البحث
             const searchBtn = document.getElementById('searchBtn');
             const searchInput = document.getElementById('searchInput');
             if (searchBtn && searchInput) {
                 searchBtn.addEventListener('click', () => performSearch());
-                searchInput.addEventListener('keypress', (e) => {
+                searchInput.addEventListener('input', performSearch);
+        searchInput.addEventListener('keypress', (e) => {
                     if (e.key === 'Enter') performSearch();
                 });
             }

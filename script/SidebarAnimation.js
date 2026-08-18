@@ -1,74 +1,71 @@
+(() => {
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    const navOverlay = document.getElementById('navOverlay');
+    const closeMenu = document.getElementById('closeMenu');
+    const header = document.querySelector('header');
+    const scrollBtn = document.getElementById('scrollTopBtn');
+    const toggleBtn = document.getElementById('emergencyToggle');
+    const emergencyMenu = document.getElementById('emergencyMenu');
 
-        const menuToggle = document.getElementById("menuToggle");
-        const navLinks = document.getElementById("navLinks");
-        const navOverlay = document.getElementById("navOverlay");
-        const closeMenu = document.getElementById("closeMenu");
+    const closeNav = () => {
+        navLinks?.classList.remove('active');
+        navOverlay?.classList.remove('active');
+        document.body.style.overflow = '';
+        menuToggle?.setAttribute('aria-expanded', 'false');
+    };
 
-        menuToggle.addEventListener("click", () => {
-            navLinks.classList.add("active");
-            navOverlay.classList.add("active");
+    const openNav = () => {
+        navLinks?.classList.add('active');
+        navOverlay?.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        menuToggle?.setAttribute('aria-expanded', 'true');
+    };
+
+    menuToggle?.addEventListener('click', openNav);
+    closeMenu?.addEventListener('click', closeNav);
+    navOverlay?.addEventListener('click', closeNav);
+
+    navLinks?.querySelectorAll('a').forEach(link => link.addEventListener('click', closeNav));
+
+    if (scrollBtn) {
+        scrollBtn.hidden = true;
+        window.addEventListener('scroll', () => {
+            scrollBtn.hidden = window.scrollY <= 300;
+        }, { passive: true });
+        scrollBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+
+    if (toggleBtn && emergencyMenu) {
+        toggleBtn.setAttribute('aria-expanded', 'false');
+        toggleBtn.addEventListener('click', event => {
+            event.stopPropagation();
+            const isOpen = emergencyMenu.classList.toggle('is-open');
+            emergencyMenu.style.display = isOpen ? 'flex' : '';
+            toggleBtn.setAttribute('aria-expanded', String(isOpen));
         });
 
-        closeMenu.addEventListener("click", closeNav);
-        navOverlay.addEventListener("click", closeNav);
-
-        function closeNav() {
-            navLinks.classList.remove("active");
-            navOverlay.classList.remove("active");
-            document.body.style.overflow = "auto";
-        }
-
-        menuToggle.addEventListener("click", () => {
-            navLinks.classList.add("active");
-            navOverlay.classList.add("active");
-            document.body.style.overflow = "hidden";
+        document.addEventListener('click', event => {
+            if (!event.target.closest('.floating-wrapper')) {
+                emergencyMenu.classList.remove('is-open');
+                emergencyMenu.style.display = '';
+                toggleBtn.setAttribute('aria-expanded', 'false');
+            }
         });
+    }
 
-
-           // زر العودة للأعلى
-           const scrollBtn = document.getElementById('scrollTopBtn');
-           window.addEventListener('scroll', () => {
-               scrollBtn.style.display = window.pageYOffset > 300 ? 'block' : 'none';
-           });
-           scrollBtn.addEventListener('click', () => {
-               window.scrollTo({ top: 0, behavior: 'smooth' });
-           });
-   
-   
-           // زر الطوارئ العائم
-   
-           const toggleBtn = document.getElementById("emergencyToggle");
-           const menu = document.getElementById("emergencyMenu");
-   
-           toggleBtn.addEventListener("click", () => {
-               menu.style.display = menu.style.display === "flex" ? "none" : "flex";
-           });
-   
-           // إغلاق القائمة عند الضغط خارجها
-           document.addEventListener("click", function (e) {
-               if (!e.target.closest(".floating-wrapper")) {
-                   menu.style.display = "none";
-               }
-           });
-   
-   
-           // إخفاء الهيدر
-   
-           let lastScrollTop = 0;
-           const header = document.querySelector("header");
-   
-           window.addEventListener("scroll", function () {
-   
-               const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-   
-               if (currentScroll > lastScrollTop && currentScroll > 100) {
-                   // النزول للأسفل
-                   header.classList.add("hide-header");
-               } else {
-                   // الصعود للأعلى
-                   header.classList.remove("hide-header");
-               }
-   
-               lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
-           });
-   
+    if (header) {
+        let lastScrollTop = 0;
+        window.addEventListener('scroll', () => {
+            const currentScroll = Math.max(window.scrollY || 0, 0);
+            if (currentScroll > lastScrollTop && currentScroll > 100) {
+                header.classList.add('hide-header');
+            } else {
+                header.classList.remove('hide-header');
+            }
+            lastScrollTop = currentScroll;
+        }, { passive: true });
+    }
+})();

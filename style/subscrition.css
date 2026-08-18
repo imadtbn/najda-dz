@@ -657,3 +657,179 @@
             transform: scale(1.15);
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
         }
+
+
+/* ===== تحسينات نموذج الاشتراك ===== */
+.hero-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.trial-note,
+.eyebrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.registration-section {
+    scroll-margin-top: 100px;
+}
+
+.form-title .eyebrow {
+    color: var(--accent);
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.form-title h2 {
+    font-size: 1.9rem;
+    color: var(--secondary);
+    margin-bottom: 0.75rem;
+}
+
+.form-title p {
+    max-width: 760px;
+    margin: 0 auto;
+    color: #5f6873;
+}
+
+.form-title p strong {
+    color: var(--secondary);
+    direction: ltr;
+    display: inline-block;
+}
+
+.form-group fieldset,
+fieldset.form-group {
+    border: 0;
+    padding: 0;
+    min-width: 0;
+}
+
+fieldset.form-group legend {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--secondary);
+}
+
+.form-group input:focus-visible,
+.form-group select:focus-visible,
+.form-group textarea:focus-visible,
+.btn:focus-visible,
+.btn-submit:focus-visible,
+#scrollTopBtn:focus-visible,
+.plan-select:focus-visible {
+    outline: 3px solid rgba(230, 57, 70, 0.35);
+    outline-offset: 2px;
+}
+
+.form-group input[aria-invalid="true"],
+.form-group select[aria-invalid="true"],
+.form-group textarea[aria-invalid="true"] {
+    border-color: var(--primary);
+}
+
+.field-error {
+    display: block;
+    min-height: 1.25rem;
+    margin-top: 0.25rem;
+    color: #b42318;
+    font-size: 0.85rem;
+}
+
+.field-hint,
+.privacy-note {
+    color: #667085;
+    font-size: 0.85rem;
+}
+
+.honeypot {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+.form-status {
+    min-height: 1.5rem;
+    margin: 0.75rem 0;
+    color: var(--success);
+    font-weight: 700;
+}
+
+.form-status-error {
+    color: #b42318;
+}
+
+.btn-submit.is-loading {
+    cursor: wait;
+    opacity: 0.75;
+}
+
+.privacy-note {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.privacy-note a {
+    color: var(--secondary);
+    font-weight: 700;
+}
+
+.modal[hidden] {
+    display: none;
+}
+
+.modal:not([hidden]) {
+    display: flex;
+}
+
+@media (max-width: 768px) {
+    .registration-section {
+        padding: 2rem 1rem;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-group.full-width {
+        grid-column: auto;
+    }
+
+    .payment-methods {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .hero h2 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}

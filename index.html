@@ -42,7 +42,7 @@
 
     <script>
         if ("serviceWorker" in navigator) {
-            navigator.serviceWorker.register("/najda-dz/sw.js")
+            navigator.serviceWorker.register("./sw.js")
                 .then(() => console.log("Service Worker Registered"));
         }
     </script>
@@ -188,12 +188,7 @@
           "publisher": {
             "@id": "https://imadtbn.github.io/najda-dz/#organization"
           },
-          "inLanguage": "ar",
-          "potentialAction": {
-            "@type": "SearchAction",
-            "target": "https://imadtbn.github.io/najda-dz/pages/search.html?q={search_term_string}",
-            "query-input": "required name=search_term_string"
-          }
+          "inLanguage": "ar"
         },
     
         {
@@ -239,8 +234,8 @@
             "https://imadtbn.github.io/najda-dz/pages/depannage.html",
             "https://imadtbn.github.io/najda-dz/pages/about.html",
             "https://imadtbn.github.io/najda-dz/pages/contact.html",
-            "https://imadtbn.github.io/najda-dz/pages/privacypolicy.html",
-            "https://imadtbn.github.io/najda-dz/pages/guideline.html"
+            "https://imadtbn.github.io/najda-dz/pages/privacy.html",
+            "https://imadtbn.github.io/najda-dz/pages/guide.html"
           ]
         },
     
@@ -312,7 +307,7 @@
                 <img src="icons/najda_icon_3.png" alt="شعار النجدة Dz" width="50" height="50" loading="lazy">
                 <h1>النجدة Dz</h1>
             
-                <button class="menu-toggle" id="menuToggle">
+                <button class="menu-toggle" id="menuToggle" type="button" aria-label="فتح القائمة" aria-controls="navLinks" aria-expanded="false">
                     <i class="fas fa-bars"></i>
                 </button>
                 
@@ -321,7 +316,7 @@
             <div class="nav-overlay" id="navOverlay"></div>
 
             <nav class="nav-links" id="navLinks">
-                <button class="close-menu" id="closeMenu">
+                <button class="close-menu" id="closeMenu" type="button" aria-label="إغلاق القائمة">
                     <i class="fas fa-times"></i>
                 </button>
 
@@ -494,11 +489,11 @@
                     <div class="service-header">
                         <div class="service-title">
                             <div class="service-icon">
-                                <img src="icons/dgsn.png" alt="logo dgpc" width="55" height="55" style="border-radius: 50%; loading="lazy"></i>
+                                <img src="icons/dgsn.png" alt="شعار الشرطة الجزائرية" width="55" height="55" loading="lazy">
                             </div>
                             <h3>مراكز الشرطة</h3>
                             <p>
-                                <a href="tel:1584" class="call-link-Emergency">
+                                <a href="tel:1548" class="call-link-Emergency">
                                     <span class="phone-number-Emergency">1548</span>
                                     <i class="fas fa-phone"></i>
                                 </a>
@@ -527,7 +522,7 @@
                     <div class="service-header">
                         <div class="service-title">
                             <div class="service-icon">
-                                <img src="icons/cgn.jpg" alt="logo dgpc" width="55" height="55" style="border-radius: 50%; loading="lazy"></i>
+                                <img src="icons/cgn.jpg" alt="شعار الدرك الوطني" width="55" height="55" loading="lazy">
                             </div>
                             <h3>الدرك الوطني</h3>
                             <p>
@@ -559,7 +554,7 @@
                     <div class="service-header">
                         <div class="service-title">
                             <div class="service-icon">
-                                <img src="icons/dgpc.svg" alt="logo dgpc" width="55" height="55" loading="lazy"></i>
+                                <img src="icons/dgpc.svg" alt="شعار الحماية المدنية" width="55" height="55" loading="lazy">
                             </div>
                             <h3>وحدات الحماية المدنية</h3>
                             <p>
@@ -637,7 +632,7 @@
                     </h4>
 
                     <p>
-                        <a href="tel:121" class="call-link-Emergency">
+                        <a href="tel:1021" class="call-link-Emergency">
                             <i class="fas fa-phone"></i>
                             <span class="phone-number-Emergency">1021</span>
                         </a>
@@ -667,7 +662,7 @@
                     </h4>
 
                     <p>
-                        <a href="https://m.me/tariki.Gn" target="_blank" class="messenger-link">
+                        <a href="https://m.me/tariki.Gn" target="_blank" rel="noopener noreferrer" class="messenger-link">
                             <i class="fab fa-facebook-messenger"></i>
                             <span class="phone-number-Emergency">Tariki.GN.طريقي</span>
                         </a>
@@ -834,7 +829,7 @@
         <div class="modal-content modern-modal">
             <div class="modal-header">
                 <h3 id="routeTitle">تفاصيل المسار</h3>
-                <button class="close-modal">
+                <button class="close-modal" type="button" aria-label="إغلاق تفاصيل المسار">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
@@ -896,9 +891,9 @@
                     <ul>
                         <li><a href="pages/about.html"><i class="fas fa-info-circle"></i> عن الموقع</a></li>
                         <li><a href="pages/contact.html"><i class="fas fa-envelope"></i> اتصل بنا</a></li>
-                        <li><a href="pages/privacypolicy.html"><i class="fas fa-user-shield"></i> سياسة الخصوصية</a>
+                        <li><a href="pages/privacy.html"><i class="fas fa-user-shield"></i> سياسة الخصوصية</a>
                         </li>
-                        <li><a href="pages/guideline.html"><i class="fas fa-book"></i> الإرشادات</a></li>
+                        <li><a href="pages/guide.html"><i class="fas fa-book"></i> الإرشادات</a></li>
                         <li><a href="pages/subscription.html"><i class="fas fa-id-card"></i>الإشتراك في خدمات النجدة</a>
                         </li>
 
@@ -914,25 +909,24 @@
         </div>
 
         <!-- زر الرجوع للأعلى -->
-        <button id="scrollTopBtn"><i class="fas fa-arrow-up"></i></button>
+        <button id="scrollTopBtn" type="button" aria-label="العودة إلى أعلى الصفحة"><i class="fas fa-arrow-up"></i></button>
     </footer>
 
     <!-- زر الطوارئ العائم -->
     <div class="floating-wrapper">
 
-        <button id="emergencyToggle" class="floating-emergency">
+        <button id="emergencyToggle" class="floating-emergency" type="button" aria-label="فتح أرقام الطوارئ" aria-controls="emergencyMenu" aria-expanded="false">
             <i class="fas fa-phone"></i>
         </button>
 
         <div id="emergencyMenu" class="emergency-menu">
-            <a href="tel:1021"><img src="icons/dgpc.svg" alt="logo dgpc" width="22" height="22" loading="lazy"></i>
+            <a href="tel:1021"><img src="icons/dgpc.svg" alt="شعار الحماية المدنية" width="22" height="22" loading="lazy">
                 الحماية المدنية</a>
-            <a href="tel:1548"><img src="icons/dgsn.png" alt="logo dgsn" width="22" height="22" loading="lazy"></i>
+            <a href="tel:1548"><img src="icons/dgsn.png" alt="شعار الشرطة الجزائرية" width="22" height="22" loading="lazy">
                 الشرطة</a>
-            <a href="tel:1055"><img src="icons/CGN.jpg" alt="logo cgn" width="22" height="22" loading="lazy"></i> الدرك
+            <a href="tel:1055"><img src="icons/CGN.jpg" alt="شعار الدرك الوطني" width="22" height="22" loading="lazy"> الدرك
                 الوطني</a>
-            <a href="tel:1054"><img src="icons/CFN.png" alt="logo CFN" width="22" height="22" loading="lazy">
-                </i>حرس السواحل</a>
+            <a href="tel:1054"><img src="icons/CFN.png" alt="logo CFN" width="22" height="22" loading="lazy">حرس السواحل</a>
         </div>
 
     </div>
@@ -966,6 +960,15 @@
         let map = L.map('map').setView([36.7525, 3.0418], 7);
         let userMarker = null;
         let userLocation = null;
+        try {
+            const savedLocation = JSON.parse(localStorage.getItem(LOCATION_STORAGE_KEY) || 'null');
+            if (savedLocation && Number.isFinite(savedLocation.lat) && Number.isFinite(savedLocation.lng)
+                && Date.now() - savedLocation.savedAt < LOCATION_EXPIRY_MS) {
+                userLocation = { lat: savedLocation.lat, lng: savedLocation.lng };
+            }
+        } catch (error) {
+            localStorage.removeItem(LOCATION_STORAGE_KEY);
+        }
         let miniMap = null;
         let miniMarker = null;
         let miniRouteLine = null;
@@ -1215,7 +1218,7 @@
 
                 // زر التوجيه
                 content += `
-            <a href="${googleUrl}" target="_blank" class="popup-route-btn">
+            <a href="${googleUrl}" target="_blank" rel="noopener noreferrer" class="popup-route-btn">
                 🧭 توجيه عبر Google Maps
             </a>
         `;
@@ -1276,6 +1279,7 @@
                         const userLat = position.coords.latitude;
                         const userLng = position.coords.longitude;
                         userLocation = { lat: userLat, lng: userLng };
+                        localStorage.setItem(LOCATION_STORAGE_KEY, JSON.stringify({ lat: userLat, lng: userLng, savedAt: Date.now() }));
 
                         const coordsText = `تم تحديد موقعك: ${userLat.toFixed(4)}, ${userLng.toFixed(4)}`;
                         status.textContent = coordsText;
@@ -1329,9 +1333,6 @@
                 button.innerHTML = '<i class="fas fa-map-marker-alt"></i> تحديد موقعي الحالي';
             }
 
-            localStorage.setItem('userLat', userLat);
-            localStorage.setItem('userLon', userLon);
-            localStorage.setItem('locationTimestamp', Date.now());
 
         });
 
@@ -1339,11 +1340,12 @@
         document.getElementById('showAllServices').addEventListener('click', () => {
 
 
+            const origin = userLocation ?? { lat: 36.7525, lng: 3.0418 };
             const allServices = {};
             for (const type in serviceLocations) {
                 allServices[type] = serviceLocations[type].map(s => ({
                     ...s,
-                    distance: calculateDistance(userLocation.lat, userLocation.lng, s.lat, s.lng)
+                    distance: calculateDistance(origin.lat, origin.lng, s.lat, s.lng)
                 }));
             }
 
@@ -1353,7 +1355,7 @@
             const allPoints = Object.values(allServices).flat().map(s => [s.lat, s.lng]);
             if (allPoints.length > 0) {
                 const bounds = L.latLngBounds(allPoints);
-                if (userMarker) bounds.extend([userLocation.lat, userLocation.lng]);
+                if (userMarker && userLocation) bounds.extend([userLocation.lat, userLocation.lng]);
                 map.fitBounds(bounds);
             }
         });
@@ -1382,7 +1384,7 @@
             <span class="phone-number">${service.phone || ''}</span>
         </a>
     </p>
-    <a href="${googleMapsUrl}" target="_blank" class="google-route-btn">التنقل عبر Google Maps</a>
+    <a href="${googleMapsUrl}" target="_blank" rel="noopener noreferrer" class="google-route-btn">التنقل عبر Google Maps</a>
 `;
 
             modal.style.display = 'flex';
@@ -1417,7 +1419,7 @@
 
         // تهيئة أولية للخريطة
         document.addEventListener('DOMContentLoaded', () => {
-            const defaultLocation = { lat: 36.7525, lng: 3.0418 };
+            const defaultLocation = userLocation ?? { lat: 36.7525, lng: 3.0418 };
             const nearestServices = findNearestServices(defaultLocation.lat, defaultLocation.lng);
             addMarkersToMap(nearestServices);
             displayServices(nearestServices);
@@ -1510,12 +1512,6 @@
             script.text = JSON.stringify(structuredData, null, 2);
             document.head.appendChild(script);
         }
-
-        /*ظهور أقوى في Google Maps*/
-
-        "openingHours": "Mo-Su 00:00-23:59",
-            "areaServed": "DZ",
-                "url": window.location.href
 
     </script>
 
