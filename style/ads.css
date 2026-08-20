@@ -1,0 +1,137 @@
+/*
+ * Najda DZ — Smart AdSense presentation layer
+ * تصميم خفيف لا يفرض نفسه على المحتوى ولا يسبب قفزات تخطيط غير ضرورية.
+ */
+:root {
+    --ads-border: rgba(29, 53, 87, 0.13);
+    --ads-surface: rgba(255, 255, 255, 0.86);
+    --ads-label: #6b7280;
+    --ads-shadow: 0 8px 24px rgba(29, 53, 87, 0.06);
+}
+
+.ad-container,
+.ad-grid-break {
+    width: 100%;
+    max-width: 1200px;
+    margin-inline: auto;
+    padding: clamp(14px, 2vw, 26px) 15px;
+    contain: layout paint;
+}
+
+.ad-slot {
+    position: relative;
+    isolation: isolate;
+    display: block;
+    width: 100%;
+    min-height: 94px;
+    padding: 18px 12px 8px;
+    overflow: hidden;
+    text-align: center;
+    background: linear-gradient(135deg, var(--ads-surface), rgba(241, 250, 238, 0.68));
+    border: 1px solid var(--ads-border);
+    border-radius: 14px;
+    box-shadow: var(--ads-shadow);
+    transition: border-color 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+}
+
+.ad-slot::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background: radial-gradient(circle at 50% 0, rgba(69, 123, 157, 0.07), transparent 60%);
+}
+
+.ad-slot:hover,
+.ad-slot:focus-within {
+    border-color: rgba(69, 123, 157, 0.25);
+    box-shadow: 0 10px 28px rgba(29, 53, 87, 0.1);
+}
+
+.ad-label {
+    position: absolute;
+    top: 7px;
+    right: 12px;
+    z-index: 1;
+    margin: 0;
+    color: var(--ads-label);
+    font-size: 10px;
+    line-height: 1;
+    letter-spacing: .04em;
+}
+
+.adsbygoogle {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    min-height: 72px;
+}
+
+.ad-container--hero .ad-slot {
+    min-height: 108px;
+}
+
+.ad-container--display .ad-slot {
+    min-height: 164px;
+}
+
+.ad-container--in-article .ad-slot {
+    min-height: 122px;
+    max-width: 920px;
+    margin-inline: auto;
+}
+
+.ad-container--recommendations .ad-slot {
+    min-height: 184px;
+}
+
+.ad-grid-break {
+    grid-column: 1 / -1;
+    min-width: 0;
+    padding: 4px 0 14px;
+}
+
+.ad-grid-break .ad-slot {
+    min-height: 116px;
+}
+
+.ad-container.is-empty,
+.ad-grid-break.is-empty {
+    display: none;
+}
+
+.ad-container.is-loaded .ad-slot,
+.ad-grid-break.is-loaded .ad-slot {
+    background: rgba(255, 255, 255, 0.7);
+}
+
+@media (max-width: 768px) {
+    .ad-container {
+        padding-inline: 12px;
+    }
+
+    .ad-slot {
+        min-height: 84px;
+        padding-inline: 8px;
+    }
+
+    .ad-container--display .ad-slot,
+    .ad-container--recommendations .ad-slot {
+        min-height: 148px;
+    }
+
+    .ad-container--in-article .ad-slot {
+        min-height: 108px;
+    }
+
+    .adsbygoogle {
+        min-height: 62px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .ad-slot {
+        transition: none;
+    }
+}

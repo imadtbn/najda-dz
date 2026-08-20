@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8310657804532081"
+ <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5656416032906373"
      crossorigin="anonymous"></script>
 
    <!-- أيقونة الموقع -->
@@ -166,7 +166,7 @@
     {
       "@context": "https://schema.org",
       "@graph": [
-    
+
         {
           "@type": "Organization",
           "@id": "https://imadtbn.github.io/najda-dz/#organization",
@@ -179,7 +179,7 @@
             "name": "Algeria"
           }
         },
-    
+
         {
           "@type": "WebSite",
           "@id": "https://imadtbn.github.io/najda-dz/#website",
@@ -190,7 +190,7 @@
           },
           "inLanguage": "ar"
         },
-    
+
         {
           "@type": "WebApplication",
           "@id": "https://imadtbn.github.io/najda-dz/#webapp",
@@ -206,7 +206,7 @@
             "priceCurrency": "DZD"
           }
         },
-    
+
         {
           "@type": "SiteNavigationElement",
           "name": [
@@ -238,7 +238,7 @@
             "https://imadtbn.github.io/najda-dz/pages/guide.html"
           ]
         },
-    
+
         {
           "@type": "ItemList",
           "name": "أقسام خدمات النجدة",
@@ -253,7 +253,7 @@
             { "@type": "ListItem", "position": 8, "name": "جر السيارات والشاحنات" }
           ]
         },
-    
+
         {
           "@type": "FAQPage",
           "@id": "https://imadtbn.github.io/najda-dz/#faq",
@@ -284,17 +284,29 @@
             }
           ]
         },
-    
+
         {
           "@type": "ContactPoint",
           "contactType": "Emergency",
           "areaServed": "DZ",
           "availableLanguage": "Arabic"
         }
-    
+
       ]
     }
     </script>
+
+
+    <meta name="google-adsense-account" content="ca-pub-5656416032906373">
+
+    <link rel="stylesheet" href="style/ads.css">
+
+
+
+
+
+
+
 
 </head>
 
@@ -306,11 +318,11 @@
             <div class="logo">
                 <img src="icons/najda_icon_3.png" alt="شعار النجدة Dz" width="50" height="50" loading="lazy">
                 <h1>النجدة Dz</h1>
-            
+
                 <button class="menu-toggle" id="menuToggle" type="button" aria-label="فتح القائمة" aria-controls="navLinks" aria-expanded="false">
                     <i class="fas fa-bars"></i>
                 </button>
-                
+
             </div>
 
             <div class="nav-overlay" id="navOverlay"></div>
@@ -1147,7 +1159,7 @@
 
                 item.innerHTML = `
         <span>${doctor.lastName}</span>
-        <span>${doctor.firstName}</span>        
+        <span>${doctor.firstName}</span>
         <span>${doctor.specialty}</span>
         <span class="distance">${doctor.distance.toFixed(1)} كم</span>
     `;
@@ -1205,7 +1217,7 @@
                 }
 
                 if (service.phone) {
-                    content += `<div class="popup-row">📞 
+                    content += `<div class="popup-row">📞
                 <a href="tel:${service.phone}">${service.phone}</a>
             </div>`;
                 }
@@ -1234,7 +1246,7 @@
                 const isNearest = index === 0;
 
                 const icon = L.divIcon({
-                    html: `<i class="${iconHtml}" 
+                    html: `<i class="${iconHtml}"
                     style="color:${isNearest ? '#e63946' : colorVar};
                     font-size:${isNearest ? '24px' : '20px'};"></i>`,
                     iconSize: [25, 25],
@@ -1379,7 +1391,7 @@
 
             routeDetails.innerHTML = `
     <p><strong>العنوان:</strong> ${service.address || ''}</p>
-    <p><strong>الهاتف:</strong> 
+    <p><strong>الهاتف:</strong>
         <a href="tel:${cleanPhone}" class="phone-link" dir="ltr" style="text-decoration:none; color:inherit;">
             <span class="phone-number">${service.phone || ''}</span>
         </a>
@@ -1514,6 +1526,8 @@
         }
 
     </script>
+
+    <script defer src="script/ads.js"></script>
 
 </body>
 
