@@ -61,7 +61,7 @@
     letter-spacing: .04em;
 }
 
-.adsbygoogle {
+.ad-slot--empty {
     display: block;
     width: 100%;
     max-width: 100%;
@@ -125,7 +125,7 @@
         min-height: 108px;
     }
 
-    .adsbygoogle {
+    .ad-slot--empty {
         min-height: 62px;
     }
 }
