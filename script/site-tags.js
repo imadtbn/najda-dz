@@ -1,25 +1,26 @@
 /*
  * Najda DZ — Central tags and advertising loader
  *
- * Google Tag Manager: ضع هنا المعرف GTM-XXXXXXXX عند توفره.
- * Google Analytics 4: ضع هنا المعرف G-XXXXXXXXXX عند توفره؛ التشغيل يكون عبر Google tag داخل GTM.
- * Microsoft Clarity: ضع هنا المعرف xxxxxxxxxx عند توفره.
+ * Google Site Verification موجود في <head> كل صفحة.
+ * Google Analytics 4 يعمل عبر Google tag داخل GTM لتجنب تكرار page_view.
+ * Microsoft Clarity يحتاج معرفه من لوحة Clarity؛ أبقيناه xxxxxxxx إلى حين توفيره.
  * AdSense: تم اعتماد معرّف الناشر ووحدات الإعلان الواردة في adsbygoogle.txt.
  */
 (function () {
     'use strict';
 
     const CONFIG = Object.freeze({
-        // ضع هنا معرف حاوية Google Tag Manager: GTM-XXXXXXXX
-        gtmId: 'xxxxxxxx',
-        // ضع هنا معرف Google Analytics 4: G-XXXXXXXXXX (لا تحمّل gtag.js مباشرة إلى جانب GTM)
-        ga4Id: 'xxxxxxxx',
+        // معرف حاوية Google Tag Manager المقدم من المستخدم
+        gtmId: 'GTM-WS74969S',
+        // معرف Google Analytics 4 المقدم من المستخدم، ويُدار عبر GTM فقط
+        ga4Id: 'G-P957LE5SYX',
+        ga4Mode: 'gtm',
         // ضع هنا معرف Microsoft Clarity: xxxxxxxxxx
         clarityId: 'xxxxxxxx',
         adsenseClient: 'ca-pub-5656416032906373'
     });
 
-    const state = { gtm: false, clarity: false, adsense: false };
+    const state = { gtm: false, ga4: false, clarity: false, adsense: false };
     const PLACEHOLDER = /^x+$/i;
     const hasValue = (value) => Boolean(value && !PLACEHOLDER.test(value));
 
@@ -52,7 +53,16 @@
         if (state.gtm || !hasValue(CONFIG.gtmId) || hasScriptMatching(/googletagmanager\.com\/gtm\.js/i)) return;
 
         window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({ 'gtm.start': Date.now(), event: 'gtm.js' });
+        window.dataLayer.push({
+            'gtm.start': Date.now(),
+            event: 'gtm.js'
+        });
+        if (hasValue(CONFIG.ga4Id) && CONFIG.ga4Mode === 'gtm') {
+            window.dataLayer.push({
+                event: 'najda.config',
+                ga4_measurement_id: CONFIG.ga4Id
+            });
+        }
         appendScript({
             id: 'najda-gtm-loader',
             src: `https://www.googletagmanager.com/gtm.js?id=${encodeURIComponent(CONFIG.gtmId)}`
@@ -61,7 +71,8 @@
     }
 
     function loadClarity() {
-        if (state.clarity || !hasValue(CONFIG.clarityId) || hasScriptMatching(/clarity\.ms/i)) return;
+        // عند توفر GTM، يجب أن تُدار Clarity من داخل الحاوية وليس من محمّل مباشر موازٍ.
+        if (state.clarity || hasValue(CONFIG.gtmId) || !hasValue(CONFIG.clarityId) || hasScriptMatching(/clarity\.ms/i)) return;
 
         const clarity = function () {
             clarity.q.push(arguments);
