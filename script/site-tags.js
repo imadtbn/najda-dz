@@ -2,7 +2,8 @@
  * Najda DZ — Central tags and advertising loader
  *
  * Google Site Verification موجود في <head> كل صفحة.
- * Google Analytics 4 يعمل عبر Google tag داخل GTM لتجنب تكرار page_view.
+ * Google Analytics 4 يعمل عبر Google tag المباشر لأن أداة Google لم تكتشفه داخل GTM.
+ * إذا أُضيف GA4 لاحقاً داخل GTM، غيّر ga4Mode إلى gtm وأوقف Google tag المباشر لمنع تكرار page_view.
  * Microsoft Clarity يحتاج معرفه من لوحة Clarity؛ أبقيناه xxxxxxxx إلى حين توفيره.
  * AdSense: تم اعتماد معرّف الناشر ووحدات الإعلان الواردة في adsbygoogle.txt.
  */
@@ -12,9 +13,10 @@
     const CONFIG = Object.freeze({
         // معرف حاوية Google Tag Manager المقدم من المستخدم
         gtmId: 'GTM-WS74969S',
-        // معرف Google Analytics 4 المقدم من المستخدم، ويُدار عبر GTM فقط
+        // معرف Google Analytics 4 المقدم من المستخدم، ويُستخدم مباشرة لاكتشاف Google tag
         ga4Id: 'G-P957LE5SYX',
-        ga4Mode: 'gtm',
+        // وضع direct مطلوب حالياً لاكتشاف Google tag بالمعرف المقدم.
+        ga4Mode: 'direct',
         // ضع هنا معرف Microsoft Clarity: xxxxxxxxxx
         clarityId: 'xxxxxxxx',
         adsenseClient: 'ca-pub-5656416032906373'
@@ -68,6 +70,20 @@
             src: `https://www.googletagmanager.com/gtm.js?id=${encodeURIComponent(CONFIG.gtmId)}`
         });
         state.gtm = true;
+    }
+
+    function loadDirectGa4() {
+        if (state.ga4 || CONFIG.ga4Mode !== 'direct' || !hasValue(CONFIG.ga4Id) || hasScriptMatching(/googletagmanager\.com\/gtag\/js/i)) return;
+
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
+        window.gtag('js', new Date());
+        window.gtag('config', CONFIG.ga4Id);
+        appendScript({
+            id: 'najda-ga4-loader',
+            src: `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(CONFIG.ga4Id)}`
+        });
+        state.ga4 = true;
     }
 
     function loadClarity() {
@@ -173,6 +189,7 @@
 
     function init() {
         loadGtm();
+        loadDirectGa4();
         setupAdsenseLazyLoading();
         runWhenIdle(loadClarity, 2200);
     }
@@ -181,6 +198,7 @@
         config: CONFIG,
         init,
         loadGtm,
+        loadDirectGa4,
         loadClarity,
         loadAdSense
     };
