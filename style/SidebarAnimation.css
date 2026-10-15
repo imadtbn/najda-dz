@@ -1,202 +1,232 @@
+/* Shared site navigation — responsive, RTL, accessible and icon-ready. */
+header .header-content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
 
-        .nav-links {
-            display: flex;
-            gap: 20px;
-        }
+header .header-content > .logo {
+    display: flex;
+    flex: 0 1 auto;
+    align-items: center;
+    min-width: 0;
+    gap: 10px;
+}
 
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-weight: 600;
-            padding: 8px 16px;
-            border-radius: 30px;
-            transition: background 0.3s;
-        }
+header .header-content > .logo h1 {
+    font-size: clamp(1.1rem, 1.6vw, 1.65rem);
+    line-height: 1.45;
+    margin: 0;
+}
 
-        .nav-links a:hover,
-        .nav-links a.active {
-            background-color: var(--primary);
-        }
+header .nav-links {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 3px;
+    min-width: 0;
+}
 
+header .nav-links > a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    flex: 0 0 auto;
+    color: #fff;
+    text-decoration: none;
+    font-size: clamp(.76rem, .92vw, .94rem);
+    font-weight: 600;
+    line-height: 1.45;
+    white-space: nowrap;
+    padding: 10px 9px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    transition: background-color .2s ease, border-color .2s ease, color .2s ease;
+}
 
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+header .nav-links > a .nav-link-icon {
+    display: inline-block;
+    flex: 0 0 1.1em;
+    width: 1.1em;
+    text-align: center;
+    color: #ffd18b;
+    font-size: 1em;
+    line-height: 1;
+}
 
-        .menu-toggle {
-            margin-right: auto;
-            color: white;
-        }
+header .nav-links > a:hover,
+header .nav-links > a:focus-visible {
+    background: rgba(255,255,255,.16);
+    border-color: rgba(255,255,255,.15);
+}
 
-        .nav-links {
-            display: flex;
-            gap: 20px;
-        }
+header .nav-links > a.active,
+header .nav-links > a[aria-current="page"] {
+    color: #fff;
+    background: var(--primary, #e63946);
+}
 
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 24px;
-            cursor: pointer;
-        }
+header .nav-links > a.active .nav-link-icon,
+header .nav-links > a[aria-current="page"] .nav-link-icon {
+    color: #fff;
+}
 
-        /* موبايل */
-        @media (max-width: 768px) {
+header .nav-links > a:focus-visible,
+header .menu-toggle:focus-visible,
+header .close-menu:focus-visible {
+    outline: 3px solid #ffd18b;
+    outline-offset: 3px;
+}
 
-            .menu-toggle {
-                display: block;
-            }
+header .menu-toggle,
+header .close-menu,
+header .nav-overlay {
+    display: none;
+}
 
-            .nav-links {
-                position: absolute;
-                top: 80px;
-                right: 0;
-                width: 100%;
-                background: #1d3557;
-                flex-direction: column;
-                text-align: center;
-                gap: 15px;
-                padding: 20px 0;
-                display: none;
-            }
+@media (max-width: 1120px) {
+    header {
+        padding: 10px 0;
+    }
 
-            .nav-links a {
-                color: white;
-                font-size: 1.1rem;
-            }
+    header .header-content {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        gap: 8px;
+    }
 
-            .nav-links.active {
-                display: flex;
-            }
-        }
+    header .header-content > .logo {
+        width: 100%;
+        flex: 1 1 auto;
+    }
 
-        /* إخفاء الزر افتراضيًا */
-        .close-menu {
-            display: none;
-        }
+    header .header-content > .logo h1 {
+        min-width: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-size: clamp(1rem, 3.8vw, 1.35rem);
+    }
 
-        /* داخل الموبايل فقط */
-        @media (max-width: 768px) {
+    header .menu-toggle {
+        display: inline-flex;
+        flex: 0 0 44px;
+        width: 44px;
+        height: 44px;
+        align-items: center;
+        justify-content: center;
+        margin-inline-start: auto;
+        color: #fff;
+        background: rgba(255,255,255,.12);
+        border: 1px solid rgba(255,255,255,.25);
+        border-radius: 12px;
+        font-size: 1.3rem;
+        cursor: pointer;
+    }
 
-            .nav-links {
-                position: fixed;
-                top: 0;
-                right: -280px;
-                width: 260px;
-                height: 100%;
-                background: #1d3557;
-                flex-direction: column;
-                padding: 80px 20px 20px;
-                gap: 20px;
-                transition: 0.4s ease;
-                z-index: 1001;
-            }
+    header .nav-links {
+        position: fixed;
+        inset-block: 0;
+        inset-inline-start: 0;
+        inset-inline-end: auto;
+        right: 0;
+        left: auto;
+        width: min(88vw, 330px);
+        height: 100vh;
+        height: 100dvh;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+        gap: 6px;
+        padding: 78px 16px 24px;
+        overflow-x: hidden;
+        overflow-y: auto;
+        overscroll-behavior: contain;
+        background: #1d3557;
+        box-shadow: -12px 0 30px rgba(0,0,0,.22);
+        z-index: 1002;
+        transform: translateX(105%);
+        visibility: hidden;
+        pointer-events: none;
+        transition: transform .26s ease, visibility .26s;
+    }
 
-            /* يظهر فقط عند فتح القائمة */
-            .nav-links.active .close-menu {
-                display: block;
-            }
+    header .nav-links.active {
+        transform: translateX(0);
+        visibility: visible;
+        pointer-events: auto;
+    }
 
-            .close-menu {
-                position: absolute;
-                top: 20px;
-                left: 20px;
-                background: none;
-                border: none;
-                color: white;
-                font-size: 22px;
-                cursor: pointer;
-            }
-        }
+    header .nav-links > a {
+        justify-content: flex-start;
+        flex-shrink: 0;
+        min-height: 46px;
+        padding: 12px 14px;
+        font-size: .98rem;
+        white-space: normal;
+        text-align: start;
+        border-radius: 10px;
+        background: rgba(255,255,255,.04);
+    }
 
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 26px;
-            cursor: pointer;
-        }
+    header .nav-links > a .nav-link-icon {
+        flex-basis: 22px;
+        width: 22px;
+        font-size: 1.05rem;
+    }
 
-        /* الوضع العادي (كمبيوتر) */
-        .nav-links {
-            display: flex;
-            gap: 20px;
-        }
+    header .close-menu {
+        position: absolute;
+        top: 16px;
+        left: 16px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        padding: 0;
+        background: rgba(255,255,255,.12);
+        color: #fff;
+        border: 1px solid rgba(255,255,255,.25);
+        border-radius: 12px;
+        font-size: 1.25rem;
+        cursor: pointer;
+    }
 
-        /* موبايل */
-        @media (max-width: 768px) {
+    header .nav-overlay {
+        position: fixed;
+        inset: 0;
+        display: block;
+        background: rgba(0,0,0,.55);
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: opacity .26s ease, visibility .26s;
+        z-index: 1001;
+    }
 
-            .menu-toggle {
-                display: block;
-            }
+    header .nav-overlay.active {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+    }
+}
 
-            .nav-links {
-                position: fixed;
-                top: 0;
-                right: -280px;
-                width: 260px;
-                height: 100%;
-                background: #1d3557;
-                flex-direction: column;
-                padding: 80px 20px 20px;
-                gap: 20px;
-                transition: 0.4s ease;
-                z-index: 1001;
-            }
+@media (prefers-reduced-motion: reduce) {
+    header .nav-links,
+    header .nav-overlay,
+    header .nav-links > a {
+        transition: none;
+    }
+}
 
-            .nav-links a {
-                color: white;
-                font-size: 1.1rem;
-                text-decoration: none;
-                padding: 10px;
-                border-radius: 6px;
-                transition: 0.3s;
-            }
-
-            .nav-links a:hover {
-                background: rgba(255, 255, 255, 0.15);
-            }
-
-            .nav-links.active {
-                right: 0;
-            }
-
-            .close-menu {
-                position: absolute;
-                top: 20px;
-                left: 20px;
-                background: none;
-                border: none;
-                color: white;
-                font-size: 22px;
-                cursor: pointer;
-            }
-
-            /* الخلفية المعتمة */
-            .nav-overlay {
-                position: fixed;
-                top: 0;
-                right: 0;
-                width: 100%;
-                height: 100%;
-                background: rgba(0, 0, 0, 0.5);
-                opacity: 0;
-                visibility: hidden;
-                transition: 0.3s;
-                z-index: 1000;
-            }
-
-            .nav-overlay.active {
-                opacity: 1;
-                visibility: visible;
-            }
-        }
-
-
- /* ===== زر الرجوع للأعلى ===== */
+/* ===== زر الرجوع للأعلى ===== */
 
  #scrollTopBtn {
     position: fixed;
